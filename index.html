@@ -1,436 +1,140 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-<title>首页</title>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- Custom Theme files -->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- Custom Theme files -->
-<script src="js/jquery.min.js"></script>
-<!-- Custom Theme files -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Pie Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--webfont-->
-<link href='http://fonts.useso.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-<!-- Owl Stylesheets -->
-<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
- <script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
-				});
-			});
-		</script>
-<!--Animation-->
-<script src="js/wow.min.js"></script>
-<link href="css/animate.css" rel='stylesheet' type='text/css' />
-<script>
-	new WOW().init();
-</script>
-</head>
-<body style="font-family: 'Microsoft YaHei';">
-	<!-- header-section-starts -->
-	<div class="header" id="home">
-		<div class="container">
-			<div class="logo wow fadeInRight" data-wow-delay="0.4s">
-				<a href="#"><img src="http://www.rexhang.com/web/images/rexhanglogo2.png" style="border-radius: 50%;" alt="" /></a>
-			</div>
-			<span class="menu"></span>
-			<div class="top-menu wow fadeInLeft" data-wow-delay="0.4s">
-				<ul>
-					<li><a class="active scroll hvr-shutter-out-horizontal" href="#home">首页</a></li>
-					<li><a class="scroll hvr-shutter-out-horizontal" href="#service">服务</a></li>
-					<li><a class="scroll hvr-shutter-out-horizontal" href="#about">关于我们</a></li>
-					<li><a class="scroll hvr-shutter-out-horizontal" href="#pricing">价格表</a></li>
-					<li><a class="scroll hvr-shutter-out-horizontal" href="#work">它是如何工作的</a></li>
-					<li><a class="scroll hvr-shutter-out-horizontal" href="#clients">快乐的客户</a></li>
-					<li><a class="scroll hvr-shutter-out-horizontal" href="#contact">联系我们</a></li>
-				</ul>
-			</div>
-				<!-- script for menu -->
-				<script>
-				$( "span.menu" ).click(function() {
-				  $( ".top-menu" ).slideToggle( "slow", function() {
-				    // Animation complete.
-				  });
-				});
-			</script>
-			<!-- script for menu -->
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="author" content="顾航,rexhang">
+    <meta name="Keywords" content="顾航,顾航">
+    <meta name="description" content="顾航">	
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>天天分期App下载页</title>
+    <link rel="stylesheet" href="css/css_reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="page1">
+      <div class="page-content">
+        <img src="img/page1-1.png" alt="" width="992" height="577" data-img="page1-1" />
+        <a href="http://www.baidu.com" title="点击下载" class="a1"></a>
+        <a href="http://www.sina.com" title="点击下载" class="a2"></a>
+        <img src="img/page1-2.png" alt="" width="184" height="184" data-img="page1-2" />
+      </div>
+    </div>
 
-			<div class="clearfix"></div>
-		</div>
-	</div>
-	<div class="banner wow fadeInUp" data-wow-delay="0.4s">
-		<div class="container">
-			<div class="banner-info text-center">
-				<h2 class="wow bounceInLeft" data-wow-delay="0.4s">Boost up your Local business</h2>
-				<p class="wow bounceInLeft" data-wow-delay="0.4s">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum typesetting</p>
-				<div class="details wow fadeInLeft" data-wow-delay="0.4s">
-					<form>
-						<li>
-							<input type="text" class="text" value="全名" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Full Name';}">
-							<a class="name" href="#"></a>
-						</li>
-						<li>
-							<input type="text" class="text" value="邮件地址" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email Address';}">
-							<a class="mail" href="#"></a>
-						</li>
-						<li>
-							<input type="text" class="text" value="电话号码" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Phone Number';}">
-							<a class="num" href="#"></a>
-						</li>
-							<input type="submit" value="请求报价">
-					</form>
-				</div>
-			</div>
-			<div class="header-bottom">
-		<div class="right-grid-1">
-					<section class="slider">
-							<div class="flexslider">
-							  <ul class="slides">
-								<li>
-									<img src="images/pic1.jpg" class="img-responsive" alt="" />
-									</li>
-									<li>
-									<img src="images/pic2.jpg" class="img-responsive" alt="" />
-									</li>
-									<li>
-									<img src="images/pic3.jpg" class="img-responsive" alt="" />
-									</li>
-							  </ul>
-							</div>
-						  </section>
-						  <!-- FlexSlider -->
-						  <script defer src="js/jquery.flexslider.js"></script>
-						  <script type="text/javascript">
-							$(function(){
-							  SyntaxHighlighter.all();
-							});
-							$(window).load(function(){
-							  $('.flexslider').flexslider({
-								animation: "slide",
-								start: function(slider){
-								  $('body').removeClass('loading');
-								}
-							  });
-							});
-						  </script>
-                    </div>	
-				</div>					
-		</div>
-		</div>
-		<div class="content">
-			<div class="service-section" id="service">
-				<div class="container">
-					<div class="service-section-head text-center wow fadeInRight" data-wow-delay="0.4s">
-						<h3>Our Services</h3>
-						<p>Lorem Ipsum is simply dummy Business industry.</p>
-					</div>
-					<div class="service-section-grids">
-						<div class="col-md-6 service-grid">
-							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
-								<div class="icon">
-									<i class="s1"></i>
-								</div>
-								<div class="icon-text">
-									<h4>Font-Awesome Icons</h4>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
-								<div class="icon">
-									<i class="s2"></i>
-								</div>
-								<div class="icon-text">
-									<h4>Working Contact form</h4>
-									<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
-								<div class="icon">
-									<i class="s3"></i>
-								</div>
-								<div class="icon-text">
-									<h4>Friendly Code</h4>
-									<p>Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-						<div class="col-md-6 service-grid">
-							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
-								<div class="icon">
-									<i class="s4"></i>
-								</div>
-								<div class="icon-text">
-									<h4>Fully Responsive Design</h4>
-									<p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
-								<div class="icon">
-									<i class="s5"></i>
-								</div>
-								<div class="icon-text">
-									<h4>Retina Ready icons here</h4>
-									<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humouror randomised words which don't look even slightly believable.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="service-section-grid wow bounceIn" data-wow-delay="0.4s">
-								<div class="icon">
-									<i class="s6"></i>
-								</div>
-								<div class="icon-text">
-									<h4>Flat trendy landing page Design</h4>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer.</p>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-            <div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >手机网站模板</a></div>
-			<div class="about-section" id="about">
-				<div class="col-md-6 about_left wow bounceInLeft">
-					<img src="images/about_pic.jpg" alt="" />
-				</div>
-				<div class="col-md-6 about_right wow bounceInRight">
-					<h3>ABout us</h3>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the ore recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-					<a href="#">Read more</a>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-			<div class="price-section" id="pricing">
-				<div class="container">
-					<div class="price-section-head text-center wow fadeInLeft" data-wow-delay="0.4s">
-						<h3>Choose your price</h3>
-						<p>Lorem Ipsum is simply dummy text of the printing typesetting.</p>
-					</div>
-					<div class="price-section-grids">
-						<div class="col-md-4 price-value text-center wow fadeInLeft" data-wow-delay="0.4s">
-							<div class="price-section-grid">
-								<h5>Basic plan</h5>
-								<h3><span>$</span>22</h3>
-								<p>per month</p>
-								<ul>
-									<li>1 Account</li>
-									<li>8 hour support</li>
-									<li>Custom Cloud Services</li>								
-								</ul>
-								<a href="#">Get Started</a>
-							</div>
-						</div>
-						<div class="col-md-4 price-value text-center wow fadeInUp" data-wow-delay="0.6s">
-							<div class="price-section-grid">
-								<h5>Premium plan</h5>
-								<h3><span>$</span>42</h3>
-								<p>per month</p>
-								<ul>
-									<li>2 Account</li>
-									<li>100MB Storage</li>
-									<li>Custom Cloud Services</li>								
-								</ul>
-								<a href="#">Get Started</a>
-							</div>
-						</div>
-						<div class="col-md-4 price-value text-center wow fadeInRight" data-wow-delay="0.4s">
-							<div class="price-section-grid">
-								<h5>Gold plan</h5>
-								<h3><span>$</span>62</h3>
-								<p>per month</p>
-								<ul>
-									<li>8 Account</li>
-									<li>24 hour support</li>
-									<li>Custom Cloud Services</li>								
-								</ul>
-								<a href="#">Get Started</a>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<div class="work-section" id="work">
-				<div class="container">
-					<div class="work-section-head text-center wow fadeInRight" data-wow-delay="0.4s">
-						<h3>How it works</h3>
-						<p>Lorem Ipsum is simply dummy Business industry</p>
-					</div>
-					<div class="work-section-grids text-center wow fadeInUp" data-wow-delay="0.4s">
-						<div class="col-md-3 work-section-grid">
-							<i class="ear-phones"></i>
-							<h4>Step 1</h4>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-							<span class="arrow1"><img src="images/arrow1.png" alt="" /></span>
-						</div>
-						<div class="col-md-3 work-section-grid wow fadeInUp" data-wow-delay="0.6s">
-							<i class="lock"></i>
-							<h4>Step 2</h4>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-							<span class="arrow2"><img src="images/arrow2.png" alt="" /></span>
-						</div>
-						<div class="col-md-3 work-section-grid wow fadeInUp" data-wow-delay="0.8s">
-							<i class="cloud"></i>
-							<h4>Step 3</h4>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-							<span class="arrow1"><img src="images/arrow1.png" alt="" /></span>
-						</div>
-						<div class="col-md-3 work-section-grid wow fadeInUp" data-wow-delay="0.10s">
-							<i class="done"></i>
-							<h4>Step 4</h4>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been</p>
-						</div>
-						<div class="clearfix"></div>
-						<a class="work" href="#">Get start Now</a>
-					</div>
-				</div>
-			</div>
-			<div class="happy-clients" id="clients">
-				<div class="container">
-					<div class="happy-clients-head text-center wow fadeInRight" data-wow-delay="0.4s">
-						<h3>Happy Clients</h3>
-						<p>We are explain who is using our business solutions</p>
-					</div>
-					<div class="happy-clients-grids">
-						<div class="col-md-6 happy-clients-grid wow bounceIn" data-wow-delay="0.4s">
-							<div class="client">
-								<img src="images/client_1.jpg" alt="" />
-							</div>
-							<div class="client-info">
-								<p><img src="images/open-quatation.jpg" class="open" alt="" />Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make.<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
-								<h4><a href="#">Darwin Michle, </a>Project manager</h3>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="col-md-6 happy-clients-grid span_66 wow bounceIn" data-wow-delay="0.4s">
-							<div class="client">
-								<img src="images/client_2.jpg" alt="" />
-							</div>
-							<div class="client-info">
-								<p><img src="images/open-quatation.jpg" class="open" alt="" />Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
-								<h4><a href="#">Madam Elisabath, </a>Creative Director</h3>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="col-md-6 happy-clients-grid wow bounceIn" data-wow-delay="0.4s">
-							<div class="client">
-								<img src="images/client_3.jpg" alt="" />
-							</div>
-							<div class="client-info">
-								<p><img src="images/open-quatation.jpg" class="open" alt="" />Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make.<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
-								<h4><a href="#">Clips arter, </a>Lipsum directer</h3>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="col-md-6 happy-clients-grid span_66 wow bounceIn" data-wow-delay="0.4s">
-							<div class="client">
-								<img src="images/client_4.jpg" alt="" />
-							</div>
-							<div class="client-info">
-								<p><img src="images/open-quatation.jpg" class="open" alt="" />Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.<img src="images/close-quatation.jpg" class="closeq" alt="" /></p>
-								<h4><a href="#">zam cristafr,  </a>manager</h3>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>	
-			<div class="contact-section" id="contact">
-				<div class="container">
-					<div class="contact-section-head text-center wow fadeInLeft" data-wow-delay="0.4s">
-						<h3>newsletter</h3>
-						<p>Lorem Ipsum is simply dummy Business industry</p>
-					</div>
-					<div class="form wow fadeInLeft" data-wow-delay="0.4s">
-						<form>
-							<li>
-								<input type="text" class="text" value="Name" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Name';}">
-								<a class="name" href="#"></a>
-							</li>
-							<li>
-								<input type="text" class="text" value="Email Address" onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Email Address';}">
-								<a class="mail" href="#"></a>
-							</li>
-								<input type="submit" value="Subscribe now">
-						</form>
-					</div>
-					<div class="map">
-						<img src="images/map.jpg" alt="" />
-						<div class="location wow bounceIn" data-wow-delay="0.4s">
-							<div class="address text-center">
-								<h4>Address</h4>
-								<p>Business street</p>
-								<p>Second north section</p>
-								<p>Bavani nagar. 88769</p>
-								<p>Call : +987-9976-999</p>
-								<a href="example@mail.com">info@businessface.com</a>
-								<span class="locate"><img src="images/locate.png" alt="" /></span>
-							</div>
-							<div class="bottom-logo text-center">
-								<img src="http://www.rexhang.com/web/images/rexhanglogo2.png" alt="" />
-							</div>
-						</div>
-					</div>
-					<div class="contact-bottom text-center">
-						<div class="bottom-menu wow bounceInRight" data-wow-delay="0.4s">
-							<ul>     
-								<li><a class="scroll" href="#home">Home</a></li>                                                                               
-								<li><a class="scroll" href="#service">Service</a></li>
-								<li><a class="scroll" href="#about">About us</a></li>
-								<li><a class="scroll" href="#pricing">Pricing Table</a></li>
-								<li><a class="scroll" href="#work">How it work</a></li>
-								<li><a class="scroll" href="#clients">Happy Clients</a></li>
-								<li><a class="scroll" href="#contact">Contact Us</a></li>
-							</ul>
-						</div>
-						<p class="call wow fadeInRight" data-wow-delay="0.4s"><i class="phone wow fadeInLeft" data-wow-delay="0.4s"></i> +987 9976 999</p>
-						<div class="social-icons">
-							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="twitter"></i></a>
-							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="facebook"></i></a>
-							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="googlepluse"></i></a>
-							<a class="wow bounceIn" data-wow-delay="0.4s" href="#"><i class="linkedin"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer">
-			<div class="container">
-				<div class="copyright text-center wow bounceInLeft" data-wow-delay="0.4s">
-					<p>Copyright &copy; 2015.Company name All rights reserved.</p>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">
-						$(document).ready(function() {
-							/*
-							var defaults = {
-					  			containerID: 'toTop', // fading element id
-								containerHoverID: 'toTopHover', // fading element hover id
-								scrollSpeed: 1200,
-								easingType: 'linear' 
-					 		};
-							*/
-							
-							$().UItoTop({ easingType: 'easeOutQuart' });
-							
-						});
-					</script>
-				<a class="scroll" href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-</body>
+    <div class="page2">
+      <div class="page-content">
+        <img src="img/page2-1.png" alt="" width="438" height="254" data-img="page2-1" />
+        <img src="img/round.png" alt="" width="440" height="440" data-img="round" class="" />
+        <img src="img/page2-2.png" alt="" width="368" height="522" data-img="page2-2" class="" />
+        <img src="img/page2-3.png" alt="" width="81" height="45" data-img="page2-3" class="" />
+        <img src="img/page2-4.png" alt="" width="88" height="54" data-img="page2-4" class="" />
+        <img src="img/page2-5.png" alt="" width="133" height="73" data-img="page2-5" class="" />
+        <img src="img/page2-6.png" alt="" width="61" height="51" data-img="page2-6" class="" />
+        <img src="img/page2-7.png" alt="" width="61" height="50" data-img="page2-7" class="" />
+        <img src="img/page2-8.png" alt="" width="39" height="33" data-img="page2-8" class="" />
+        <img src="img/page2-9.png" alt="" width="39" height="31" data-img="page2-9" class="" />
+        <img src="img/page2-10.png" alt="" width="24" height="32" data-img="page2-10" class="" />
+        <img src="img/page2-11.png" alt="" width="28" height="25" data-img="page2-11" class="" />
+        <img src="img/page2-12.png" alt="" width="29" height="17" data-img="page2-12" class="" />
+      </div>
+    </div>
+
+    <div class="page3">
+      <div class="page-content">
+        <img src="img/page3-1.png" alt="" width="572" height="252" data-img="page3-1" />
+        <img src="img/round.png" alt="" width="440" height="440" data-img="round-right" />
+        <img src="img/page3-2.png" alt="" width="465" height="541" data-img="page3-2" class="" />
+        <img src="img/page2-5.png" alt="" width="133" height="73" data-img="page2-5" class="">
+        <img src="img/page2-4.png" alt="" width="88" height="54" data-img="page2-4" class="">
+        <img src="img/page2-3.png" alt="" width="81" height="45" data-img="page2-3" class="">
+        <img src="img/page3-3.png" alt="" width="32" height="173" data-img="page3-3" class="">
+        <img src="img/page3-4.png" alt="" width="33" height="221" data-img="page3-4" class="">
+        <img src="img/page3-5.png" alt="" width="33" height="230" data-img="page3-5" class="">
+        <img src="img/page3-6.png" alt="" width="45" height="234" data-img="page3-6" class="">
+        <img src="img/page3-7.png" alt="" width="33" height="227" data-img="page3-7" class="">
+        <img src="img/page3-8.png" alt="" width="28" height="196" data-img="page3-8" class="">
+        <img src="img/page3-9.png" alt="" width="24" height="216" data-img="page3-9" class="">
+      </div>
+    </div>
+    
+    <div class="page4">
+      <div class="page-content">
+        <img src="img/page4-1.png" alt="" width="486" height="260" data-img="page4-1" />
+        <img src="img/round.png" alt="" width="440" height="440" data-img="round" />
+        <img src="img/page4-2.png" alt="" width="391" height="416" data-img="page4-2" class="" />
+        <img src="img/page4-3.png" alt="" width="553" height="208" data-img="page4-3" class="" />
+        <img src="img/page2-4.png" alt="" width="88" height="54" data-img="page2-4" class="">
+        <img src="img/page2-3.png" alt="" width="81" height="45" data-img="page2-3" class="">
+        <img src="img/page4-4.png" alt="" width="61" height="123" data-img="page4-4" class="">
+        <img src="img/page4-5.png" alt="" width="67" height="134" data-img="page4-5" class="">
+        <img src="img/page4-6.png" alt="" width="43" height="88" data-img="page4-6" class="">
+        <img src="img/page4-7.png" alt="" width="39" height="22" data-img="page4-7" class="">
+        <img src="img/page4-8.png" alt="" width="27" height="22" data-img="page4-8" class="">
+        <img src="img/page4-9.png" alt="" width="17" height="18" data-img="page4-9" class="">
+        <img src="img/page4-10.png" alt="" width="41" height="18" data-img="page4-10" class="">
+        <img src="img/page4-11.png" alt="" width="21" height="22" data-img="page4-11" class="">
+      </div>
+    </div>
+
+
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        animationInit();
+        function animationInit(){
+                      $(window).scroll(function(){
+                        var scrollnum0 = 0;
+                        var scrollnum1 = $(".page2").offset().top;
+                        var scrollnum2 = $(".page3").offset().top;
+                        var scrollnum3 = $(".page4").offset().top;
+                        if($(window).scrollTop() >= scrollnum0 && $(window).scrollTop() <= scrollnum1){
+                          $(".page2").find("img[data-img='round']").addClass("roundanimationclass");
+                          $(".page2").find("img[data-img='page2-2']").addClass("roundanimationclass2");
+                          $(".page2").find("img[data-img='page2-3']").addClass("roundanimationclass3");
+                          $(".page2").find("img[data-img='page2-4']").addClass("roundanimationclass4");
+                          $(".page2").find("img[data-img='page2-5']").addClass("roundanimationclass5");
+                          $(".page2").find("img[data-img='page2-6']").addClass("roundanimationclass6");
+                          $(".page2").find("img[data-img='page2-7']").addClass("roundanimationclass7");
+                          $(".page2").find("img[data-img='page2-8']").addClass("roundanimationclass8");
+                          $(".page2").find("img[data-img='page2-9']").addClass("roundanimationclass9");
+                          $(".page2").find("img[data-img='page2-10']").addClass("roundanimationclass10");
+                          $(".page2").find("img[data-img='page2-11']").addClass("roundanimationclass11");
+                          $(".page2").find("img[data-img='page2-12']").addClass("roundanimationclass12");
+                        } else if($(window).scrollTop() >= scrollnum1 && $(window).scrollTop() <= scrollnum2){
+                          $(".page3").find("img[data-img='round-right']").addClass("roundanimationclass");
+                          $(".page3").find("img[data-img='page3-2']").addClass("roundanimationclass2-2");
+                          $(".page3").find("img[data-img='page2-5']").addClass("roundanimationclass5-2");
+                          $(".page3").find("img[data-img='page2-4']").addClass("roundanimationclass5-3");
+                          $(".page3").find("img[data-img='page2-3']").addClass("roundanimationclass3-2");
+                          $(".page3").find("img[data-img='page3-3']").addClass("roundanimationclass13-3");
+                          $(".page3").find("img[data-img='page3-4']").addClass("roundanimationclass13-4");
+                          $(".page3").find("img[data-img='page3-5']").addClass("roundanimationclass13-5");
+                          $(".page3").find("img[data-img='page3-6']").addClass("roundanimationclass13-6");
+                          $(".page3").find("img[data-img='page3-7']").addClass("roundanimationclass13-7");
+                          $(".page3").find("img[data-img='page3-8']").addClass("roundanimationclass13-8");
+                          $(".page3").find("img[data-img='page3-9']").addClass("roundanimationclass13-9");
+
+                        } else if($(window).scrollTop() >= scrollnum2 && $(window).scrollTop() <= scrollnum3){
+                          $(".page4").find("img[data-img='round']").addClass("roundanimationclass");
+                          $(".page4").find("img[data-img='page4-2']").addClass("roundanimationclass2-3");
+                          $(".page4").find("img[data-img='page4-3']").addClass("animated bounceIn");
+                          $(".page4").find("img[data-img='page2-4']").addClass("roundanimationclass5-4");
+                          $(".page4").find("img[data-img='page2-3']").addClass("roundanimationclass5-5");
+                          $(".page4").find("img[data-img='page4-4']").addClass("roundanimationclass14-1");
+                          $(".page4").find("img[data-img='page4-5']").addClass("roundanimationclass14-2");
+                          $(".page4").find("img[data-img='page4-6']").addClass("roundanimationclass14-3");
+                          $(".page4").find("img[data-img='page4-7']").addClass("roundanimationclass14-4");
+                          $(".page4").find("img[data-img='page4-8']").addClass("roundanimationclass14-4");
+                          $(".page4").find("img[data-img='page4-9']").addClass("roundanimationclass14-4");
+                          $(".page4").find("img[data-img='page4-10']").addClass("roundanimationclass14-4");
+                          $(".page4").find("img[data-img='page4-11']").addClass("roundanimationclass14-4");
+                          
+
+                        }
+                      })
+        }
+      });
+    </script>
+  </body>
 </html>

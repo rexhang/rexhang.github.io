@@ -1,0 +1,982 @@
+/*
+ 	=== info ===	 
+ 	* Filename: main.scss 
+ 	* Decscription: main
+ 	* Version: 1.0.0(2015.12.11)
+ 	* Website: http://www.fenqiday.com
+ 	* Author: Rexhang (rexhang@outlook.com)
+ */
+@import url(animate.min.css);
+.page1, .page2, .page3, .page4 {
+  width: 100%;
+  height: 660px;
+  background: #85AFFF;
+}
+.page1 .page-content, .page2 .page-content, .page3 .page-content, .page4 .page-content {
+  width: 1200px;
+  height: 660px;
+  margin: 0 auto;
+  position: relative;
+}
+.page1 .page-content img[data-img="page1-1"], .page2 .page-content img[data-img="page1-1"], .page3 .page-content img[data-img="page1-1"], .page4 .page-content img[data-img="page1-1"] {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -496px;
+}
+.page1 .page-content img[data-img="page1-2"], .page2 .page-content img[data-img="page1-2"], .page3 .page-content img[data-img="page1-2"], .page4 .page-content img[data-img="page1-2"] {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  margin-left: -92px;
+}
+.page1 .page-content .a1, .page2 .page-content .a1, .page3 .page-content .a1, .page4 .page-content .a1 {
+  width: 318px;
+  height: 86px;
+  display: block;
+  position: absolute;
+  left: 524px;
+  top: 376px;
+}
+.page1 .page-content .a2, .page2 .page-content .a2, .page3 .page-content .a2, .page4 .page-content .a2 {
+  width: 318px;
+  height: 86px;
+  display: block;
+  position: absolute;
+  left: 524px;
+  top: 484px;
+}
+
+@keyframes round-animation {
+  0% {
+    -webkit-transform: scale(0.2);
+    -moz-transform: scale(0.2);
+    -ms-transform: scale(0.2);
+    -o-transform: scale(0.2);
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes round-animation2 {
+  0% {
+    margin-top: -300px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: -380px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation2-2 {
+  0% {
+    margin-top: -200px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: -270px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation2-3 {
+  0% {
+    margin-top: -268px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: -338px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation3 {
+  0% {
+    left: 0px;
+    opacity: 1;
+  }
+  100% {
+    left: 20px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation3-2 {
+  0% {
+    left: 1090px;
+    opacity: 1;
+  }
+  100% {
+    left: 1100px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation4 {
+  0% {
+    left: 420px;
+    opacity: 1;
+  }
+  100% {
+    left: 430px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation5 {
+  0% {
+    left: 462px;
+    opacity: 1;
+  }
+  100% {
+    left: 490px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation5-2 {
+  0% {
+    margin-left: 50px;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 60px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation5-4 {
+  0% {
+    left: 30px;
+    opacity: 1;
+  }
+  100% {
+    left: 44px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation5-5 {
+  0% {
+    left: 480px;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 516px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation6 {
+  0% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 360px;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes round-animation7 {
+  0% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 180px;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes round-animation8 {
+  0% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 608px;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes round-animation9 {
+  0% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 444px;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes round-animation10 {
+  0% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 334px;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes round-animation11 {
+  0% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 260px;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes round-animation12 {
+  0% {
+    top: 0;
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 226px;
+    opacity: 1;
+    transform: rotate(360deg);
+  }
+}
+@keyframes round-animation13-3 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 125px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation13-4 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 218px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation13-5 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 387px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation13-6 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 418px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation13-7 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 350px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation13-8 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 232px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation13-9 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 70px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation14-1 {
+  0% {
+    margin-top: -200px;
+    opacity: 1;
+  }
+  100% {
+    margin-top: -226px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation14-2 {
+  0% {
+    margin-top: -290px;
+    opacity: 1;
+  }
+  100% {
+    margin-top: -314px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation14-3 {
+  0% {
+    margin-top: -0px;
+    opacity: 1;
+  }
+  100% {
+    margin-top: -40px;
+    opacity: 1;
+  }
+}
+@keyframes round-animation14-4 {
+  0% {
+    top: 0%;
+    opacity: 1;
+  }
+  100% {
+    top: 50%;
+    opacity: 1;
+  }
+}
+.roundanimationclass {
+  animation-name: round-animation;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 0;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass2 {
+  animation-name: round-animation2;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass2-2 {
+  animation-name: round-animation2-2;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass2-3 {
+  animation-name: round-animation2-3;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass3 {
+  animation-name: round-animation3;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass3-2 {
+  animation-name: round-animation3-2;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass4 {
+  animation-name: round-animation4;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2.1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass5 {
+  animation-name: round-animation5;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2.3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass5-2 {
+  animation-name: round-animation5-2;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2.3s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass5-3 {
+  animation-name: round-animation5-2;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2.4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass5-4 {
+  animation-name: round-animation5-2;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2.4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass5-5 {
+  animation-name: round-animation5-2;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 2.6s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.roundanimationclass6 {
+  animation-name: round-animation6;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass7 {
+  animation-name: round-animation7;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass8 {
+  animation-name: round-animation8;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass9 {
+  animation-name: round-animation9;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass10 {
+  animation-name: round-animation10;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass11 {
+  animation-name: round-animation11;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass12 {
+  animation-name: round-animation12;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-3 {
+  animation-name: round-animation13-3;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-4 {
+  animation-name: round-animation13-4;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.4s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-5 {
+  animation-name: round-animation13-5;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.4s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-6 {
+  animation-name: round-animation13-6;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-7 {
+  animation-name: round-animation13-7;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-7 {
+  animation-name: round-animation13-7;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-8 {
+  animation-name: round-animation13-8;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.4s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass13-9 {
+  animation-name: round-animation13-9;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.bounceIn {
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+}
+
+.roundanimationclass14-1 {
+  animation-name: round-animation14-1;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.2s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass14-2 {
+  animation-name: round-animation14-2;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass14-3 {
+  animation-name: round-animation14-3;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.roundanimationclass14-4 {
+  animation-name: round-animation14-4;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 2.5s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.page2, .page3, .page4 {
+  height: 800px;
+  background: #FF6B63;
+}
+.page2 .page-content, .page3 .page-content, .page4 .page-content {
+  height: 800px;
+}
+.page2 .page-content img[data-img="page2-1"], .page3 .page-content img[data-img="page2-1"], .page4 .page-content img[data-img="page2-1"] {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -127px;
+}
+.page2 .page-content img[data-img="round"], .page3 .page-content img[data-img="round"], .page4 .page-content img[data-img="round"] {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  margin-top: -220px;
+  opacity: 0;
+  z-index: 2;
+}
+.page2 .page-content img[data-img="page2-2"], .page3 .page-content img[data-img="page2-2"], .page4 .page-content img[data-img="page2-2"] {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  margin-top: -380px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-3"], .page3 .page-content img[data-img="page2-3"], .page4 .page-content img[data-img="page2-3"] {
+  position: absolute;
+  top: 224px;
+  left: 0;
+  z-index: 3;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-4"], .page3 .page-content img[data-img="page2-4"], .page4 .page-content img[data-img="page2-4"] {
+  position: absolute;
+  top: 48px;
+  left: 420px;
+  z-index: 3;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-5"], .page3 .page-content img[data-img="page2-5"], .page4 .page-content img[data-img="page2-5"] {
+  position: absolute;
+  top: 36px;
+  left: 462px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-6"], .page3 .page-content img[data-img="page2-6"], .page4 .page-content img[data-img="page2-6"] {
+  position: absolute;
+  top: 360px;
+  left: 12px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-7"], .page3 .page-content img[data-img="page2-7"], .page4 .page-content img[data-img="page2-7"] {
+  position: absolute;
+  top: 180px;
+  left: 510px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-8"], .page3 .page-content img[data-img="page2-8"], .page4 .page-content img[data-img="page2-8"] {
+  position: absolute;
+  top: 608px;
+  left: 422px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-9"], .page3 .page-content img[data-img="page2-9"], .page4 .page-content img[data-img="page2-9"] {
+  position: absolute;
+  top: 444px;
+  left: 520px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-10"], .page3 .page-content img[data-img="page2-10"], .page4 .page-content img[data-img="page2-10"] {
+  position: absolute;
+  top: 334px;
+  left: 94px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-11"], .page3 .page-content img[data-img="page2-11"], .page4 .page-content img[data-img="page2-11"] {
+  position: absolute;
+  top: 260px;
+  left: 512px;
+  z-index: 4;
+  opacity: 0;
+}
+.page2 .page-content img[data-img="page2-12"], .page3 .page-content img[data-img="page2-12"], .page4 .page-content img[data-img="page2-12"] {
+  position: absolute;
+  top: 226px;
+  left: 422px;
+  z-index: 4;
+  opacity: 0;
+}
+
+.page3 {
+  background: #5AE0BF;
+}
+.page3 .page-content img[data-img="page3-1"] {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -126px;
+}
+.page3 .page-content img[data-img="round-right"] {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  margin-top: -220px;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-2"] {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  margin-top: -270px;
+  z-index: 4;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page2-5"] {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  margin-top: -250px;
+  z-index: 4;
+  opacity: 0;
+  margin-left: 60px;
+}
+.page3 .page-content img[data-img="page2-4"] {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  margin-top: -250px;
+  z-index: 4;
+  opacity: 0;
+  margin-left: 60px;
+}
+.page3 .page-content img[data-img="page2-3"] {
+  position: absolute;
+  top: 334px;
+  left: 1100px;
+  z-index: 3;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-3"] {
+  position: absolute;
+  top: 125px;
+  right: 60px;
+  z-index: 3;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-4"] {
+  position: absolute;
+  top: 218px;
+  right: 580px;
+  z-index: 3;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-5"] {
+  position: absolute;
+  top: 387px;
+  right: 4px;
+  z-index: 3;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-6"] {
+  position: absolute;
+  top: 418px;
+  right: 538px;
+  z-index: 3;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-7"] {
+  position: absolute;
+  top: 350px;
+  right: 484px;
+  z-index: 3;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-8"] {
+  position: absolute;
+  top: 232px;
+  right: 88px;
+  z-index: 3;
+  opacity: 0;
+}
+.page3 .page-content img[data-img="page3-9"] {
+  position: absolute;
+  top: 70px;
+  right: 426px;
+  z-index: 3;
+  opacity: 0;
+}
+
+.page4 {
+  background: #D7A2FA;
+}
+.page4 .page-content img[data-img="page4-1"] {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -130px;
+}
+.page4 .page-content img[data-img="round"] {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  margin-top: -220px;
+  opacity: 0;
+  z-index: 2;
+}
+.page4 .page-content img[data-img="page4-2"] {
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  margin-top: -338px;
+  z-index: 4;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-3"] {
+  position: absolute;
+  top: 50%;
+  left: 44px;
+  margin-top: 25px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page2-4"] {
+  position: absolute;
+  top: 50%;
+  left: 44px;
+  margin-top: -214px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page2-3"] {
+  position: absolute;
+  top: 50%;
+  left: 516px;
+  margin-top: -44px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-4"] {
+  position: absolute;
+  top: 50%;
+  left: 543px;
+  margin-top: -226px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-5"] {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  margin-top: -314px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-6"] {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  margin-top: -40px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-7"] {
+  position: absolute;
+  top: 50%;
+  left: 450px;
+  margin-top: -40px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-8"] {
+  position: absolute;
+  top: 50%;
+  left: 460px;
+  margin-top: -180px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-9"] {
+  position: absolute;
+  top: 50%;
+  left: 150px;
+  margin-top: -110px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-10"] {
+  position: absolute;
+  top: 50%;
+  left: 120px;
+  margin-top: 10px;
+  z-index: 3;
+  opacity: 0;
+}
+.page4 .page-content img[data-img="page4-11"] {
+  position: absolute;
+  top: 50%;
+  left: 72px;
+  margin-top: -78px;
+  z-index: 3;
+  opacity: 0;
+}
+
+/*# sourceMappingURL=main.css.map */
