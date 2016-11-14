@@ -33,4 +33,4 @@
     6:$ git pull git@github.com:rexhang/rexhang.github.io.git => 拉取服务端最新代码到本地
 
 
-<font face="微软雅黑" color="#ff7300" size=26>[我的博客](https://rexhang.com/blog "title text")</font>
+[<font face="微软雅黑" color="#ff7300" size=26>我的博客</font>](http://rexhang.com/blog "title text")
