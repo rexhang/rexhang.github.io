@@ -1,4 +1,5 @@
-# rexhang.github.io
+![mahua](http://test.rexhang.com/img/rexhang_logo.png)
+# web preview url is `rexhang.github.io`
 
 # 拉取代码步骤
 
