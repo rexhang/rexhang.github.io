@@ -32,3 +32,6 @@
 
     6:$ git pull git@github.com:rexhang/rexhang.github.io.git => 拉取服务端最新代码到本地
 
+```html
+    <a href="http://rexhang.com/blog">我的博客</a>
+```
