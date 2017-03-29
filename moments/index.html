@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta author="rexhang">
+    <title>template</title>
+    <!-- page：rexhang | blog：http://rexhang.com/blog (admin@rexhang.com) | date：2017-03-29 15:06:50 -->
+    <link rel="stylesheet" type="text/css" href="lib/rex-ui.css">
+    <link rel="stylesheet" type="text/css" href="fonts/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="fonts/myassets/iconfont.css">
+    <link rel="stylesheet" href="compile_sass/style.css">
+</head>
+<body>
+    <div class="banner">
+        <img src="images/friendcircle-banner.png" width="100%" height="210">
+        <img src="images/author.png" width="48" height="48" class="author-logo">
+        <font class="name">顾 航</font>
+        <span class="spot"></span>
+    </div>
+    <div class="post-container">
+        <div class="wrap-item">
+            <div class="article-tit rex-cf">
+                <img src="images/author.png" width="40" height="40" class="author-pic">
+                <div class="paragraph">
+                    <p class="p-tit">凌度</p>
+                    <p class="p-ctn">滴滴出行，出行无忧。</p>
+                    <div class="share-url rex-cf">
+                        <img src="images/author.png" width="40" height="40" class="share-pic">
+                        <div class="share-content">滴滴出行，从此出行在无忧。</div>
+                    </div>
+                    <div class="interactive rex-cf">
+                        <i class="icon iconfont icon-state-thumbs-up" onclick="fabulous(this)" data-flag='false'></i> <span class="txt txt-love">11</span>
+                        <i class="icon iconfont icon-state-comment comment"></i> <span class="txt txt-comment">评论</span>
+                    </div>
+                    <div class="timer">
+                        1小时前
+                    </div>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="javascript:;">秋香</a>: <span>赞~</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">我爱保时捷</a>: <span>滴滴，让出行更美丽!</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-item">
+            <div class="article-tit rex-cf">
+                <img src="images/author.png" width="40" height="40" class="author-pic">
+                <div class="paragraph">
+                    <p class="p-tit">张小六</p>
+                    <div class="share-url rex-cf">
+                        <img src="images/author.png" width="40" height="40" class="share-pic">
+                        <span class="share-content">滴滴，注册司机接单拿奖励，随时随地可接单，赢取高额奖励，轻松赚外快！</span>
+                    </div>
+                    <div class="interactive rex-cf">
+                        <i class="icon iconfont icon-state-thumbs-up" onclick="fabulous(this)" data-flag='false'></i> <span class="txt txt-love">125</span>
+                        <i class="icon iconfont icon-state-comment comment"></i> <span class="txt txt-comment">评论</span>
+                        <i class="icon iconfont icon-state-delete delete"></i> <span class="txt txt-delete">删除</span>
+                    </div>
+                    <div class="timer">
+                        13小时前
+                    </div>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="javascript:;">星星点灯</a>: <span>每天上下班顺两单，一周下来节碳量相当于多种了两棵树，节能环保还能减少堵车！</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">至尊宝</a>: <span>了解从未接触过的领域，比赚钱让我更心动的是收获。</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">野马</a> 回复 <a href="javascript:;">至尊宝</a>: <span>有内涵~</span>
+                        </li>
+                        <div class="hide-area rex-hide">
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">野马</a> 回复 <a href="javascript:;">顾航</a>: <span>哦啦啦啦！</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="more rex-cf" onclick="showComment(this)">
+                        <span>查看全部10条评论</span> <i class="icon iconfont icon-comment-downarrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-item">
+            <div class="article-tit rex-cf">
+                <img src="images/author.png" width="40" height="40" class="author-pic">
+                <div class="paragraph">
+                    <p class="p-tit">一张图</p>
+                    <p class="p-ctn">2017年1月，心之向往，记我的新藏线，历时16天，川进青出。</p>
+                    <div class="img-box rex-cf">
+                        <a href="images/author.png"><img src="images/author.png" width="172" height="172"></a>
+                    </div>
+                    <div class="interactive rex-cf">
+                        <i class="icon iconfont icon-state-thumbs-up" onclick="fabulous(this)" data-flag='false'></i> <span class="txt txt-love">15</span>
+                        <i class="icon iconfont icon-state-comment comment"></i> <span class="txt txt-comment">评论</span>
+                        <i class="icon iconfont icon-state-delete delete"></i> <span class="txt txt-delete">删除</span>
+                    </div>
+                    <div class="timer">
+                        13小时前
+                    </div>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="javascript:;">星星点灯</a>: <span>每天上下班顺两单，一周下来节碳量相当于多种了两棵树，节能环保还能减少堵车！</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">至尊宝</a>: <span>了解从未接触过的领域，比赚钱让我更心动的是收获。</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">野马</a> 回复 <a href="javascript:;">至尊宝</a>: <span>有内涵~</span>
+                        </li>
+                        <div class="hide-area rex-hide">
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">野马</a> 回复 <a href="javascript:;">顾航</a>: <span>哦啦啦啦！</span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="more rex-cf" onclick="showComment(this)">
+                        <span>查看全部5条评论</span> <i class="icon iconfont icon-comment-downarrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-item">
+            <div class="article-tit rex-cf">
+                <img src="images/author.png" width="40" height="40" class="author-pic">
+                <div class="paragraph">
+                    <p class="p-tit">二张图</p>
+                    <p class="p-ctn">2017年1月，心之向往，记我的新藏线，历时16天，川进青出。</p>
+                    <div class="img-box rex-cf">
+                        <img src="images/author.png" width="134" height="134" class="margin-img">
+                        <img src="images/author.png" width="134" height="134">
+                    </div>
+                    <div class="interactive rex-cf">
+                        <i class="icon iconfont icon-state-thumbs-up" onclick="fabulous(this)" data-flag='false'></i> <span class="txt txt-love">15</span>
+                        <i class="icon iconfont icon-state-comment comment"></i> <span class="txt txt-comment">评论</span>
+                        <i class="icon iconfont icon-state-delete delete"></i> <span class="txt txt-delete">删除</span>
+                    </div>
+                    <div class="timer">
+                        13小时前
+                    </div>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="javascript:;">星星点灯</a>: <span>每天上下班顺两单，一周下来节碳量相当于多种了两棵树，节能环保还能减少堵车！</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">至尊宝</a>: <span>了解从未接触过的领域，比赚钱让我更心动的是收获。</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">野马</a> 回复 <a href="javascript:;">至尊宝</a>: <span>有内涵~</span>
+                        </li>
+                        <div class="hide-area rex-hide">
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">野马</a> 回复 <a href="javascript:;">顾航</a>: <span>哦啦啦啦！</span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="more rex-cf" onclick="showComment(this)">
+                        <span>查看全部5条评论</span> <i class="icon iconfont icon-comment-downarrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-item">
+            <div class="article-tit rex-cf">
+                <img src="images/author.png" width="40" height="40" class="author-pic">
+                <div class="paragraph">
+                    <p class="p-tit">三张图</p>
+                    <p class="p-ctn">2017年1月，心之向往，记我的新藏线，历时16天，川进青出。</p>
+                    <div class="img-box rex-cf">
+                        <img src="images/author.png" width="88" height="88" class="margin-img">
+                        <img src="images/author.png" width="88" height="88" class="margin-img">
+                        <img src="images/author.png" width="88" height="88">
+                    </div>
+                    <div class="interactive rex-cf">
+                        <i class="icon iconfont icon-state-thumbs-up" onclick="fabulous(this)" data-flag='false'></i> <span class="txt txt-love">15</span>
+                        <i class="icon iconfont icon-state-comment comment"></i> <span class="txt txt-comment">评论</span>
+                        <i class="icon iconfont icon-state-delete delete"></i> <span class="txt txt-delete">删除</span>
+                    </div>
+                    <div class="timer">
+                        2017-03-20 20:03
+                    </div>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="javascript:;">星星点灯</a>: <span>每天上下班顺两单，一周下来节碳量相当于多种了两棵树，节能环保还能减少堵车！</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">至尊宝</a>: <span>了解从未接触过的领域，比赚钱让我更心动的是收获。</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">野马</a> 回复 <a href="javascript:;">至尊宝</a>: <span>有内涵~</span>
+                        </li>
+                        <div class="hide-area rex-hide">
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">野马</a> 回复 <a href="javascript:;">顾航</a>: <span>哦啦啦啦！</span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="more rex-cf" onclick="showComment(this)">
+                        <span>查看全部5条评论</span> <i class="icon iconfont icon-comment-downarrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-item">
+            <div class="article-tit rex-cf">
+                <img src="images/author.png" width="40" height="40" class="author-pic">
+                <div class="paragraph">
+                    <p class="p-tit">四张图</p>
+                    <p class="p-ctn">2017年1月，心之向往，记我的新藏线，历时16天，川进青出。</p>
+                    <div class="img-box rex-cf">
+                        <img src="images/author.png" width="134" height="134" class="margin-img img-greater-than2">
+                        <img src="images/author.png" width="134" height="134" class="img-greater-than2">
+                        <img src="images/author.png" width="134" height="134" class="margin-img">
+                        <img src="images/author.png" width="134" height="134">
+                    </div>
+                    <div class="interactive rex-cf">
+                        <i class="icon iconfont icon-state-thumbs-up" onclick="fabulous(this)" data-flag='false'></i> <span class="txt txt-love">15</span>
+                        <i class="icon iconfont icon-state-comment comment"></i> <span class="txt txt-comment">评论</span>
+                        <i class="icon iconfont icon-state-delete delete"></i> <span class="txt txt-delete">删除</span>
+                    </div>
+                    <div class="timer">
+                        2017-03-15 09:30
+                    </div>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="javascript:;">星星点灯</a>: <span>每天上下班顺两单，一周下来节碳量相当于多种了两棵树，节能环保还能减少堵车！</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">至尊宝</a>: <span>了解从未接触过的领域，比赚钱让我更心动的是收获。</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">野马</a> 回复 <a href="javascript:;">至尊宝</a>: <span>有内涵~</span>
+                        </li>
+                        <div class="hide-area rex-hide">
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">野马</a> 回复 <a href="javascript:;">顾航</a>: <span>哦啦啦啦！</span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="more rex-cf" onclick="showComment(this)">
+                        <span>查看全部5条评论</span> <i class="icon iconfont icon-comment-downarrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wrap-item">
+            <div class="article-tit rex-cf">
+                <img src="images/author.png" width="40" height="40" class="author-pic">
+                <div class="paragraph">
+                    <p class="p-tit">六张图</p>
+                    <p class="p-ctn">2017年1月，心之向往，记我的新藏线，历时16天，川进青出。</p>
+                    <div class="img-box rex-cf">
+                        <img src="images/author.png" width="88" height="88" class="margin-img img-greater-than2">
+                        <img src="images/author.png" width="88" height="88" class="margin-img img-greater-than2">
+                        <img src="images/author.png" width="88" height="88" class="img-greater-than2">
+                        <img src="images/author.png" width="88" height="88" class="margin-img">
+                        <img src="images/author.png" width="88" height="88" class="margin-img">
+                        <img src="images/author.png" width="88" height="88">
+                    </div>
+                    <div class="interactive rex-cf">
+                        <i class="icon iconfont icon-state-thumbs-up" onclick="fabulous(this)" data-flag='false'></i> <span class="txt txt-love">15</span>
+                        <i class="icon iconfont icon-state-comment comment"></i> <span class="txt txt-comment">评论</span>
+                        <i class="icon iconfont icon-state-delete delete"></i> <span class="txt txt-delete">删除</span>
+                    </div>
+                    <div class="timer">
+                        2016-11-15 08:23
+                    </div>
+                    <ul class="comment-list">
+                        <li>
+                            <a href="javascript:;">星星点灯</a>: <span>每天上下班顺两单，一周下来节碳量相当于多种了两棵树，节能环保还能减少堵车！</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">至尊宝</a>: <span>了解从未接触过的领域，比赚钱让我更心动的是收获。</span>
+                        </li>
+                        <li>
+                            <a href="javascript:;">野马</a> 回复 <a href="javascript:;">至尊宝</a>: <span>有内涵~</span>
+                        </li>
+                        <div class="hide-area rex-hide">
+                            <li>
+                                <a href="javascript:;">顾航</a>: <span>啦啦啦啦~</span>
+                            </li>
+                            <li>
+                                <a href="javascript:;">野马</a> 回复 <a href="javascript:;">顾航</a>: <span>哦啦啦啦！</span>
+                            </li>
+                        </div>
+                    </ul>
+                    <div class="more rex-cf" onclick="showComment(this)">
+                        <span>查看全部5条评论</span> <i class="icon iconfont icon-comment-downarrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <p class="footer rex-center">已显示全部内容</p>
+
+    <script type="text/javascript" src="lib/jquery.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
