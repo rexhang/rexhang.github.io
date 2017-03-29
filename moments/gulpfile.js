@@ -5,9 +5,12 @@ var gulp        = require("gulp"),
 
 
 // gulp-sass插件的基本用法
+var config = {
+    outputStyle: 'compact'
+};
 gulp.task('sass', function () {
   return gulp.src('./sass/*.scss')
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass(config).on('error', sass.logError))
     .pipe(gulp.dest('./compile_sass'))
     .pipe(reload({stream: true}));
 });
