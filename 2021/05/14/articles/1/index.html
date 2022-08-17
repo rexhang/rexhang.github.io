@@ -18,24 +18,29 @@
   
   
 
-  <title>Rexhang的Blog</title>
+  <title>数组的一些常用方法及使用区别 | Rexhang的Blog</title>
 
-  <meta name="keywords" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+  <meta name="keywords" content="javascript,push pop unshift shift splice slice split join,判断js数组 | 顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
 
-  <meta name="description" content="RexHang">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rexhang的Blog">
-<meta property="og:url" content="https://blog.rexhang.com/index.html">
+  <meta name="description" content="一、前言push pop unshift shift splice slice split join 方法及使用区别 二、示例1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162&#x2F;&#x2F; push pop unshift sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数组的一些常用方法及使用区别">
+<meta property="og:url" content="https://blog.rexhang.com/2021/05/14/articles/1/index.html">
 <meta property="og:site_name" content="Rexhang的Blog">
-<meta property="og:description" content="RexHang">
+<meta property="og:description" content="一、前言push pop unshift shift splice slice split join 方法及使用区别 二、示例1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162&#x2F;&#x2F; push pop unshift sh">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2021-05-14/1.png">
+<meta property="article:published_time" content="2021-05-13T16:22:22.000Z">
+<meta property="article:modified_time" content="2022-08-02T14:05:22.000Z">
 <meta property="article:author" content="RexHang">
-<meta property="article:tag" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="javascript数组">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.rexhang.com/images/blog/2021-05-14/1.png">
 
 
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.rexhang.com/index.html">
+  <link rel="canonical" href="https://blog.rexhang.com/2021/05/14/articles/1/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
   
@@ -333,346 +338,205 @@
 </aside>
 
   
-  <main class="main" role="main">
   
-  <div class="content article-list">
+<main class="main" role="main">
+  <div class="content">
+  <article id="posts-数组的一些常用方法及使用区别" class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
     
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+    <div class="article-header">
+      
+        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/04/articles/1/">JS中非常实用的『一行代码』</a>
+    <h1 class="article-title" itemprop="name">
+      数组的一些常用方法及使用区别
     </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/04/articles/1/" class="article-date">
-	  <time datetime="2022-08-04T04:03:28.000Z" itemprop="datePublished">8月 4</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">javascript字符串</a>, <a class="article-tag-link-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a>, <a class="article-tag-link-link" href="/tags/js%E5%B0%8Ftips/" rel="tag">js小tips</a>, <a class="article-tag-link-link" href="/tags/js%E6%8A%80%E5%B7%A7/" rel="tag">js技巧</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/04/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/04/articles/2/">一套面向常规统计图表，以数据驱动的高交互可视化图形语法 - G2</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/04/articles/2/" class="article-date">
-	  <time datetime="2022-08-04T01:27:08.000Z" itemprop="datePublished">8月 4</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/">图表</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/G2/">G2</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/04/articles/2/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/02/articles/1/">React代码整洁优化实践</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/02/articles/1/" class="article-date">
-	  <time datetime="2022-08-02T14:16:48.000Z" itemprop="datePublished">8月 2</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/React/" rel="tag">React</a>, <a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/02/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/14/articles/1/">数组的一些常用方法及使用区别</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
+      
+      <div class="article-meta">
+        <span class="article-date">
     <i class="icon icon-calendar-check"></i>
 	<a href="/2021/05/14/articles/1/" class="article-date">
-	  <time datetime="2021-05-13T16:22:22.000Z" itemprop="datePublished">5月 14</time>
+	  <time datetime="2021-05-13T16:22:22.000Z" itemprop="datePublished">2021-05-14</time>
 	</a>
 </span>
-    
+        
   <span class="article-category">
     <i class="icon icon-folder"></i>
     <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
   </span>
 
-    
+        
   <span class="article-tag">
     <i class="icon icon-tags"></i>
 	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a>
   </span>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/14/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
+        
 
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/14/articles/1/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>push pop unshift shift splice slice split join 方法及使用区别</p>
+<h3 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// push pop unshift shift splice slice split join</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// push、unshift向数组的 尾部/头部 添加若干元素，并返回 数组的 新长度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> a = arr.push(<span class="string">&#x27;X&#x27;</span>, <span class="string">&#x27;Y&#x27;</span>, <span class="string">&#x27;Z&#x27;</span>); <span class="comment">// -&gt; new length</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> b = arr.unshift(<span class="string">&#x27;A&#x27;</span>, <span class="string">&#x27;B&#x27;</span>, <span class="string">&#x27;C&#x27;</span>); <span class="comment">// -&gt; new length</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br><span class="line"></span><br><span class="line"><span class="comment">// pop、shift向数组的 尾部/头部 删除一个元素 并返回 数组中 被删除的元素</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c = arr.pop(); <span class="comment">// -&gt; last item</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> d = arr.shift(); <span class="comment">// -&gt; first item</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(d);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> e = arr.push();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> f = [].pop();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> g = [].shift();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(e);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(f);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(g);</span><br><span class="line"></span><br><span class="line"><span class="comment">// splice 向/从数组中添加/删除项目，然后返回被删除的项目集合[?1, ?2]。 -1开始反方向删除(末尾第一个) 即便是负数 也都是从左到右删除单位</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> h = arr.splice(-<span class="number">2</span>, <span class="number">2</span>, <span class="string">&#x27;rex&#x27;</span>, <span class="string">&#x27;hang&#x27;</span>, <span class="string">&#x27;gu&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(h);</span><br><span class="line"></span><br><span class="line"><span class="comment">// slice 只对数组范围做截取 并返回 截取的内容</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> i = arr.slice(<span class="number">1</span>, -<span class="number">2</span>); <span class="comment">// 区间 -&gt; (?] 不包含末尾</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(i);</span><br><span class="line"></span><br><span class="line"><span class="comment">// split 用于 把一个有标记的字符串 分割成 标准数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> j = <span class="string">&#x27;a|b|c&#x27;</span>.split(<span class="string">&#x27;|&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(j);</span><br><span class="line"></span><br><span class="line"><span class="comment">// join 用于 把一个标准数组 变成 固定符号分隔的 字符串</span></span><br><span class="line"><span class="keyword">const</span> k = [<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>].join(<span class="string">&#x27;|&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(k);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(arr);</span><br></pre></td></tr></table></figure>
+<p>控制台输出内容如图所示:<br><img src="/images/blog/2021-05-14/1.png" alt="效果图显示失败" title="运行效果如图"></p>
+<p>看完上述例子后，我想大家都应该大致明白了这些方法的使用区别。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+	<ul class="post-copyright list-unstyled">
+		
+		<li class="post-copyright-link hidden-xs">
+			<strong>本文链接：</strong>
+			<a
+				href="https://blog.rexhang.com/2021/05/14/articles/1/"
+				title="数组的一些常用方法及使用区别"
+				target="_blank"
+				rel="external"
+				>右键可以复制链接地址</a
+			>
+		</li>
+		
+		<li class="post-copyright-license">
+			<strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用
+			<a
+				href="http://creativecommons.org/licenses/by/4.0/deed.zh"
+				target="_blank"
+				rel="external"
+				>CC BY 4.0 CN协议</a
+			>
+			许可协议。转载请注明出处！
+		</li>
+	</ul>
+</blockquote>
+ 
+<div class="panel panel-default panel-badger">
+	<div class="panel-body">
+		<figure class="media">
+			<div class="media-left">
+				<a
+					href="https://blog.rexhang.com"
+					target="_blank"
+					class="img-burn thumb-sm visible-lg"
+				>
+					<img
+						src="/images/avatar.png"
+						class="img-rounded w-full"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">
+					<a href="https://blog.rexhang.com" target="_blank"
+						><span class="text-dark">RexHang</span
+						><small class="ml-1x">前端开发工程师</small></a
+					>
+				</h3>
+				<div>个人简介。</div>
+			</div>
+		</figure>
+	</div>
+</div>
+
+
+    </div>
+  </article>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/12/articles/1/">探讨下前端开发过程中在苹果系统下的一些兼容性小坑以及解决方案</a>
-    </h1>
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
   
+</div>
 
-  </div>
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/12/articles/1/" class="article-date">
-	  <time datetime="2021-01-12T13:20:30.000Z" itemprop="datePublished">1月 12</time>
-	</a>
-</span>
+  <ul class="pager pull-left">
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/%E5%BF%83%E5%BE%97/">心得</a>
-  </span>
-
+    <li class="prev">
+      <a href="/2022/08/02/articles/1/" title="React代码整洁优化实践"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/apple/" rel="tag">apple</a>, <a class="article-tag-link-link" href="/tags/ios/" rel="tag">ios</a>, <a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/macos/" rel="tag">macos</a>, <a class="article-tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" rel="tag">前端多端开发兼容性</a>, <a class="article-tag-link-link" href="/tags/%E8%8B%B9%E6%9E%9C/" rel="tag">苹果</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/12/articles/1/#comments" class="article-comment-link">评论</a></span>
     
-  </p>
-</article>
-
+    <li class="next">
+      <a href="/2021/01/12/articles/1/" title="探讨下前端开发过程中在苹果系统下的一些兼容性小坑以及解决方案"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
     
+  </ul>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/10/articles/2/">Vue双向绑定的原理</a>
-    </h1>
   
-
-  </div>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
   
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/10/articles/2/" class="article-date">
-	  <time datetime="2021-01-10T07:56:57.000Z" itemprop="datePublished">1月 10</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Vue/" rel="tag">Vue</a>, <a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/10/articles/2/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/10/articles/1/">几种判断数组的方法</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/10/articles/1/" class="article-date">
-	  <time datetime="2021-01-09T16:01:22.000Z" itemprop="datePublished">1月 10</time>
-	</a>
-</span>
+  <div class="bar-right">
     
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/10/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/05/articles/2/">javascript函数防抖与节流</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/05/articles/2/" class="article-date">
-	  <time datetime="2021-01-04T18:03:33.000Z" itemprop="datePublished">1月 5</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/05/articles/2/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/05/articles/1/">如何创建一个TC的免费托管服务</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/05/articles/1/" class="article-date">
-	  <time datetime="2021-01-04T17:06:21.000Z" itemprop="datePublished">1月 5</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/">腾讯云</a>►<a class="article-category-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/">操作技巧</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/05/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
     
   </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，是我更新下去的动力!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                  <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-   
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -732,6 +596,33 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
    
 
 
+
+
+   
+    
+  <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'tl2dIYJMUMbG82JOw8puTVMh-gzGzoHsz',
+    appKey: 's6As7d7cnxk5Akr7TzLIigNG',
+    placeholder: '立刻参与讨论吧~下一个神评说不定就是你！',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 

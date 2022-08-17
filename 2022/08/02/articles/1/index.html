@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+
+  <title>React代码整洁优化实践 | Rexhang的Blog</title>
+
+  <meta name="keywords" content="React,代码优化 | 顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+
+  <meta name="description" content="整洁的代码不仅仅是正常运行的代码，更是要求易于阅读、简单易懂、组织整齐。在本文中，我会们将示例几种代码整洁案例。在阅读这些建议时，要记住这些只是建议！ 如果你不同意它们中的任何一个，那也完全没关系。以下这些实践，个人觉得对我自己编写 React 代码很有帮助。1. 仅对一个条件进行渲染 如果需要在条件为true时渲染某些内容，而在条件为false时不渲染任何内容，不推荐使用三元表达式，改用与运算符">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React代码整洁优化实践">
+<meta property="og:url" content="https://blog.rexhang.com/2022/08/02/articles/1/index.html">
+<meta property="og:site_name" content="Rexhang的Blog">
+<meta property="og:description" content="整洁的代码不仅仅是正常运行的代码，更是要求易于阅读、简单易懂、组织整齐。在本文中，我会们将示例几种代码整洁案例。在阅读这些建议时，要记住这些只是建议！ 如果你不同意它们中的任何一个，那也完全没关系。以下这些实践，个人觉得对我自己编写 React 代码很有帮助。1. 仅对一个条件进行渲染 如果需要在条件为true时渲染某些内容，而在条件为false时不渲染任何内容，不推荐使用三元表达式，改用与运算符">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-02T14:16:48.000Z">
+<meta property="article:modified_time" content="2022-08-04T14:41:49.524Z">
+<meta property="article:author" content="RexHang">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="前端框架">
+<meta name="twitter:card" content="summary">
+
+
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.rexhang.com/2022/08/02/articles/1/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://blog.rexhang.com" target="_self">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">RexHang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端开发工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Xi&#39;an, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流, 联系博主 &nbsp;<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1134916452&site=qq&menu=yes"><img border="0" src="//pub.idqqimg.com/qconn/wpa/button/button_111.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/%E5%BF%83%E5%BE%97/">心得</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/">图表</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/G2/">G2</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/">腾讯云</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/">操作技巧</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">javascript字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E5%B0%8Ftips/" rel="tag">js小tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E6%8A%80%E5%B7%A7/" rel="tag">js技巧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" rel="tag">前端多端开发兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B9%E6%9E%9C/" rel="tag">苹果</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/React/" style="font-size: 13px;">React</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/apple/" style="font-size: 13px;">apple</a> <a href="/tags/ios/" style="font-size: 13px;">ios</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13px;">javascript字符串</a> <a href="/tags/javascript%E6%95%B0%E7%BB%84/" style="font-size: 13.67px;">javascript数组</a> <a href="/tags/js%E5%B0%8Ftips/" style="font-size: 13px;">js小tips</a> <a href="/tags/js%E6%8A%80%E5%B7%A7/" style="font-size: 13px;">js技巧</a> <a href="/tags/macos/" style="font-size: 13px;">macos</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 13px;">前端多端开发兼容性</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 13.33px;">前端框架</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 13px;">腾讯云</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 13px;">苹果</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/04/articles/1/" class="title">JS中非常实用的『一行代码』</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-04T04:03:28.000Z" itemprop="datePublished">2022-08-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/">图表</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/04/articles/2/" class="title">一套面向常规统计图表，以数据驱动的高交互可视化图形语法 - G2</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-04T01:27:08.000Z" itemprop="datePublished">2022-08-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/02/articles/1/" class="title">React代码整洁优化实践</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-02T14:16:48.000Z" itemprop="datePublished">2022-08-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/05/14/articles/1/" class="title">数组的一些常用方法及使用区别</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-05-13T16:22:22.000Z" itemprop="datePublished">2021-05-14</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/01/12/articles/1/" class="title">探讨下前端开发过程中在苹果系统下的一些兼容性小坑以及解决方案</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-12T13:20:30.000Z" itemprop="datePublished">2021-01-12</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="posts-React代码整洁优化实践" class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      React代码整洁优化实践
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/08/02/articles/1/" class="article-date">
+	  <time datetime="2022-08-02T14:16:48.000Z" itemprop="datePublished">2022-08-02</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/React/" rel="tag">React</a>, <a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/02/articles/1/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h5 id="整洁的代码不仅仅是正常运行的代码，更是要求易于阅读、简单易懂、组织整齐。"><a href="#整洁的代码不仅仅是正常运行的代码，更是要求易于阅读、简单易懂、组织整齐。" class="headerlink" title="整洁的代码不仅仅是正常运行的代码，更是要求易于阅读、简单易懂、组织整齐。"></a>整洁的代码不仅仅是正常运行的代码，更是要求易于阅读、简单易懂、组织整齐。</h5><h5 id="在本文中，我会们将示例几种代码整洁案例。"><a href="#在本文中，我会们将示例几种代码整洁案例。" class="headerlink" title="在本文中，我会们将示例几种代码整洁案例。"></a>在本文中，我会们将示例几种代码整洁案例。</h5><h5 id="在阅读这些建议时，要记住这些只是建议！-如果你不同意它们中的任何一个，那也完全没关系。"><a href="#在阅读这些建议时，要记住这些只是建议！-如果你不同意它们中的任何一个，那也完全没关系。" class="headerlink" title="在阅读这些建议时，要记住这些只是建议！ 如果你不同意它们中的任何一个，那也完全没关系。"></a>在阅读这些建议时，要记住这些只是建议！ 如果你不同意它们中的任何一个，那也完全没关系。</h5><h5 id="以下这些实践，个人觉得对我自己编写-React-代码很有帮助。"><a href="#以下这些实践，个人觉得对我自己编写-React-代码很有帮助。" class="headerlink" title="以下这些实践，个人觉得对我自己编写 React 代码很有帮助。"></a>以下这些实践，个人觉得对我自己编写 React 代码很有帮助。</h5><h2 id="1-仅对一个条件进行渲染"><a href="#1-仅对一个条件进行渲染" class="headerlink" title="1. 仅对一个条件进行渲染"></a>1. 仅对一个条件进行渲染</h2><blockquote>
+<p>如果需要在条件为<code>true</code>时渲染某些内容，而在条件为<code>false</code>时不渲染任何内容，不推荐使用三元表达式，改用<strong>与运算符</strong><code>&amp;&amp;</code>，它可以方便地条件渲染一个元素。</p>
+</blockquote>
+<p>优化前:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> TopNav = <span class="function">(<span class="params">props: &#123; showSearch?: boolean &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; showSearch = <span class="literal">false</span> &#125; = props;</span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		&lt;div className=<span class="string">&quot;doc-head&quot;</span>&gt;</span><br><span class="line">			&#123;<span class="comment">/* 三元表达式进行条件渲染 */</span>&#125;</span><br><span class="line">			&#123;showSearch ? <span class="xml"><span class="tag">&lt;<span class="name">SearchBox</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入关键词搜索&quot;</span> <span class="attr">onSearch</span>=<span class="string">&#123;(keyword)</span> =&gt;</span> window.location.assign(`/privatecloud/search?q=$&#123;keyword&#125;`)&#125; style=&#123;&#123; marginRight: 100 &#125;&#125; /&gt;</span> : <span class="literal">null</span>&#125;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>优化后:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> TopNav = <span class="function">(<span class="params">props: &#123; showSearch?: boolean &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; showSearch = <span class="literal">false</span> &#125; = props;</span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		&lt;div className=<span class="string">&quot;doc-head&quot;</span>&gt;</span><br><span class="line">			&#123;<span class="comment">/* 与运算符&amp;&amp;进行条件渲染 */</span>&#125;</span><br><span class="line">			&#123;showSearch &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">SearchBox</span> <span class="attr">placeholder</span>=<span class="string">&quot;输入关键词搜索&quot;</span> <span class="attr">onSearch</span>=<span class="string">&#123;(keyword)</span> =&gt;</span> window.location.assign(`/privatecloud/search?q=$&#123;keyword&#125;`)&#125; style=&#123;&#123; marginRight: 100 &#125;&#125; /&gt;</span>&#125;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="2-每一个条件都可能进行渲染"><a href="#2-每一个条件都可能进行渲染" class="headerlink" title="2. 每一个条件都可能进行渲染"></a>2. 每一个条件都可能进行渲染</h2><blockquote>
+<p>如果需要在条件为 true 时渲染某些内容，而在条件为 false 时渲染其他内容。推荐使用<code>三元表达式</code>！</p>
+</blockquote>
+<p>优化前:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">/* 条件 True 和 False 都要渲染内容 */</span>&#125;</span><br><span class="line">&#123; good &amp;&amp; <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Good!<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span> &#125;</span><br><span class="line">&#123; !good &amp;&amp; &lt;p&gt;&lt;b&gt;Not Good!&lt;b&gt;&lt;/p&gt; &#125;</span><br></pre></td></tr></table></figure>
+<p>优化后:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* 三元表达式 */</span></span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">	good ? (</span><br><span class="line">		&lt;p&gt;Good!&lt;/p&gt;</span><br><span class="line">	) : (</span><br><span class="line">		&lt;p&gt;</span><br><span class="line">			&lt;b&gt;Not Good!&lt;/b&gt;</span><br><span class="line">		&lt;/p&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-组件-Boolean-props-传参"><a href="#3-组件-Boolean-props-传参" class="headerlink" title="3. 组件 Boolean props 传参"></a>3. 组件 Boolean props 传参</h2><blockquote>
+<p>组件接收参数的属性值为布尔类型, 并且传入 true 值时，可以省略填写值，并不会影响组件内取到 true 值</p>
+</blockquote>
+<p>优化前:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello disabled=&#123;<span class="literal">true</span>&#125; /&gt;</span><br><span class="line">&lt;Hello disabled=&#123;<span class="literal">false</span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>优化后:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello disabled /&gt;</span><br><span class="line">&lt;Hello disabled=&#123;<span class="literal">false</span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="4-组件-String-props-传参"><a href="#4-组件-String-props-传参" class="headerlink" title="4. 组件 String props 传参"></a>4. 组件 String props 传参</h2><blockquote>
+<p>组件 Props 值为 String, 推荐使用双引号包裹，不使用花括号或反引号。</p>
+</blockquote>
+<p>优化前:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello personName=&#123;<span class="string">&quot;Jim&quot;</span>&#125; /&gt;</span><br><span class="line">&lt;Hello personName=&#123;<span class="string">&#x27;Tom&#x27;</span>&#125; /&gt;</span><br><span class="line">&lt;Hello personName=&#123;<span class="string">`Ken`</span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>优化后:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello personName=<span class="string">&quot;Jim&quot;</span> /&gt;</span><br><span class="line">&lt;Hello personName=<span class="string">&quot;Tom&quot;</span> /&gt;</span><br><span class="line">&lt;Hello personName=<span class="string">&quot;Ken&quot;</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="5-Event-handler-functions"><a href="#5-Event-handler-functions" class="headerlink" title="5. Event handler functions"></a>5. Event handler functions</h2><blockquote>
+<p>如果一个事件函数只接受一个参数，不需要传入匿名函数：onChange={ e =&gt; handleChange(e) }，推荐这种写法(直接等于函数)： onChange={ handleChange } 。</p>
+</blockquote>
+<p>优化前:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handleChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.info(e.target.value);</span><br><span class="line">&#125;;</span><br><span class="line">&lt;input id=<span class="string">&quot;name&quot;</span> value=&#123;inputValue&#125; onChange=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> handleChange(e)&#125; /&gt;;</span><br></pre></td></tr></table></figure>
+<p>优化后:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> handleChange = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="built_in">console</span>.info(e.target.value);</span><br><span class="line">&#125;;</span><br><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* 事件只有一个参数，不需要匿名函数*/</span></span><br><span class="line">&#125;</span><br><span class="line">&lt;input id=<span class="string">&quot;name&quot;</span> value=&#123;inputValue&#125; onChange=&#123;handleChange&#125; /&gt;;</span><br></pre></td></tr></table></figure>
+<h2 id="6-components-as-props"><a href="#6-components-as-props" class="headerlink" title="6. components as props"></a>6. components as props</h2><blockquote>
+<p>将组件作为参数传递给另一个组件时，如果该组件不接受任何参数，则无需将该传递的组件包装在函数中。</p>
+</blockquote>
+<p>优化前:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello ClockComponent=&#123;<span class="function">() =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">Clock</span> <span class="attr">timestamp</span>=<span class="string">&#123;new</span> <span class="attr">Date</span>()<span class="attr">.getTime</span>()&#125; /&gt;</span></span>&#125; /&gt;</span><br><span class="line">&lt;Hello ClockComponent=&#123;<span class="function">() =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">Clock</span> /&gt;</span></span>&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<p>优化后:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Hello ClockComponent=&#123;<span class="function">() =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">Clock</span> <span class="attr">timestamp</span>=<span class="string">&#123;new</span> <span class="attr">Date</span>()<span class="attr">.getTime</span>()&#125; /&gt;</span></span>&#125; /&gt;</span><br><span class="line">&lt;Hello ClockComponent=&#123;Clock&#125; /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="7-设置-state-依赖先前的-state"><a href="#7-设置-state-依赖先前的-state" class="headerlink" title="7. 设置 state 依赖先前的 state"></a>7. 设置 state 依赖先前的 state</h2><blockquote>
+<p>如果新 state 依赖于先前 state，则始终将 state 设置为先前 state 的函数。可以批处理 React 状态更新。</p>
+</blockquote>
+<p>优化前:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Hello = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> [cout, setCount] = useState &lt; number &gt; <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 依赖先前/上一个的state值 (异步调用)</span></span><br><span class="line">	<span class="keyword">const</span> handleClick = <span class="function">(<span class="params">e</span>) =&gt;</span> setCount(cout + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 期望执行2次 首次执行理应 cout = 2</span></span><br><span class="line">	<span class="keyword">const</span> handleClickRunDouble = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="comment">// 执行第二个handleClick执行的时候第一个count设置未完成(异步的)，所以还是 count = 0 = 0 + 1 = 1 因此 首次的点击得到的值 = 1 而并非2, 如果需要实现2 那么就得利用setState的批处理方式</span></span><br><span class="line">		handleClick(e);</span><br><span class="line">		handleClick(e);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		&lt;div&gt;</span><br><span class="line">			&lt;button onclick=&#123;handleClick&#125;&gt;click here&lt;/button&gt;</span><br><span class="line">			&lt;span&gt;&#123;count&#125;&lt;/span&gt;</span><br><span class="line">			&lt;button onclick=&#123;handleClickRunDouble&#125;&gt;click here &amp; lunch <span class="number">2</span> times&lt;/button&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>优化后:</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> Hello = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">const</span> [cout, setCount] = useState &lt; number &gt; <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">/* 将set调用设置为批处理模式 使用set方法提供的callback内的数值 */</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">const</span> handleClick = <span class="function">(<span class="params">e</span>) =&gt;</span> setCount(<span class="function">(<span class="params">c</span>) =&gt;</span> c + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 首次调用后会输出最新的值 count = 2;</span></span><br><span class="line">	<span class="keyword">const</span> handleClickRunDouble = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">		handleClick(e);</span><br><span class="line">		handleClick(e);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		&lt;div&gt;</span><br><span class="line">			&lt;button onclick=&#123;handleClick&#125;&gt;click here&lt;/button&gt;</span><br><span class="line">			&lt;span&gt;&#123;count&#125;&lt;/span&gt;</span><br><span class="line">			&lt;button onclick=&#123;handleClickRunDouble&#125;&gt;click here &amp; lunch <span class="number">2</span> times&lt;/button&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>以上 7 个就是我推荐和总结的几个<code>React</code><strong>代码整洁优化实践</strong> 。</p>
+<p>最后，祝大家<strong>开发愉快</strong>！</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+	<ul class="post-copyright list-unstyled">
+		
+		<li class="post-copyright-link hidden-xs">
+			<strong>本文链接：</strong>
+			<a
+				href="https://blog.rexhang.com/2022/08/02/articles/1/"
+				title="React代码整洁优化实践"
+				target="_blank"
+				rel="external"
+				>右键可以复制链接地址</a
+			>
+		</li>
+		
+		<li class="post-copyright-license">
+			<strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用
+			<a
+				href="http://creativecommons.org/licenses/by/4.0/deed.zh"
+				target="_blank"
+				rel="external"
+				>CC BY 4.0 CN协议</a
+			>
+			许可协议。转载请注明出处！
+		</li>
+	</ul>
+</blockquote>
+ 
+<div class="panel panel-default panel-badger">
+	<div class="panel-body">
+		<figure class="media">
+			<div class="media-left">
+				<a
+					href="https://blog.rexhang.com"
+					target="_blank"
+					class="img-burn thumb-sm visible-lg"
+				>
+					<img
+						src="/images/avatar.png"
+						class="img-rounded w-full"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">
+					<a href="https://blog.rexhang.com" target="_blank"
+						><span class="text-dark">RexHang</span
+						><small class="ml-1x">前端开发工程师</small></a
+					>
+				</h3>
+				<div>个人简介。</div>
+			</div>
+		</figure>
+	</div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/08/04/articles/2/" title="一套面向常规统计图表，以数据驱动的高交互可视化图形语法 - G2"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/05/14/articles/1/" title="数组的一些常用方法及使用区别"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，是我更新下去的动力!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                  <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+            <a href="https://blog.cofess.com/2017/11/01/hexo-blog-theme-pure-usage-description.html" target="_blank">configuration guidelines</a>
+        </div>
+    </div>
+</footer>
+  <script src="//unpkg.com/jquery@1.11.1/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'tl2dIYJMUMbG82JOw8puTVMh-gzGzoHsz',
+    appKey: 's6As7d7cnxk5Akr7TzLIigNG',
+    placeholder: '立刻参与讨论吧~下一个神评说不定就是你！',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+<script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script src="/js/registerWeChatDevConfig.js"></script>
+<script src="/js/console.log.js"></script>
+
+</body>
+</html>

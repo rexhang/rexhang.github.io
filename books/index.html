@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8">
   
+  <meta name="referrer" content="never">
+  
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="renderer" content="webkit">
@@ -18,24 +20,26 @@
   
   
 
-  <title>Rexhang的Blog</title>
+  <title>书单 | Rexhang的Blog</title>
 
   <meta name="keywords" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
 
   <meta name="description" content="RexHang">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Rexhang的Blog">
-<meta property="og:url" content="https://blog.rexhang.com/index.html">
+<meta property="og:title" content="书单">
+<meta property="og:url" content="https://blog.rexhang.com/books/index.html">
 <meta property="og:site_name" content="Rexhang的Blog">
 <meta property="og:description" content="RexHang">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-08-02T14:05:22.001Z">
+<meta property="article:modified_time" content="2022-08-02T14:05:22.001Z">
 <meta property="article:author" content="RexHang">
 <meta property="article:tag" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
 <meta name="twitter:card" content="summary">
 
 
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.rexhang.com/index.html">
+  <link rel="canonical" href="https://blog.rexhang.com/books/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
   
@@ -52,7 +56,7 @@
 <meta name="generator" content="Hexo 5.3.0"></head>
 
 
-<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+<body class="main-center no-sidebar" itemscope itemtype="http://schema.org/WebPage">
   <header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="slimContent">
     <div class="navbar-header">
@@ -334,345 +338,42 @@
 
   
   <main class="main" role="main">
-  
-  <div class="content article-list">
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/04/articles/1/">JS中非常实用的『一行代码』</a>
-    </h1>
-  
-
+  <article class="article article-links article-type-list" itemscope="">
+  <header class="article-header">
+    <h1 itemprop="title">书单</h1>
+    <p class="text-muted">个人收藏的书单推荐给大家 <a href="https://www.douban.com/people/rexhang/" target="_blank">[我的豆瓣]</a></p>
+    <nav role="navigation" id="nav-main" class="okayNav">
+      <ul id="tabs">
+        <li><a id="reading-tab" href="javascript:show('reading')" rel="external">在读<span id="reading-total"></span></a></li>
+        <li><a id="wish-tab" href="javascript:show('wish')" rel="external">想读<span id="wish-total"></span></a></li>
+        <li><a id="read-tab" href="javascript:show('read')" rel="external">已读<span id="read-total"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="article-body">
+    <div id="loading">
+      <p>正在加载...</p>
+    </div>
+    <div id="douban">
+      <div id="collections">
+        <div id="reading" class="row hide">
+        </div>
+        <div class="clearfix"></div>
+        <div id="wish" class="row hide">
+        </div>
+        <div class="clearfix"></div>
+        <div id="read" class="row hide">
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
   </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/04/articles/1/" class="article-date">
-	  <time datetime="2022-08-04T04:03:28.000Z" itemprop="datePublished">8月 4</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">javascript字符串</a>, <a class="article-tag-link-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a>, <a class="article-tag-link-link" href="/tags/js%E5%B0%8Ftips/" rel="tag">js小tips</a>, <a class="article-tag-link-link" href="/tags/js%E6%8A%80%E5%B7%A7/" rel="tag">js技巧</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/04/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
 </article>
 
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/04/articles/2/">一套面向常规统计图表，以数据驱动的高交互可视化图形语法 - G2</a>
-    </h1>
   
 
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/04/articles/2/" class="article-date">
-	  <time datetime="2022-08-04T01:27:08.000Z" itemprop="datePublished">8月 4</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/">图表</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/G2/">G2</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>
-  </span>
 
 
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/04/articles/2/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/02/articles/1/">React代码整洁优化实践</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/02/articles/1/" class="article-date">
-	  <time datetime="2022-08-02T14:16:48.000Z" itemprop="datePublished">8月 2</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/React/" rel="tag">React</a>, <a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/02/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/05/14/articles/1/">数组的一些常用方法及使用区别</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/05/14/articles/1/" class="article-date">
-	  <time datetime="2021-05-13T16:22:22.000Z" itemprop="datePublished">5月 14</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/05/14/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/12/articles/1/">探讨下前端开发过程中在苹果系统下的一些兼容性小坑以及解决方案</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/12/articles/1/" class="article-date">
-	  <time datetime="2021-01-12T13:20:30.000Z" itemprop="datePublished">1月 12</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/%E5%BF%83%E5%BE%97/">心得</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/apple/" rel="tag">apple</a>, <a class="article-tag-link-link" href="/tags/ios/" rel="tag">ios</a>, <a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/macos/" rel="tag">macos</a>, <a class="article-tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" rel="tag">前端多端开发兼容性</a>, <a class="article-tag-link-link" href="/tags/%E8%8B%B9%E6%9E%9C/" rel="tag">苹果</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/12/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/10/articles/2/">Vue双向绑定的原理</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/10/articles/2/" class="article-date">
-	  <time datetime="2021-01-10T07:56:57.000Z" itemprop="datePublished">1月 10</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Vue/" rel="tag">Vue</a>, <a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/10/articles/2/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/10/articles/1/">几种判断数组的方法</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/10/articles/1/" class="article-date">
-	  <time datetime="2021-01-09T16:01:22.000Z" itemprop="datePublished">1月 10</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/10/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/05/articles/2/">javascript函数防抖与节流</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/05/articles/2/" class="article-date">
-	  <time datetime="2021-01-04T18:03:33.000Z" itemprop="datePublished">1月 5</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/05/articles/2/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-      <article class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/05/articles/1/">如何创建一个TC的免费托管服务</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2021/01/05/articles/1/" class="article-date">
-	  <time datetime="2021-01-04T17:06:21.000Z" itemprop="datePublished">1月 5</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/">腾讯云</a>►<a class="article-category-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/">操作技巧</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/01/05/articles/1/#comments" class="article-comment-link">评论</a></span>
-    
-  </p>
-</article>
-
-    
-  </div>
-
-   
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -728,8 +429,153 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+   <script>
+function show(id) {
+  document.getElementById('reading').classList.remove('active');
+  document.getElementById('read').classList.remove('active');
+  document.getElementById('wish').classList.remove('active');
+  document.getElementById('reading').classList.add('hide');
+  document.getElementById('read').classList.add('hide');
+  document.getElementById('wish').classList.add('hide');
 
-   
+  var ele = document.getElementById(id);
+  ele.classList.remove('hide');
+  ele.classList.add('active');
+
+  document.getElementById('reading-tab').classList.remove('active');
+  document.getElementById('read-tab').classList.remove('active');
+  document.getElementById('wish-tab').classList.remove('active');
+  document.getElementById(id + '-tab').classList.add('active');
+};
+
+(function() {
+  var read = [];
+  var wish = [];
+  var reading = [];
+
+  // XHR 获取豆瓣书单数据，数据格式json
+  // function loadDoubanCollections() {
+  //   var xhr = new XMLHttpRequest();
+  //   // https://api.douban.com/v2/book/user/:name/collections
+  //   xhr.open('GET', 'http://7b1fa0.com1.z0.glb.clouddn.com/douban-20170429-1.json', true);
+
+  //   xhr.onload = function() {
+  //     // console.log(this);
+  //     if (this.status >= 200 && this.status < 300) {
+  //       var res = JSON.parse(this.response);
+  //       searchData = res;
+  //       onLoadDouban(searchData);
+  //     } else {
+  //       console.error(this.statusText);
+  //     }
+  //   };
+
+  //   xhr.onerror = function() {
+  //     console.error(this.statusText);
+  //   };
+
+  //   xhr.send();
+  // }
+  
+  // Ajax 获取豆瓣书单数据，数据格式json
+  function loadDoubanCollections() {
+    var _this = this;
+    // https://api.douban.com/v2/book/user/:name/collections?start=0&count=100
+    var url = "https://api.douban.com/v2/book/user/rexhang/collections"
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {
+        start:0, // 从哪一条记录开始
+        count:100 // 获取豆瓣书单数据条数
+      },
+      dataType: 'JSONP', //here
+      success: function(data) {
+        // console.log(data);
+        onLoadDouban(data);
+      }
+    });
+  }
+
+  function onLoadDouban(data) {
+    if (data['count'] > 0) {
+      for (var i = 0; i < data['collections'].length; ++i) {
+        resolveBook(data['collections'][i]);
+      }
+    }
+    render();
+  }
+
+  function resolveBook(book) {
+    if (book['status'] == 'read') {
+      read.push(book);
+    }
+    if (book['status'] == 'wish') {
+      wish.push(book);
+    }
+    if (book['status'] == 'reading') {
+      reading.push(book);
+    }
+  }
+
+  function render() {
+    renderList(read, 'read');
+    renderList(wish, 'wish');
+    renderList(reading, 'reading');
+
+    document.getElementById('reading-total').innerHTML = '(' + reading.length + ')';
+    document.getElementById('read-total').innerHTML = '(' + read.length + ')';
+    document.getElementById('wish-total').innerHTML = '(' + wish.length + ')';
+
+    show('reading');
+    document.getElementById('loading').classList.add('hide');
+  }
+
+  function renderList(list, id) {
+    for (var i = 0; i < list.length; ++i) {
+      var h = renderBook(list[i]);
+      if (i > 0 && i % 4 == 3) {
+        h += '<div class="clearfix"></div>';
+      }
+      document.getElementById(id).innerHTML = document.getElementById(id).innerHTML + h;
+    }
+  }
+
+  function renderBook(book) {
+    var html = '<div class="col-sm-6 col-md-6"><div class="panel panel-default hover-grow"><div class="panel-body">'
+      + '<div class="media media-middle book book-' + book['status'] + '" itemscope itemtype="http://schema.org/Book">' 
+      + '<div class="media-left"><a class="media-middle" target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer"><img class="media-object" src="' + book.book.image + '" itemprop="image"/></a></div><div class="media-body">' 
+      + '<h3 class="media-heading" itemprop="name"><a target="_blank" href="' + book.book.alt + '" rel="external nofollow noopener noreferrer">' + book.book.title + '</a></h3>' 
+      + '<p class="meta text-nowrap-1x"><small itemprop="author">' + book.book.author[0] + '</small> / <small itemprop="datePublished">' + book.book.pubdate + '</small> / <small itemprop="ratingValue">' + book.book.rating.average + '分</small></p>' 
+      + '<p class="meta text-nowrap-1x">' + book.updated.substring(0, 10) + resolveRating(book.rating) + resolveTags(book.tags) + '</p>' 
+      + '<div class="comments text-muted text-nowrap-3x" itemprop="comment">' + (book.comment ? book.comment : '') + '</div>' 
+      + '</div>' + '</div>' + '</div>' + '</div>' + '</div>';
+    return html;
+  }
+
+  function resolveRating(rating) {
+    if (rating && rating.value) {
+      return ' / ' + rating.value + '星';
+    }
+    return '';
+  }
+
+  function resolveTags(tags) {
+    if (tags && tags.length > 0) {
+      var html = ' / ';
+      for (var i = 0; i < tags.length; ++i) {
+        html += tags[i] + ' ';
+      }
+      return html;
+    }
+    return '';
+  }
+
+  setTimeout(function() {
+    loadDoubanCollections();
+  }, 0)
+})()
+</script>
 
 
 
