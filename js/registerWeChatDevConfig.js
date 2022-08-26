@@ -1,3 +1,6 @@
+// 注册环境参数
+globalThis.Env = location.host.indexOf('localhost:') !== -1 ? 'dev' : 'production';;
+
 const jsApiList = [
 	"checkJsApi",
 	"onMenuShareTimeline",
@@ -53,32 +56,34 @@ const shareInfo = {
 	},
 };
 
-jQuery.getJSON(
-	"https://rexhang.com/wx_test/api.php?url=" +
-		encodeURIComponent(location.href.split("#")[0]),
-	function (data) {
-		wx.config({
-			debug: false,
-			appId: "wxaad1993fd8fa617a",
-			timestamp: data.timestamp,
-			nonceStr: data.nonceStr,
-			signature: data.signature,
-			jsApiList,
-		});
-		wx.ready(function () {
-			// 注册朋友分享配置
-			wx.onMenuShareAppMessage(shareInfo);
-			// 注册朋友圈分享配置
-			wx.onMenuShareTimeline(shareInfo);
-			// 注册QQ分享配置
-			wx.onMenuShareQQ(shareInfo);
-			// 注册QQ空间分享配置
-			wx.onMenuShareQZone(shareInfo);
-			// 注册微博分享配置
-			wx.onMenuShareWeibo(shareInfo);
-		});
-		wx.error(function (res) {
-			alert(res.errMsg);
-		});
-	}
-);
+if (globalThis.Env === 'production') {
+	jQuery.getJSON(
+		"https://rexhang.com/wx_test/api.php?url=" +
+			encodeURIComponent(location.href.split("#")[0]),
+		function (data) {
+			wx.config({
+				debug: false,
+				appId: "wxaad1993fd8fa617a",
+				timestamp: data.timestamp,
+				nonceStr: data.nonceStr,
+				signature: data.signature,
+				jsApiList,
+			});
+			wx.ready(function () {
+				// 注册朋友分享配置
+				wx.onMenuShareAppMessage(shareInfo);
+				// 注册朋友圈分享配置
+				wx.onMenuShareTimeline(shareInfo);
+				// 注册QQ分享配置
+				wx.onMenuShareQQ(shareInfo);
+				// 注册QQ空间分享配置
+				wx.onMenuShareQZone(shareInfo);
+				// 注册微博分享配置
+				wx.onMenuShareWeibo(shareInfo);
+			});
+			wx.error(function (res) {
+				alert(res.errMsg);
+			});
+		}
+	);
+}
