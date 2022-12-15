@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+
+  <title>使用mask实现视频弹幕人物遮罩过滤，就是牛逼 | Rexhang的Blog</title>
+
+  <meta name="keywords" content="css3,mask,遮罩 | 顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+
+  <meta name="description" content="经常看一些LOL比赛直播的小伙伴，肯定都知道，在一些弹幕网站（Bilibili、虎牙）中，当人物与弹幕出现在一起的时候，弹幕会“巧妙”的躲到人物的下面，看着非常的智能。 简单的一个截图例子：  其实，这里是运用了 CSS 中的 mask 属性实现的。 mask 简单用法介绍 这里只简单介绍下 mask 的基本用法： 最基本，使用 mask 的方式是借助图片，类似这样： 12345&amp;#123;	&#x2F;*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用mask实现视频弹幕人物遮罩过滤，就是牛逼">
+<meta property="og:url" content="https://blog.rexhang.com/2022/09/30/articles/2/index.html">
+<meta property="og:site_name" content="Rexhang的Blog">
+<meta property="og:description" content="经常看一些LOL比赛直播的小伙伴，肯定都知道，在一些弹幕网站（Bilibili、虎牙）中，当人物与弹幕出现在一起的时候，弹幕会“巧妙”的躲到人物的下面，看着非常的智能。 简单的一个截图例子：  其实，这里是运用了 CSS 中的 mask 属性实现的。 mask 简单用法介绍 这里只简单介绍下 mask 的基本用法： 最基本，使用 mask 的方式是借助图片，类似这样： 12345&amp;#123;	&#x2F;*">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/1.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/2.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/3.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/4.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/5.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/6.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/7.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/8.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/9.webp#pic_center">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2022-09-30/10.webp#pic_center">
+<meta property="article:published_time" content="2022-09-30T08:17:28.000Z">
+<meta property="article:modified_time" content="2022-10-25T14:41:49.323Z">
+<meta property="article:author" content="RexHang">
+<meta property="article:tag" content="css3">
+<meta property="article:tag" content="mask">
+<meta property="article:tag" content="遮罩">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.rexhang.com/images/blog/2022-09-30/1.webp#pic_center">
+
+
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.rexhang.com/2022/09/30/articles/2/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://blog.rexhang.com" target="_self">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">RexHang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端开发工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Xi&#39;an, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流, 联系博主 &nbsp;<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1134916452&site=qq&menu=yes"><img border="0" src="//pub.idqqimg.com/qconn/wpa/button/button_111.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/node/">node</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/css3/">css3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/%E5%BF%83%E5%BE%97/">心得</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/">图表</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/G2/">G2</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/">游戏引擎</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/">腾讯云</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/">操作技巧</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocosCreator/" rel="tag">CocosCreator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d/" rel="tag">cocos2d</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devtools/" rel="tag">devtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">javascript字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E5%B0%8Ftips/" rel="tag">js小tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E6%8A%80%E5%B7%A7/" rel="tag">js技巧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mask/" rel="tag">mask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" rel="tag">前端多端开发兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">开发工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" rel="tag">游戏引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B9%E6%9E%9C/" rel="tag">苹果</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%81%AE%E7%BD%A9/" rel="tag">遮罩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/" rel="tag">面试经</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CocosCreator/" style="font-size: 13px;">CocosCreator</a> <a href="/tags/JavaScript/" style="font-size: 13px;">JavaScript</a> <a href="/tags/React/" style="font-size: 13px;">React</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/apple/" style="font-size: 13px;">apple</a> <a href="/tags/cocos2d/" style="font-size: 13px;">cocos2d</a> <a href="/tags/css3/" style="font-size: 13px;">css3</a> <a href="/tags/devtools/" style="font-size: 13px;">devtools</a> <a href="/tags/ios/" style="font-size: 13px;">ios</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13px;">javascript字符串</a> <a href="/tags/javascript%E6%95%B0%E7%BB%84/" style="font-size: 13.67px;">javascript数组</a> <a href="/tags/js%E5%B0%8Ftips/" style="font-size: 13px;">js小tips</a> <a href="/tags/js%E6%8A%80%E5%B7%A7/" style="font-size: 13px;">js技巧</a> <a href="/tags/macos/" style="font-size: 13px;">macos</a> <a href="/tags/mask/" style="font-size: 13px;">mask</a> <a href="/tags/node/" style="font-size: 13px;">node</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 13px;">前端多端开发兼容性</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 13.33px;">前端框架</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">开发工具</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" style="font-size: 13px;">游戏引擎</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 13px;">腾讯云</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 13px;">苹果</a> <a href="/tags/%E9%81%AE%E7%BD%A9/" style="font-size: 13px;">遮罩</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/" style="font-size: 13px;">面试经</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/12/15/articles/2/" class="title">如何编写web前端开发岗简历</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-12-15T04:10:01.000Z" itemprop="datePublished">2022-12-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/12/15/articles/1/" class="title">json-server的使用(接口数据mock好帮手)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-12-15T04:00:20.000Z" itemprop="datePublished">2022-12-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/css3/">css3</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/30/articles/2/" class="title">使用mask实现视频弹幕人物遮罩过滤，就是牛逼</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-30T08:17:28.000Z" itemprop="datePublished">2022-09-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/">游戏引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/30/articles/1/" class="title">CocosCreator实现不规则区域点击</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-30T07:36:22.000Z" itemprop="datePublished">2022-09-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/04/articles/1/" class="title">JS中非常实用的『一行代码』</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-04T04:03:28.000Z" itemprop="datePublished">2022-08-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="posts-使用mask实现视频弹幕人物遮罩过滤，就是牛逼" class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用mask实现视频弹幕人物遮罩过滤，就是牛逼
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/09/30/articles/2/" class="article-date">
+	  <time datetime="2022-09-30T08:17:28.000Z" itemprop="datePublished">2022-09-30</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/css3/">css3</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/css3/" rel="tag">css3</a>, <a class="article-tag-link-link" href="/tags/mask/" rel="tag">mask</a>, <a class="article-tag-link-link" href="/tags/%E9%81%AE%E7%BD%A9/" rel="tag">遮罩</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/30/articles/2/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>经常看一些<a target="_blank" rel="noopener" href="https://lol.qq.com/">LOL</a>比赛直播的小伙伴，肯定都知道，在一些弹幕网站（<a target="_blank" rel="noopener" href="https://www.bilibili.com/">Bilibili</a>、<a target="_blank" rel="noopener" href="https://www.huya.com/">虎牙</a>）中，当人物与弹幕出现在一起的时候，弹幕会“巧妙”的躲到人物的下面，看着非常的智能。</p>
+<p>简单的一个截图例子：</p>
+<p><img src="/images/blog/2022-09-30/1.webp#pic_center" alt="图片" title="图片"></p>
+<p>其实，这里是运用了 CSS 中的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/mask">mask</a> 属性实现的。</p>
+<h4 id="mask-简单用法介绍"><a href="#mask-简单用法介绍" class="headerlink" title="mask 简单用法介绍"></a>mask 简单用法介绍</h4><hr>
+<p>这里只简单介绍下 mask 的基本用法：</p>
+<p>最基本，使用 mask 的方式是借助图片，类似这样：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="comment">/* Image values */</span></span><br><span class="line">	<span class="attribute">mask</span>: <span class="built_in">url</span>(mask.png);                       <span class="comment">/* 使用位图来做遮罩 */</span></span><br><span class="line">	<span class="attribute">mask</span>: <span class="built_in">url</span>(masks.svg#star);                 <span class="comment">/* 使用 SVG 图形中的形状来做遮罩 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，使用图片的方式后文会再讲。借助图片的方式其实比较繁琐，因为我们首先还得准备相应的图片素材，除了图片，mask 还可以接受一个类似 background 的参数，也就是渐变。</p>
+<p>类似如下使用方法：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attribute">mask</span>: <span class="built_in">linear-gradient</span>(#<span class="number">000</span>, transparent)                      <span class="comment">/* 使用渐变来做遮罩 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那该具体怎么使用呢？一个非常简单的例子，上述我们创造了一个从黑色到透明渐变色，我们将它运用到实际中，代码类似这样：</p>
+<p>下面这样一张图片，<strong>叠加上一个从透明到黑色的渐变</strong>，</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attribute">background</span>: <span class="built_in">url</span>(image.png) ;</span><br><span class="line">	<span class="attribute">mask</span>: <span class="built_in">linear-gradient</span>(<span class="number">90deg</span>, transparent, #fff);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/blog/2022-09-30/2.webp#pic_center" alt="图片" title="图片"></p>
+<p>应用了 mask 之后，就会变成这样：</p>
+<p><img src="/images/blog/2022-09-30/3.webp#pic_center" alt="图片" title="图片"></p>
+<p>这个 DEMO，可以先简单了解到 mask 的基本用法。</p>
+<p>这里得到了使用 mask 最重要结论：<strong>添加了 mask 属性的元素，其内容会与 mask 表示的渐变的 transparent 的重叠部分，并且重叠部分将会变得透明。</strong></p>
+<p>值得注意的是，上面的渐变使用的是 <code>linear-gradient(90deg, transparent, #fff)</code>，这里的 <code>#fff</code> 纯色部分其实换成任意颜色都可以，不影响效果。</p>
+<h4 id="使用-mask-实现人物遮罩过滤"><a href="#使用-mask-实现人物遮罩过滤" class="headerlink" title="使用 mask 实现人物遮罩过滤"></a>使用 mask 实现人物遮罩过滤</h4><hr>
+<p>了解了 mask 的用法后，接下来，我们运用 mask，简单实现视频弹幕中，弹幕碰到人物，自动被隐藏过滤的例子。</p>
+<p>首先，我简单的模拟了一个召唤师峡谷，以及一些基本的弹幕：</p>
+<p><img src="/images/blog/2022-09-30/4.webp#pic_center" alt="图片" title="图片"></p>
+<p>方便示意，这里使用了一张静态图，表示了召唤师峡谷的地图，并非真的视频，而弹幕则是一条一条的 <code>&lt;p&gt;</code> 元素，和实际情况一致。伪代码大概是这样：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 地图 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;g-map&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 包裹所有弹幕的容器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;g-barrage-container&quot;</span>&gt;</span></span><br><span class="line">		<span class="comment">&lt;!-- 所有弹幕 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;g-barrage&quot;</span>&gt;</span>6666<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		...</span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;g-barrage&quot;</span>&gt;</span>6666<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>为了模拟实际情况，我们再用一个 div 添加一个实际的人物，如果不做任何处理，其实就是我们看视频打开弹幕的感受，人物被视频所遮挡：</p>
+<p><img src="/images/blog/2022-09-30/5.webp#pic_center" alt="图片" title="图片"></p>
+<p>注意，这里我添加了一个人物亚索，并且用 animation 模拟了简单的运动，在运动的过程中，人物是被弹幕给遮挡住的。</p>
+<p>接下来，就可以请出 mask 了。</p>
+<p>我们利用 mask 制作一个 <code>radial-gradient</code> ，使得人物附近为 <code>transparent</code>，并且根据人物运动的 animation，给 mask 的 <code>mask-position</code> 也添加上相同的 animation 即可。最终可以得到这样的效果：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.g-barrage-container</span> &#123;</span><br><span class="line">		<span class="attribute">position</span>: absolute;</span><br><span class="line">		<span class="attribute">mask</span>: <span class="built_in">radial-gradient</span>(circle at <span class="number">100px</span> <span class="number">100px</span>, transparent <span class="number">60px</span>, #fff <span class="number">80px</span>, #fff <span class="number">100%</span>);</span><br><span class="line">		<span class="attribute">animation</span>: mask <span class="number">10s</span> infinite alternate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> mask &#123;</span><br><span class="line">		100% &#123;</span><br><span class="line">				<span class="attribute">mask-position</span>: <span class="number">85vw</span> <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/blog/2022-09-30/6.webp#pic_center" alt="图片" title="图片"></p>
+<p>实际上就是给放置弹幕的容器，添加一个 <code>mask</code> 属性，把人物所在的位置标识出来，并且根据人物的运动不断的去变换这个 mask 即可。我们把 mask 换成 background，原理一看就懂。</p>
+<h5 id="把-mask-替换成-background-示意图："><a href="#把-mask-替换成-background-示意图：" class="headerlink" title="把 mask 替换成 background 示意图："></a>把 mask 替换成 background 示意图：</h5><p><img src="/images/blog/2022-09-30/7.webp#pic_center" alt="图片" title="图片"></p>
+<p>background 透明的地方，即 mask 中为 transparent 的部分，实际就是弹幕会被隐藏遮罩的部分，而其他白色部分，弹幕不会被隐藏，正是完美的利用了 mask 的特性。</p>
+<p>其实这项技术和视频本身是无关的，我们只需要根据视频计算需要屏蔽掉弹幕的位置，得到相应的 mask 参数即可。如果去掉背景和运动的人物，只保留弹幕和 mask，是这样的：</p>
+<p><img src="/images/blog/2022-09-30/8.webp#pic_center" alt="图片" title="图片"></p>
+<p><strong>需要明确的是，使用 mask，不是将弹幕部分给遮挡住，而是利用 mask，指定弹幕容器之下，哪些部分正常展示，哪些部分透明隐藏。</strong></p>
+<h4 id="实际生产环境中的运用"><a href="#实际生产环境中的运用" class="headerlink" title="实际生产环境中的运用"></a>实际生产环境中的运用</h4><hr>
+<p>当然，上面我们简单的还原了利用 mask 实现弹幕遮罩过滤的效果。但是实际情况比上述的场景复杂的多，因为人物英雄的位置是不确定的，每一刻都在变化。所以在实际生产环境中，mask 图片的参数，其实是由后端实时对视频进行处理计算出来的，然后传给前端，前端再进行渲染。</p>
+<p>对于运用了这项技术的直播网站，我们可以审查元素，看到包裹弹幕的容器的 mask 属性，每时每刻都在发生变化：</p>
+<p><img src="/images/blog/2022-09-30/9.webp#pic_center" alt="图片" title="图片"></p>
+<p>返回回来的其实是一个 SVG 图片，大概长这个样子：</p>
+<p><img src="/images/blog/2022-09-30/10.webp#pic_center" alt="图片" title="图片"></p>
+<p>这样，根据视频人物的实时位置变化，不断计算新的 mask，再实时作用于弹幕容器之上，实现遮罩过滤。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+	<ul class="post-copyright list-unstyled">
+		
+		<li class="post-copyright-link hidden-xs">
+			<strong>本文链接：</strong>
+			<a
+				href="https://blog.rexhang.com/2022/09/30/articles/2/"
+				title="使用mask实现视频弹幕人物遮罩过滤，就是牛逼"
+				target="_blank"
+				rel="external"
+				>右键可以复制链接地址</a
+			>
+		</li>
+		
+		<li class="post-copyright-license">
+			<strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用
+			<a
+				href="http://creativecommons.org/licenses/by/4.0/deed.zh"
+				target="_blank"
+				rel="external"
+				>CC BY 4.0 CN协议</a
+			>
+			许可协议。转载请注明出处！
+		</li>
+	</ul>
+</blockquote>
+ 
+<div class="panel panel-default panel-badger">
+	<div class="panel-body">
+		<figure class="media">
+			<div class="media-left">
+				<a
+					href="https://blog.rexhang.com"
+					target="_blank"
+					class="img-burn thumb-sm visible-lg"
+				>
+					<img
+						src="/images/avatar.png"
+						class="img-rounded w-full"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">
+					<a href="https://blog.rexhang.com" target="_blank"
+						><span class="text-dark">RexHang</span
+						><small class="ml-1x">前端开发工程师</small></a
+					>
+				</h3>
+				<div>个人简介。</div>
+			</div>
+		</figure>
+	</div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/12/15/articles/1/" title="json-server的使用(接口数据mock好帮手)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/09/30/articles/1/" title="CocosCreator实现不规则区域点击"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，是我更新下去的动力!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                  <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+            <a href="https://blog.cofess.com/2017/11/01/hexo-blog-theme-pure-usage-description.html" target="_blank">configuration guidelines</a>
+        </div>
+    </div>
+</footer>
+  <script src="//unpkg.com/jquery@1.11.1/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'tl2dIYJMUMbG82JOw8puTVMh-gzGzoHsz',
+    appKey: 's6As7d7cnxk5Akr7TzLIigNG',
+    placeholder: '立刻参与讨论吧~下一个神评说不定就是你！',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+<script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script src="/js/registerWeChatDevConfig.js"></script>
+<script src="/js/console.log.js"></script>
+
+</body>
+</html>

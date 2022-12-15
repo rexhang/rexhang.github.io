@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://blog.rexhang.com/2022/12/15/articles/2/</loc>
+    <lastmod>2022-12-15</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2022/12/15/articles/1/</loc>
+    <lastmod>2022-12-15</lastmod>
+  </url>
+  <url>
     <loc>https://blog.rexhang.com/2022/08/04/articles/1/</loc>
-    <lastmod>2022-08-21</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.rexhang.com/2022/08/02/articles/1/</loc>
-    <lastmod>2022-08-04</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.rexhang.com/2022/08/04/articles/2/</loc>
-    <lastmod>2022-08-04</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.rexhang.com/2021/01/12/articles/1/</loc>
-    <lastmod>2022-08-02</lastmod>
+    <lastmod>2022-12-15</lastmod>
   </url>
   <url>
     <loc>https://blog.rexhang.com/2021/05/14/articles/1/</loc>
-    <lastmod>2022-08-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.rexhang.com/2021/01/05/articles/2/</loc>
-    <lastmod>2022-08-02</lastmod>
-  </url>
-  <url>
-    <loc>https://blog.rexhang.com/2021/01/10/articles/1/</loc>
-    <lastmod>2022-08-02</lastmod>
+    <lastmod>2022-10-25</lastmod>
   </url>
   <url>
     <loc>https://blog.rexhang.com/2021/01/05/articles/1/</loc>
-    <lastmod>2022-08-02</lastmod>
+    <lastmod>2022-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2021/01/12/articles/1/</loc>
+    <lastmod>2022-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2021/01/05/articles/2/</loc>
+    <lastmod>2022-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2022/09/30/articles/2/</loc>
+    <lastmod>2022-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2021/01/10/articles/1/</loc>
+    <lastmod>2022-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2022/08/04/articles/2/</loc>
+    <lastmod>2022-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2022/08/02/articles/1/</loc>
+    <lastmod>2022-10-25</lastmod>
   </url>
   <url>
     <loc>https://blog.rexhang.com/2021/01/10/articles/2/</loc>
-    <lastmod>2022-08-02</lastmod>
+    <lastmod>2022-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://blog.rexhang.com/2022/09/30/articles/1/</loc>
+    <lastmod>2022-10-25</lastmod>
   </url>
 </urlset> 
