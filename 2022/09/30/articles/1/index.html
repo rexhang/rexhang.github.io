@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+
+  <title>CocosCreator实现不规则区域点击 | Rexhang的Blog</title>
+
+  <meta name="keywords" content="cocos2d,CocosCreator,游戏引擎 | 顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+
+  <meta name="description" content="一、问题背景在CocosCreator中，点击图片透明区域依然触发节点的点击事件。但在web开发中，可以使用Inkscape、SvgPathEditor等矢量图编辑器转为SVG，或者直接从figma中导出SVG，然后监听不规则图形事件。 以地图边界高亮为例：html 类似地图的不规则图形事件处理 123svg &amp;#123; height: 50vw; &amp;#125;path &amp;#123; fill:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CocosCreator实现不规则区域点击">
+<meta property="og:url" content="https://blog.rexhang.com/2022/09/30/articles/1/index.html">
+<meta property="og:site_name" content="Rexhang的Blog">
+<meta property="og:description" content="一、问题背景在CocosCreator中，点击图片透明区域依然触发节点的点击事件。但在web开发中，可以使用Inkscape、SvgPathEditor等矢量图编辑器转为SVG，或者直接从figma中导出SVG，然后监听不规则图形事件。 以地图边界高亮为例：html 类似地图的不规则图形事件处理 123svg &amp;#123; height: 50vw; &amp;#125;path &amp;#123; fill:">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2feaf42ea8864863ada2f494fa3a7da7.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/4e5244270dda45ff80b98fd19c7b3a46.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d0a357861d6c4b7eb9b8794c2372ea3a.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/56f4f806f5884c65a27ca7b18b48394b.png#pic_center">
+<meta property="article:published_time" content="2022-09-30T07:36:22.000Z">
+<meta property="article:modified_time" content="2022-10-25T14:41:49.321Z">
+<meta property="article:author" content="RexHang">
+<meta property="article:tag" content="cocos2d">
+<meta property="article:tag" content="CocosCreator">
+<meta property="article:tag" content="游戏引擎">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2feaf42ea8864863ada2f494fa3a7da7.png#pic_center">
+
+
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.rexhang.com/2022/09/30/articles/1/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://blog.rexhang.com" target="_self">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">RexHang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端开发工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Xi&#39;an, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流, 联系博主 &nbsp;<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1134916452&site=qq&menu=yes"><img border="0" src="//pub.idqqimg.com/qconn/wpa/button/button_111.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/node/">node</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/css3/">css3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/%E5%BF%83%E5%BE%97/">心得</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/">图表</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/G2/">G2</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/">游戏引擎</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><span class="category-list-count">5</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/">腾讯云</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/">操作技巧</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocosCreator/" rel="tag">CocosCreator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d/" rel="tag">cocos2d</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devtools/" rel="tag">devtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">javascript字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E5%B0%8Ftips/" rel="tag">js小tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E6%8A%80%E5%B7%A7/" rel="tag">js技巧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mask/" rel="tag">mask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" rel="tag">前端多端开发兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">开发工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" rel="tag">游戏引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B9%E6%9E%9C/" rel="tag">苹果</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%81%AE%E7%BD%A9/" rel="tag">遮罩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/" rel="tag">面试经</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/CocosCreator/" style="font-size: 13px;">CocosCreator</a> <a href="/tags/JavaScript/" style="font-size: 13px;">JavaScript</a> <a href="/tags/React/" style="font-size: 13px;">React</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/apple/" style="font-size: 13px;">apple</a> <a href="/tags/cocos2d/" style="font-size: 13px;">cocos2d</a> <a href="/tags/css3/" style="font-size: 13px;">css3</a> <a href="/tags/devtools/" style="font-size: 13px;">devtools</a> <a href="/tags/ios/" style="font-size: 13px;">ios</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13px;">javascript字符串</a> <a href="/tags/javascript%E6%95%B0%E7%BB%84/" style="font-size: 13.67px;">javascript数组</a> <a href="/tags/js%E5%B0%8Ftips/" style="font-size: 13px;">js小tips</a> <a href="/tags/js%E6%8A%80%E5%B7%A7/" style="font-size: 13px;">js技巧</a> <a href="/tags/macos/" style="font-size: 13px;">macos</a> <a href="/tags/mask/" style="font-size: 13px;">mask</a> <a href="/tags/node/" style="font-size: 13px;">node</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 13px;">前端多端开发兼容性</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 13.33px;">前端框架</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">开发工具</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" style="font-size: 13px;">游戏引擎</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 13px;">腾讯云</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 13px;">苹果</a> <a href="/tags/%E9%81%AE%E7%BD%A9/" style="font-size: 13px;">遮罩</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/" style="font-size: 13px;">面试经</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/">前端</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/12/15/articles/2/" class="title">如何编写web前端开发岗简历</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-12-15T04:10:01.000Z" itemprop="datePublished">2022-12-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/12/15/articles/1/" class="title">json-server的使用(接口数据mock好帮手)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-12-15T04:00:20.000Z" itemprop="datePublished">2022-12-15</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/css3/">css3</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/30/articles/2/" class="title">使用mask实现视频弹幕人物遮罩过滤，就是牛逼</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-30T08:17:28.000Z" itemprop="datePublished">2022-09-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/">游戏引擎</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/30/articles/1/" class="title">CocosCreator实现不规则区域点击</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-30T07:36:22.000Z" itemprop="datePublished">2022-09-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/04/articles/1/" class="title">JS中非常实用的『一行代码』</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-04T04:03:28.000Z" itemprop="datePublished">2022-08-04</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="posts-CocosCreator实现不规则区域点击" class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CocosCreator实现不规则区域点击
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/09/30/articles/1/" class="article-date">
+	  <time datetime="2022-09-30T07:36:22.000Z" itemprop="datePublished">2022-09-30</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/">游戏引擎</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/CocosCreator/" rel="tag">CocosCreator</a>, <a class="article-tag-link-link" href="/tags/cocos2d/" rel="tag">cocos2d</a>, <a class="article-tag-link-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" rel="tag">游戏引擎</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/30/articles/1/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="一、问题背景"><a href="#一、问题背景" class="headerlink" title="一、问题背景"></a>一、问题背景</h3><p>在<code>CocosCreator中</code>，点击图片透明区域依然触发节点的点击事件。但在web开发中，可以使用Inkscape、SvgPathEditor等矢量图编辑器转为SVG，或者直接从figma中导出SVG，然后监听不规则图形事件。</p>
+<p>以地图边界高亮为例：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0df99fe9951f">html 类似地图的不规则图形事件处理</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">svg &#123; <span class="attr">height</span>: 50vw; &#125;</span><br><span class="line">path &#123; <span class="attr">fill</span>: #d3d3d3; transition: .6s fill; opacity: <span class="number">0.6</span>;&#125;</span><br><span class="line">path:hover &#123; <span class="attr">fill</span>: #eee;opacity: <span class="number">0.6</span>; &#125;</span><br></pre></td></tr></table></figure>
+<p>但CocosCreator中Sprite目前支持的格式为jpg和png，未直接支持SVG。</p>
+<h3 id="二、方案调研"><a href="#二、方案调研" class="headerlink" title="二、方案调研"></a>二、方案调研</h3><h4 id="图像模板-image-stencil-mask"><a href="#图像模板-image-stencil-mask" class="headerlink" title="图像模板(image_stencil) mask"></a>图像模板(image_stencil) mask</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://forum.cocos.org/t/topic/54706">如何控制只让图像遮罩的可视区域响应点击</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.cocos.com/creator/2.4/manual/zh/components/mask.html">图像模板</a>可以根据设置的透明度阈值，只有当模板像素的 alpha 值大于该阈值时，才会绘制内容。</p>
+<p><img src="https://img-blog.csdnimg.cn/2feaf42ea8864863ada2f494fa3a7da7.png#pic_center" alt="图片" title="图片"></p>
+<p>但是该方式点击透明区域，依然会触发该节点的事件。</p>
+<p>通过查看2.4.7版本 <a target="_blank" rel="noopener" href="https://github.com/cocos/cocos-engine/blob/2.4.7/cocos2d/core/components/CCMask.js#L439">CCMask.js</a> 的源码 ，可以看到在碰撞检测中，图像模板类型的mask的命中方式与矩形保持一致，只有椭圆才是单独检测，故该方式并不能解决问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">_hitTest (cameraPt) &#123;</span><br><span class="line">		<span class="keyword">let</span> node = <span class="built_in">this</span>.node;</span><br><span class="line">		<span class="keyword">let</span> size = node.getContentSize(),</span><br><span class="line">				w = size.width,</span><br><span class="line">				h = size.height,</span><br><span class="line">				testPt = _vec2_temp;</span><br><span class="line"></span><br><span class="line">		node._updateWorldMatrix();</span><br><span class="line">		<span class="comment">// If scale is 0, it can&#x27;t be hit.</span></span><br><span class="line">		<span class="keyword">if</span> (!Mat4.invert(_mat4_temp, node._worldMatrix)) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		Vec2.transformMat4(testPt, cameraPt, _mat4_temp);</span><br><span class="line">		testPt.x += node._anchorPoint.x * w;</span><br><span class="line">		testPt.y += node._anchorPoint.y * h;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> result = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">this</span>.type === MaskType.RECT || <span class="built_in">this</span>.type === MaskType.IMAGE_STENCIL) &#123;</span><br><span class="line">				result = testPt.x &gt;= <span class="number">0</span> &amp;&amp; testPt.y &gt;= <span class="number">0</span> &amp;&amp; testPt.x &lt;= w &amp;&amp; testPt.y &lt;= h;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">this</span>.type === MaskType.ELLIPSE) &#123;</span><br><span class="line">				<span class="keyword">let</span> rx = w / <span class="number">2</span>, ry = h / <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">let</span> px = testPt.x - <span class="number">0.5</span> * w, py = testPt.y - <span class="number">0.5</span> * h;</span><br><span class="line">				result = px * px / (rx * rx) + py * py / (ry * ry) &lt; <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">this</span>.inverted) &#123;</span><br><span class="line">				result = !result;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="多边形mask"><a href="#多边形mask" class="headerlink" title="多边形mask"></a>多边形mask</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://forum.cocos.org/t/topic/101732">1.Creator | 编辑器中可操作顶点的多边形遮罩</a><br><a target="_blank" rel="noopener" href="https://forum.cocos.org/t/mask-graphic/79967">2.【组件分享】使用Mask+Graphic魔改的多边形遮罩组件</a><br><a target="_blank" rel="noopener" href="https://forum.cocos.org/t/mask-polygoncollider/40853">3.[ Mask + PolygonCollider 简易自定义多边形遮罩制作 ]</a></p>
+</blockquote>
+<p>沿着mask的思路，在论坛上找到了多边形mask的实现方式。大致都是在CCMask源码的基础上，增加多边形的节点添加和碰撞检测，其中一位作者实现的组件非常吸睛，GitHub上共有400余Star，目前<a target="_blank" rel="noopener" href="https://store.cocos.com/app/detail/2714">cocos商店</a>已有该组件。感兴趣可阅读源码。</p>
+<p>效果如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/4e5244270dda45ff80b98fd19c7b3a46.png#pic_center" alt="图片" title="图片"></p>
+<p>比较有意思是其碰撞检测（点是否在多边形内），采用<a target="_blank" rel="noopener" href="https://www.cnblogs.com/luxiaoxun/p/3722358.html">射线法</a>判断。</p>
+<ul>
+<li><p>定义：从目标点出发引一条射线，看这条射线和多边形所有边的交点数目。如果有奇数个交点，则说明在内部，如果有偶数个交点，则说明在外部。</p>
+</li>
+<li><p>具体步骤：将测试点的Y坐标与多边形的每一个点进行比较，会得到一个测试点所在的行与多边形边的交点的列表。在下图的这个例子中有8条边与测试点所在的行相交，而有6条边没有相交。如果测试点的两边点的个数都是奇数个则该测试点在多边形内，否则在多边形外。在这个例子中测试点的左边有5个交点，右边有三个交点，它们都是奇数，所以点在多边形内。</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/d0a357861d6c4b7eb9b8794c2372ea3a.png#pic_center" alt="图片" title="图片"></p>
+<ul>
+<li>算法实现：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">isInPolygon</span>(<span class="params">checkPoint: cc.Vec2, polygonPoints: cc.Vec2[]</span>)</span> &#123;</span><br><span class="line">		<span class="keyword">let</span> counter = <span class="number">0</span>, <span class="attr">i</span>: number, <span class="attr">xinters</span>: number;</span><br><span class="line">		<span class="keyword">let</span> p1: cc.Vec2, <span class="attr">p2</span>: cc.Vec2;</span><br><span class="line">		<span class="keyword">let</span> pointCount = polygonPoints.length;</span><br><span class="line">		p1 = polygonPoints[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= pointCount; i++) &#123;</span><br><span class="line">				p2 = polygonPoints[i % pointCount];</span><br><span class="line">				<span class="keyword">if</span> (</span><br><span class="line">						checkPoint.x &gt; <span class="built_in">Math</span>.min(p1.x, p2.x) &amp;&amp;</span><br><span class="line">						checkPoint.x &lt;= <span class="built_in">Math</span>.max(p1.x, p2.x)</span><br><span class="line">				) &#123;</span><br><span class="line">						<span class="keyword">if</span> (checkPoint.y &lt;= <span class="built_in">Math</span>.max(p1.y, p2.y)) &#123;</span><br><span class="line">								<span class="keyword">if</span> (p1.x != p2.x) &#123;</span><br><span class="line">										xinters = (checkPoint.x - p1.x) * (p2.y - p1.y) / (p2.x - p1.x) + p1.y;</span><br><span class="line">										<span class="keyword">if</span> (p1.y == p2.y || checkPoint.y &lt;= xinters) &#123;</span><br><span class="line">												counter++;</span><br><span class="line">										&#125;</span><br><span class="line">								&#125;</span><br><span class="line">						&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				p1 = p2;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> (counter &amp; <span class="number">1</span>) !== <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="多边形mesh"><a href="#多边形mesh" class="headerlink" title="多边形mesh"></a>多边形mesh</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://forum.cocos.org/t/mask-mesh-gizmo/88288">多边形裁剪图片(非mask,使用mesh)，新增 gizmo 支持</a><br><a target="_blank" rel="noopener" href="https://github.com/baiyuwubing/cocos-creator-examples/tree/master/meshTexture">https://github.com/baiyuwubing/cocos-creator-examples/tree/master/meshTexture</a></p>
+</blockquote>
+<p>2年前开发，已停止维护，使用不佳，节点关联顺序容易紊乱。根据作者的描述，可以解决mask过多带来性能影响。</p>
+<p><img src="https://img-blog.csdnimg.cn/56f4f806f5884c65a27ca7b18b48394b.png#pic_center" alt="图片" title="图片"></p>
+<h4 id="像素点计算"><a href="#像素点计算" class="headerlink" title="像素点计算"></a>像素点计算</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://forum.cocos.org/t/topic/135539">creator 2.4.8中获取像素信息</a></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getPixelData = <span class="function">(<span class="params">node: cc.Node, x: number, y: number</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> pixelsData = getPixelsData(node);</span><br><span class="line">  <span class="keyword">const</span> startIndex =</span><br><span class="line">    node.width * <span class="number">4</span> * <span class="built_in">Math</span>.floor(node.height - y) + <span class="number">4</span> * <span class="built_in">Math</span>.floor(x);</span><br><span class="line">  <span class="keyword">const</span> pixelData = pixelsData.slice(startIndex, startIndex + <span class="number">4</span>);</span><br><span class="line">  <span class="keyword">return</span> pixelData;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> isPixelTransparent = <span class="function">(<span class="params">node: cc.Node, x: number, y: number</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> pixelData = getPixelData(node, x, y);</span><br><span class="line">  <span class="keyword">return</span> pixelData[<span class="number">3</span>] === <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> getPixelsData = <span class="function">(<span class="params">node: cc.Node</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!cc.isValid(node)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 节点宽度</span></span><br><span class="line">  <span class="keyword">const</span> width = <span class="built_in">Math</span>.floor(node.width);</span><br><span class="line">  <span class="keyword">const</span> height = <span class="built_in">Math</span>.floor(node.height);</span><br><span class="line">  <span class="comment">// 创建临时摄像机用于渲染目标节点</span></span><br><span class="line">  <span class="keyword">const</span> cameraNode = <span class="keyword">new</span> cc.Node();</span><br><span class="line">  cameraNode.parent = node;</span><br><span class="line">  <span class="keyword">const</span> camera = cameraNode.addComponent(cc.Camera);</span><br><span class="line">  <span class="comment">// eslint-disable-next-line no-bitwise</span></span><br><span class="line">  camera.clearFlags |= cc.Camera.ClearFlags.COLOR;</span><br><span class="line">  camera.backgroundColor = cc.color(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  camera.zoomRatio = cc.winSize.height / height;</span><br><span class="line">  <span class="comment">// 将节点渲染到 RenderTexture中</span></span><br><span class="line">  <span class="keyword">const</span> renderTexture = <span class="keyword">new</span> cc.RenderTexture();</span><br><span class="line">  renderTexture.initWithSize(</span><br><span class="line">    width,</span><br><span class="line">    height,</span><br><span class="line">    cc.RenderTexture.DepthStencilFormat.RB_FMT_S8</span><br><span class="line">  );</span><br><span class="line">  camera.targetTexture = renderTexture;</span><br><span class="line">  camera.render(node);</span><br><span class="line">  <span class="keyword">const</span> pixelData = renderTexture.readPixels();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> pixelData;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 点击事件是否合法，非透明像素 */</span></span><br><span class="line">	<span class="function"><span class="title">isValidTouch</span>(<span class="params">e: cc.Event.EventTouch</span>)</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> touchLocation = e.touch.getLocation();</span><br><span class="line">		<span class="comment">/** 相对节点左下角的相对坐标，即图片内的坐标 */</span></span><br><span class="line">		<span class="keyword">const</span> locationInNode = <span class="built_in">this</span>.node.convertToNodeSpaceAR(touchLocation);</span><br><span class="line">		<span class="comment">/** 非本节点内 透传 */</span></span><br><span class="line">		<span class="keyword">if</span> (!<span class="built_in">this</span>.node.getBoundingBoxToWorld().contains(touchLocation)) &#123;</span><br><span class="line">			<span class="built_in">this</span>.setSwallowTouches(<span class="literal">false</span>);</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">const</span> &#123; anchorX, anchorY, width, height &#125; = <span class="built_in">this</span>.node;</span><br><span class="line">		<span class="keyword">const</span> x = locationInNode.x + anchorX * width;</span><br><span class="line">		<span class="keyword">const</span> y = -(locationInNode.y - anchorY * height);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">const</span> isValid = !isPixelTransparent(<span class="built_in">this</span>.node, x, y);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">this</span>.setSwallowTouches(isValid);</span><br><span class="line">		<span class="keyword">return</span> isValid;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** 设置是否阻止点击事件透传 */</span></span><br><span class="line">	<span class="function"><span class="title">setSwallowTouches</span>(<span class="params">bool: boolean</span>)</span> &#123;</span><br><span class="line">		(<span class="built_in">this</span>.node <span class="keyword">as</span> any)._touchListener.setSwallowTouches(bool);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方案对比"><a href="#方案对比" class="headerlink" title="方案对比"></a>方案对比</h3><table>
+<thead>
+<tr>
+<th>方案名称</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>图像模板mask</td>
+<td>- 适合图片快速裁剪渲染</td>
+<td>- 不满足要求</td>
+</tr>
+<tr>
+<td>多边形mask</td>
+<td>- 适用于多边形定制化裁剪</td>
+<td>- 参考文章 [@]Mask组件多边形方案性影响手机Web性能。多边形mask使用过多，低端机性能下降严重（碰撞检测占主要原因）<br /> - 手动描边</td>
+</tr>
+<tr>
+<td>多边形mesh</td>
+<td>- 根据作者描述，比mask性能更优</td>
+<td>- 手动描边</td>
+</tr>
+<tr>
+<td>像素点计算</td>
+<td>- 颗粒度精细，能精确到像素点 <br /> - 无需特殊处理图片</td>
+<td>- 图片过大时，可能带来性能问题</td>
+</tr>
+</tbody></table>
+<h3 id="可能的最佳实践？"><a href="#可能的最佳实践？" class="headerlink" title="可能的最佳实践？"></a>可能的最佳实践？</h3><p>在论坛中看到有个大佬在尝试svg拓展 <a target="_blank" rel="noopener" href="https://forum.cocos.org/t/topic/100568">Creator + SVG 解析渲染扩展组件</a> ，已上架cocos商店【价值80¥】</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+	<ul class="post-copyright list-unstyled">
+		
+		<li class="post-copyright-link hidden-xs">
+			<strong>本文链接：</strong>
+			<a
+				href="https://blog.rexhang.com/2022/09/30/articles/1/"
+				title="CocosCreator实现不规则区域点击"
+				target="_blank"
+				rel="external"
+				>右键可以复制链接地址</a
+			>
+		</li>
+		
+		<li class="post-copyright-license">
+			<strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用
+			<a
+				href="http://creativecommons.org/licenses/by/4.0/deed.zh"
+				target="_blank"
+				rel="external"
+				>CC BY 4.0 CN协议</a
+			>
+			许可协议。转载请注明出处！
+		</li>
+	</ul>
+</blockquote>
+ 
+<div class="panel panel-default panel-badger">
+	<div class="panel-body">
+		<figure class="media">
+			<div class="media-left">
+				<a
+					href="https://blog.rexhang.com"
+					target="_blank"
+					class="img-burn thumb-sm visible-lg"
+				>
+					<img
+						src="/images/avatar.png"
+						class="img-rounded w-full"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">
+					<a href="https://blog.rexhang.com" target="_blank"
+						><span class="text-dark">RexHang</span
+						><small class="ml-1x">前端开发工程师</small></a
+					>
+				</h3>
+				<div>个人简介。</div>
+			</div>
+		</figure>
+	</div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2022/09/30/articles/2/" title="使用mask实现视频弹幕人物遮罩过滤，就是牛逼"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2022/08/04/articles/1/" title="JS中非常实用的『一行代码』"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，是我更新下去的动力!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                  <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+            <a href="https://blog.cofess.com/2017/11/01/hexo-blog-theme-pure-usage-description.html" target="_blank">configuration guidelines</a>
+        </div>
+    </div>
+</footer>
+  <script src="//unpkg.com/jquery@1.11.1/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'tl2dIYJMUMbG82JOw8puTVMh-gzGzoHsz',
+    appKey: 's6As7d7cnxk5Akr7TzLIigNG',
+    placeholder: '立刻参与讨论吧~下一个神评说不定就是你！',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+<script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script src="/js/registerWeChatDevConfig.js"></script>
+<script src="/js/console.log.js"></script>
+
+</body>
+</html>
