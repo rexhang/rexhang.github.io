@@ -1,5 +1,5 @@
 // 注册环境参数
-globalThis.Env = location.host.indexOf('localhost:') !== -1 ? 'dev' : 'production';;
+globalThis.Env = location.host.indexOf('localhost:') !== -1 ? 'dev' : 'production';
 
 const jsApiList = [
 	"checkJsApi",
