@@ -43,7 +43,7 @@ const shareInfo = {
 	title: document.getElementsByTagName("title")[0]?.innerText, // 分享标题
 	desc: document.getElementsByTagName("meta")["description"]?.content, // 分享描述
 	link: window.location.href, // 分享链接
-	imgUrl: "https://rexhang.com/img/rexhang-100.png", // 分享图标
+	imgUrl: "https://rexhang.com/img/rexhang-blog-share-logo-100x100.png", // 分享图标
 	type: "", // 分享类型,music、video或link，不填默认为link
 	dataUrl: "", // 如果type是music或video，则要提供数据链接，默认为空
 	success: function (res) {
