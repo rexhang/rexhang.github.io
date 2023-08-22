@@ -18,24 +18,27 @@
   
   
 
-  <title>归档 | Rexhang的Blog</title>
+  <title>JS中判断对象是否为真·空 | Rexhang的Blog</title>
 
-  <meta name="keywords" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+  <meta name="keywords" content="javascript,判断js对象是否为空, | 顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
 
-  <meta name="description" content="RexHang">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rexhang的Blog">
-<meta property="og:url" content="https://blog.rexhang.com/archives/index.html">
+  <meta name="description" content="一、前言js中判断对象是否为空有多种方法，比如转为string比较是否 &#x3D;&#x3D;&#x3D; ‘{}’等，那么哪一种是最为正确的呢？ 1234567891011&#x2F;&#x2F; 一种特殊键值 Symbol 作为keyconst name &#x3D; Symbol(&amp;#x27;name&amp;#x27;);const obj &#x3D; &amp;#123;	[name]: &amp;#x27;rexhang&amp;#x27;&amp;#125;;console.log(ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS中判断对象是否为真·空">
+<meta property="og:url" content="https://blog.rexhang.com/2023/08/22/articles/1/index.html">
 <meta property="og:site_name" content="Rexhang的Blog">
-<meta property="og:description" content="RexHang">
+<meta property="og:description" content="一、前言js中判断对象是否为空有多种方法，比如转为string比较是否 &#x3D;&#x3D;&#x3D; ‘{}’等，那么哪一种是最为正确的呢？ 1234567891011&#x2F;&#x2F; 一种特殊键值 Symbol 作为keyconst name &#x3D; Symbol(&amp;#x27;name&amp;#x27;);const obj &#x3D; &amp;#123;	[name]: &amp;#x27;rexhang&amp;#x27;&amp;#125;;console.log(ob">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-22T02:01:19.000Z">
+<meta property="article:modified_time" content="2023-08-22T05:44:58.963Z">
 <meta property="article:author" content="RexHang">
-<meta property="article:tag" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="javascript对象">
 <meta name="twitter:card" content="summary">
 
 
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.rexhang.com/archives/index.html">
+  <link rel="canonical" href="https://blog.rexhang.com/2023/08/22/articles/1/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
   
@@ -335,182 +338,198 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档</h1>
-	      <p class="text-muted">共 10 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="posts-JS中判断对象是否为真·空" class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JS中判断对象是否为真·空
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2023" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2023
-            </a>
-            <!-- <a href="/archives/2023" class="archive-year">2023</a> -->
-          </h3>
-        </div>
-        <div id="collapse2023" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2023">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2023/08/22/articles/1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2023-08-22T02:01:19.000Z" itemprop="datePublished">2023-08-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> JS中判断对象是否为真·空
-</a>
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/08/22/articles/1/" class="article-date">
+	  <time datetime="2023-08-22T02:01:19.000Z" itemprop="datePublished">2023-08-22</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>, <a class="article-tag-link-link" href="/tags/javascript%E5%AF%B9%E8%B1%A1/" rel="tag">javascript对象</a>
+  </span>
 
 
-  
-    
-    
-    
-<a href="/2023/07/25/articles/1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2023-07-24T17:20:17.000Z" itemprop="datePublished">2023-07-25</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 如何注册ChatGPT账号
-</a>
+        
 
-
-  
-    
-    
-    
-<a href="/2023/07/01/articles/1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2023-07-01T14:22:22.000Z" itemprop="datePublished">2023-07-01</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 前端技术摘要
-</a>
-
-
-  
-    
-    
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/08/22/articles/1/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
       
-        </div></div></div></section>
+        <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p>js中判断对象是否为空有多种方法，比如转为string比较是否 === ‘{}’等，那么哪一种是最为正确的呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一种特殊键值 Symbol 作为key</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="built_in">Symbol</span>(<span class="string">&#x27;name&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">	[name]: <span class="string">&#x27;rexhang&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// &#123; Symbol(name): &#x27;rexhang&#x27; &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(obj) === <span class="string">&#x27;&#123;&#125;&#x27;</span>); <span class="comment">// true, 期望得到false 因为对象内是有内容的，因此 此方法不准确</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj).length === <span class="number">0</span>); <span class="comment">// true, 拿不到Symbol keys 判断不准确</span></span><br><span class="line"><span class="comment">// 推荐使用</span></span><br><span class="line"><span class="keyword">const</span> isEmptyObject = globalThis.Reflect ? !<span class="built_in">Reflect</span>.ownKeys(obj).length : !(<span class="built_in">Object</span>.getOwnPropertyNames(obj).concat(<span class="built_in">Object</span>.getOwnPropertySymbols(obj))).length;</span><br><span class="line"><span class="built_in">console</span>.log(isEmptyObject); <span class="comment">// false 由此可以得出 此对象(obj) 并非空对象</span></span><br></pre></td></tr></table></figure>
+<p>使用上述方法可以比较完美的解决 判断js对象是否为空的问题，说不定可以解决你一个生产环境的P0级别的BUG哟~ ❤</p>
+
       
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2022" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2022
-            </a>
-            <!-- <a href="/archives/2022" class="archive-year">2022</a> -->
-          </h3>
-        </div>
-        <div id="collapse2022" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2022">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/2022/12/15/articles/2/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-12-15T04:10:01.000Z" itemprop="datePublished">2022-12-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 如何编写web前端开发岗简历
-</a>
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+	<ul class="post-copyright list-unstyled">
+		
+		<li class="post-copyright-link hidden-xs">
+			<strong>本文链接：</strong>
+			<a
+				href="https://blog.rexhang.com/2023/08/22/articles/1/"
+				title="JS中判断对象是否为真·空"
+				target="_blank"
+				rel="external"
+				>右键可以复制链接地址</a
+			>
+		</li>
+		
+		<li class="post-copyright-license">
+			<strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用
+			<a
+				href="http://creativecommons.org/licenses/by/4.0/deed.zh"
+				target="_blank"
+				rel="external"
+				>CC BY 4.0 CN协议</a
+			>
+			许可协议。转载请注明出处！
+		</li>
+	</ul>
+</blockquote>
+ 
+<div class="panel panel-default panel-badger">
+	<div class="panel-body">
+		<figure class="media">
+			<div class="media-left">
+				<a
+					href="https://blog.rexhang.com"
+					target="_blank"
+					class="img-burn thumb-sm visible-lg"
+				>
+					<img
+						src="/images/avatar.png"
+						class="img-rounded w-full"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">
+					<a href="https://blog.rexhang.com" target="_blank"
+						><span class="text-dark">RexHang</span
+						><small class="ml-1x">前端开发工程师</small></a
+					>
+				</h3>
+				<div>个人简介。</div>
+			</div>
+		</figure>
+	</div>
+</div>
 
 
+    </div>
+  </article>
   
     
-    
-    
-<a href="/2022/12/15/articles/1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-12-15T04:00:20.000Z" itemprop="datePublished">2022-12-15</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> json-server的使用(接口数据mock好帮手)
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/09/30/articles/2/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-09-30T08:17:28.000Z" itemprop="datePublished">2022-09-30</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 使用mask实现视频弹幕人物遮罩过滤，就是牛逼
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/09/30/articles/1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-09-30T07:36:22.000Z" itemprop="datePublished">2022-09-30</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> CocosCreator实现不规则区域点击
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/08/04/articles/1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-08-04T04:03:28.000Z" itemprop="datePublished">2022-08-04</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> JS中非常实用的『一行代码』
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/08/04/articles/2/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-08-04T01:27:08.000Z" itemprop="datePublished">2022-08-04</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 一套面向常规统计图表，以数据驱动的高交互可视化图形语法 - G2
-</a>
-
-
-  
-    
-    
-    
-<a href="/2022/08/02/articles/1/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2022-08-02T14:16:48.000Z" itemprop="datePublished">2022-08-02</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> React代码整洁优化实践
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
+  <section id="comments">
   	
+      <div id="vcomments"></div>
     
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev disabled">
-                <a href="javascript:;">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next">
-                <a href="/archives/page/2/">
-                    下一页
-                    <i class="icon icon-angle-right"></i>
-                </a>
-            </li>
-            
-        </ul>
-        <div class="total-article bar-right">Page 1 of 2</div>
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2023/07/25/articles/1/" title="如何注册ChatGPT账号"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，是我更新下去的动力!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                  <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+            </ul>
+          </div>
         </div>
-    </nav>
-    
- 	
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -566,6 +585,37 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'tl2dIYJMUMbG82JOw8puTVMh-gzGzoHsz',
+    appKey: 's6As7d7cnxk5Akr7TzLIigNG',
+    placeholder: '立刻参与讨论吧~下一个神评说不定就是你！',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
