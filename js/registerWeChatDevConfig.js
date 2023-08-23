@@ -40,8 +40,8 @@ const jsApiList = [
 	"openCard",
 ];
 const shareInfo = {
-	title: document.getElementsByTagName("title")[0]?.innerText, // 分享标题
-	desc: document.getElementsByTagName("meta")["description"]?.content, // 分享描述
+	title: `《${document.getElementsByTagName("title")[0]?.innerText?.split?.('|')?.[0]?.trim?.()}》@rexhang.inc` || 'blog.rexhang.com', // 分享标题
+	desc: document.getElementsByTagName("meta")?.["description"]?.content || 'blog.rexhang.com', // 分享描述
 	link: window.location.href, // 分享链接
 	imgUrl: "https://rexhang.com/img/rexhang-blog-share-logo-100x100.png", // 分享图标
 	type: "", // 分享类型,music、video或link，不填默认为link
