@@ -18,24 +18,28 @@
   
   
 
-  <title>标签: 遮罩 | Rexhang的Blog</title>
+  <title>Promise之allSettled | Rexhang的Blog</title>
 
-  <meta name="keywords" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+  <meta name="keywords" content="javascript,Promise,allSettled | 顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
 
-  <meta name="description" content="RexHang">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rexhang的Blog">
-<meta property="og:url" content="https://blog.rexhang.com/tags/%E9%81%AE%E7%BD%A9/index.html">
+  <meta name="description" content="一、前言Promise.allSettled 是一个用于处理一组 Promise 的方法，它会等待所有的 Promise 被 settled（无论是解决还是拒绝），然后返回一个包含每个 Promise 结果的数组。这个方法解决了 Promise.all 存在的一个痛点：即是如若其中一个 Promise 被拒绝，Promise.all 就会立即返回一个被拒绝的 Promise，导致整个操作中断 有时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise之allSettled">
+<meta property="og:url" content="https://blog.rexhang.com/2023/10/08/articles/1/index.html">
 <meta property="og:site_name" content="Rexhang的Blog">
-<meta property="og:description" content="RexHang">
+<meta property="og:description" content="一、前言Promise.allSettled 是一个用于处理一组 Promise 的方法，它会等待所有的 Promise 被 settled（无论是解决还是拒绝），然后返回一个包含每个 Promise 结果的数组。这个方法解决了 Promise.all 存在的一个痛点：即是如若其中一个 Promise 被拒绝，Promise.all 就会立即返回一个被拒绝的 Promise，导致整个操作中断 有时">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2023-10-08/1.svg">
+<meta property="article:published_time" content="2023-10-08T10:00:01.000Z">
+<meta property="article:modified_time" content="2023-10-08T09:41:46.953Z">
 <meta property="article:author" content="RexHang">
-<meta property="article:tag" content="顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+<meta property="article:tag" content="javascript">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.rexhang.com/images/blog/2023-10-08/1.svg">
 
 
   <!-- Canonical links -->
-  <link rel="canonical" href="https://blog.rexhang.com/tags/%E9%81%AE%E7%BD%A9/index.html">
+  <link rel="canonical" href="https://blog.rexhang.com/2023/10/08/articles/1/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
   
@@ -333,122 +337,212 @@
 </aside>
 
   
-  <main class="main" role="main">
-  <article class="content article article-tags post-type-list" itemscope="">
-    <header class="article-header">
-      <h1 itemprop="name" class="hidden-xs">标签: 遮罩</h1>
-      <p class="text-muted hidden-xs">共 1 篇文章</p>
-      <nav role="navigation" id="nav-main" class="okayNav">
-        <ul>
-          <li><a href="/tags">全部分类</a></li>
-          
-          <li><a href="/tags/cocos2d/">cocos2d</a></li>
-          
-          <li><a href="/tags/CocosCreator/">CocosCreator</a></li>
-          
-          <li><a href="/tags/游戏引擎/">游戏引擎</a></li>
-          
-          <li><a href="/tags/javascript/">javascript</a></li>
-          
-          <li><a href="/tags/ES2023/">ES2023</a></li>
-          
-          <li><a href="/tags/javascript对象/">javascript对象</a></li>
-          
-          <li><a href="/tags/javascript数组/">javascript数组</a></li>
-          
-          <li><a href="/tags/javascript字符串/">javascript字符串</a></li>
-          
-          <li><a href="/tags/js小tips/">js小tips</a></li>
-          
-          <li><a href="/tags/js技巧/">js技巧</a></li>
-          
-          <li><a href="/tags/React/">React</a></li>
-          
-          <li><a href="/tags/前端框架/">前端框架</a></li>
-          
-          <li><a href="/tags/Vue/">Vue</a></li>
-          
-          <li><a href="/tags/node/">node</a></li>
-          
-          <li><a href="/tags/nvm/">nvm</a></li>
-          
-          <li><a href="/tags/开发工具/">开发工具</a></li>
-          
-          <li><a href="/tags/devtools/">devtools</a></li>
-          
-          <li><a href="/tags/css3/">css3</a></li>
-          
-          <li><a href="/tags/mask/">mask</a></li>
-          
-          <li><a href="/tags/遮罩/">遮罩</a></li>
-          
-          <li><a href="/tags/腾讯云/">腾讯云</a></li>
-          
-          <li><a href="/tags/前端技术/">前端技术</a></li>
-          
-          <li><a href="/tags/ai/">ai</a></li>
-          
-          <li><a href="/tags/openai/">openai</a></li>
-          
-          <li><a href="/tags/chatgpt/">chatgpt</a></li>
-          
-          <li><a href="/tags/面试经/">面试经</a></li>
-          
-          <li><a href="/tags/前端/">前端</a></li>
-          
-          <li><a href="/tags/JavaScript/">JavaScript</a></li>
-          
-          <li><a href="/tags/前端多端开发兼容性/">前端多端开发兼容性</a></li>
-          
-          <li><a href="/tags/ios/">ios</a></li>
-          
-          <li><a href="/tags/macos/">macos</a></li>
-          
-          <li><a href="/tags/apple/">apple</a></li>
-          
-          <li><a href="/tags/苹果/">苹果</a></li>
-          
-          <li><a href="/tags/Chrome/">Chrome</a></li>
-          
-        </ul>
-      </nav>
-    </header>
-    <!-- /header -->
-    <div class="article-body">
-      <div class="row">
-        
-<div class="col-md-6">
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="posts-Promise之allSettled" class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
     
-<article class="panel panel-default hover-shadow hover-grow" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="panel-body">
-     <div class="article-meta">
-       <time datetime="2022-09-30T08:17:28.000Z" itemprop="datePublished">2022-09-30</time>
-     </div>
-     <h3 class="article-title" itemprop="name">
-       <a class="article-link" href="/2022/09/30/articles/2/">使用mask实现视频弹幕人物遮罩过滤，就是牛逼</a>
-     </h3>
-   </div>
-   
-   <div class="panel-footer">
-     
-      <a href="/tags/css3/" class="label label-default mb">css3</a>
-     
-      <a href="/tags/mask/" class="label label-default mb">mask</a>
-     
-      <a href="/tags/%E9%81%AE%E7%BD%A9/" class="label label-default mb">遮罩</a>
-     
-     
-   </div>
-   
-</article>
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Promise之allSettled
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/10/08/articles/1/" class="article-date">
+	  <time datetime="2023-10-08T10:00:01.000Z" itemprop="datePublished">2023-10-08</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a>►<a class="article-category-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/javascript/" rel="tag">javascript</a>
+  </span>
 
 
-</div>
+        
 
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/08/articles/1/#comments" class="article-comment-link">评论</a></span>
+        
       </div>
     </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h3 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h3><p><code>Promise.allSettled</code> 是一个用于处理一组 <code>Promise</code> 的方法，它会等待所有的 <code>Promise</code> 被 <code>settled</code>（无论是解决还是拒绝），然后返回一个包含每个 <code>Promise</code> 结果的数组。这个方法解决了 <code>Promise.all</code> 存在的一个痛点：即是如若其中一个 <code>Promise</code> 被拒绝，<code>Promise.all</code> 就会立即返回一个被拒绝的 <code>Promise</code>，导致整个操作中断 有时候我们并不满意这样的结果 因此使用 <strong>ES2020</strong> 中提出的 <code>allSettled</code> 可以解决这个问题，并且下文中会给出相应的 <strong>Polyfill</strong> 确保能够支持 <code>Promise.all</code> 的场景下都能够顺利使用。</p>
+<h3 id="二、一些关键点和应用场景包括："><a href="#二、一些关键点和应用场景包括：" class="headerlink" title="二、一些关键点和应用场景包括："></a>二、一些关键点和应用场景包括：</h3><h4 id="1、解决所有-Promise-结果："><a href="#1、解决所有-Promise-结果：" class="headerlink" title="1、解决所有 Promise 结果："></a>1、解决所有 Promise 结果：</h4><p><code>Promise.allSettled</code> 返回一个数组，包含每个 <code>Promise</code> 的结果对象，这些结果对象包含 <code>status</code> 属性，表示 <code>Promise</code> 的状态是 <strong>fulfilled</strong> 还是 <strong>rejected</strong> ，以及相应的值或原因。</p>
+<h3 id="2、不中断整个操作："><a href="#2、不中断整个操作：" class="headerlink" title="2、不中断整个操作："></a>2、不中断整个操作：</h3><p>与 <code>Promise.all</code> 不同，<code>Promise.allSettled</code> 不会因为其中一个 <code>Promise</code> 被拒绝而中断执行。即使有一些 <code>Promise</code> 被拒绝，其他 <code>Promise</code> 仍然会继续执行，而最终返回的结果是一个包含所有 <code>Promise</code> 结果的数组。</p>
+<h3 id="3、处理并行异步任务："><a href="#3、处理并行异步任务：" class="headerlink" title="3、处理并行异步任务："></a>3、处理并行异步任务：</h3><p>在处理需要并行执行的异步任务时，有时你可能希望了解每个任务的最终状态，而不仅仅是得到一个被拒绝的结果就中断。这在需要收集多个异步任务的结果，而不希望因为其中一个失败而中断整个流程时非常有用。</p>
+<h3 id="4、示例代码："><a href="#4、示例代码：" class="headerlink" title="4、示例代码："></a>4、示例代码：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">allSettled</span> (<span class="params">promises</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.all(</span><br><span class="line">    promises.map(<span class="function"><span class="params">promise</span> =&gt;</span></span><br><span class="line">      <span class="built_in">Promise</span>.resolve(promise).then(</span><br><span class="line">        value =&gt; (&#123;</span><br><span class="line">          status: <span class="string">&#x27;fulfilled&#x27;</span>,</span><br><span class="line">          value,</span><br><span class="line">        &#125;),</span><br><span class="line">        reason =&gt; (&#123;</span><br><span class="line">          status: <span class="string">&#x27;rejected&#x27;</span>,</span><br><span class="line">          reason,</span><br><span class="line">        &#125;)</span><br><span class="line">      )</span><br><span class="line">    )</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模拟三个promise方法，其中第二个一定会失败</span></span><br><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    resolve(<span class="number">1</span>);</span><br><span class="line">  &#125;, <span class="number">100</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  reject(<span class="string">&#x27;2 is error&#x27;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> p3 = <span class="built_in">Promise</span>.resolve(<span class="string">&#x27;3&#x27;</span>);</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// 使用Promise.all 只要有一个失败就会返回失败，成功的结果集不会返回, 此场景下后续的p3并不会执行</span></span><br><span class="line">    <span class="keyword">const</span> allPromiseResult = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([p1, p2, p3])</span><br><span class="line">    <span class="built_in">console</span>.debug(allPromiseResult);</span><br><span class="line">  &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="comment">// 使用Promise.allSettled 会等待所有的promise执行完毕，不管成功还是失败，都会返回结果集，可以根据返回的状态来判断是否成功</span></span><br><span class="line">  <span class="keyword">const</span> allSettledResult = <span class="keyword">await</span> allSettled([p1, p2, p3]);</span><br><span class="line">  <span class="built_in">console</span>.debug(allSettledResult);</span><br><span class="line">  <span class="comment">/* allSettledResult 返回 =&gt; [</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">      &quot;status&quot;: &quot;fulfilled&quot;,</span></span><br><span class="line"><span class="comment">      &quot;value&quot;: 1</span></span><br><span class="line"><span class="comment">    &#125;,</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">      &quot;status&quot;: &quot;rejected&quot;,</span></span><br><span class="line"><span class="comment">      &quot;reason&quot;: &quot;2 is error&quot;</span></span><br><span class="line"><span class="comment">    &#125;,</span></span><br><span class="line"><span class="comment">    &#123;</span></span><br><span class="line"><span class="comment">      &quot;status&quot;: &quot;fulfilled&quot;,</span></span><br><span class="line"><span class="comment">      &quot;value&quot;: &quot;3&quot;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  ] */</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 垫片 polyfill</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="built_in">Promise</span>.allSettled) &#123;</span><br><span class="line">  <span class="built_in">Promise</span>.allSettled = allSettled;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(<span class="keyword">async</span> () =&gt; &#123;</span><br><span class="line">  <span class="comment">// 使用 Promise.allSettled</span></span><br><span class="line">  <span class="keyword">const</span> allSettledResult = <span class="keyword">await</span> <span class="built_in">Promise</span>.allSettled([p1, p2, p3])</span><br><span class="line">  <span class="built_in">console</span>.debug(allSettledResult);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>在上述示例中，无论每个 Promise 是否被解决，都会输出相应的状态和值或原因。这种行为对于需要收集异步任务结果且不希望中断整个操作的情况非常有用。</p>
+<h3 id="5、示例代码图片："><a href="#5、示例代码图片：" class="headerlink" title="5、示例代码图片："></a>5、示例代码图片：</h3><div align="left">
+    <img style="" src="/images/blog/2023-10-08/1.svg" />
+</div>
+
+<br />
+
+<p>可以保存代码图片到本地。</p>
+<hr>
+<p>❤ enjoy it.</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+	<ul class="post-copyright list-unstyled">
+		
+		<li class="post-copyright-link hidden-xs">
+			<strong>本文链接：</strong>
+			<a
+				href="https://blog.rexhang.com/2023/10/08/articles/1/"
+				title="Promise之allSettled"
+				target="_blank"
+				rel="external"
+				>右键可以复制链接地址</a
+			>
+		</li>
+		
+		<li class="post-copyright-license">
+			<strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用
+			<a
+				href="http://creativecommons.org/licenses/by/4.0/deed.zh"
+				target="_blank"
+				rel="external"
+				>CC BY 4.0 CN协议</a
+			>
+			许可协议。转载请注明出处！
+		</li>
+	</ul>
+</blockquote>
+ 
+<div class="panel panel-default panel-badger">
+	<div class="panel-body">
+		<figure class="media">
+			<div class="media-left">
+				<a
+					href="https://blog.rexhang.com"
+					target="_blank"
+					class="img-burn thumb-sm visible-lg"
+				>
+					<img
+						src="/images/avatar.png"
+						class="img-rounded w-full"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">
+					<a href="https://blog.rexhang.com" target="_blank"
+						><span class="text-dark">RexHang</span
+						><small class="ml-1x">前端开发工程师</small></a
+					>
+				</h3>
+				<div>个人简介。</div>
+			</div>
+		</figure>
+	</div>
+</div>
+
+
+    </div>
   </article>
-   
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2023/09/26/articles/1/" title="how to use NVM"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，是我更新下去的动力!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                  <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </main>
 
   <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
@@ -504,6 +598,37 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+
+
+
+
+   
+    
+  <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'tl2dIYJMUMbG82JOw8puTVMh-gzGzoHsz',
+    appKey: 's6As7d7cnxk5Akr7TzLIigNG',
+    placeholder: '立刻参与讨论吧~下一个神评说不定就是你！',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
