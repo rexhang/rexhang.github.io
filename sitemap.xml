@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/repository/index.html</loc>
+    <loc>https://blog.rexhang.com/tags/index.html</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/tags/index.html</loc>
+    <loc>https://blog.rexhang.com/repository/index.html</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/books/index.html</loc>
+    <loc>https://blog.rexhang.com/categories/index.html</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/index.html</loc>
+    <loc>https://blog.rexhang.com/books/index.html</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/2021/01/10/articles/1/</loc>
+    <loc>https://blog.rexhang.com/2021/01/05/articles/2/</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/2021/01/05/articles/2/</loc>
+    <loc>https://blog.rexhang.com/2021/01/10/articles/1/</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -299,6 +299,27 @@
 
   
   <url>
+    <loc>https://blog.rexhang.com/tags/cocos2d/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/tags/CocosCreator/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rexhang.com/tags/frontend/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -327,28 +348,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/tags/cocos2d/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/CocosCreator/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.rexhang.com/tags/javascript/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/tags/git/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -362,7 +369,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/tags/git/</loc>
+    <loc>https://blog.rexhang.com/tags/javascript%E5%AF%B9%E8%B1%A1/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -398,20 +405,6 @@
   
   <url>
     <loc>https://blog.rexhang.com/tags/js%E6%8A%80%E5%B7%A7/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/js/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/javascript%E5%AF%B9%E8%B1%A1/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -488,6 +481,13 @@
   </url>
   
   <url>
+    <loc>https://blog.rexhang.com/tags/js/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rexhang.com/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -496,34 +496,6 @@
   
   <url>
     <loc>https://blog.rexhang.com/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/JavaScript/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/tags/npm/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -545,6 +517,13 @@
   
   <url>
     <loc>https://blog.rexhang.com/tags/chatgpt/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/tags/npm/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -586,6 +565,27 @@
   </url>
   
   <url>
+    <loc>https://blog.rexhang.com/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/tags/JavaScript/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rexhang.com/tags/Chrome/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -595,13 +595,6 @@
 
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.rexhang.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -609,21 +602,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/CSS/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/Git/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/HTML/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -637,21 +616,21 @@
   </url>
   
   <url>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/CSS/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/HTML/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rexhang.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/JS/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -665,6 +644,13 @@
   </url>
   
   <url>
+    <loc>https://blog.rexhang.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rexhang.com/categories/node/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -672,7 +658,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/CSS/guide/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/Git/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -686,7 +672,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/Git/guide/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/CSS/guide/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -700,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/JS/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -714,14 +700,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/npm/</loc>
+    <loc>https://blog.rexhang.com/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -742,14 +721,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/</loc>
-    <lastmod>2023-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/JS/guide/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/npm/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -763,6 +735,20 @@
   </url>
   
   <url>
+    <loc>https://blog.rexhang.com/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rexhang.com/categories/node/nvm/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -770,7 +756,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/CSS/guide/%E8%A7%84%E8%8C%83/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/Git/guide/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -784,14 +770,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/Git/guide/%E8%A7%84%E8%8C%83/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/CSS/guide/%E8%A7%84%E8%8C%83/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/</loc>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/JS/guide/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -805,7 +791,7 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>https://blog.rexhang.com/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -826,6 +812,20 @@
   </url>
   
   <url>
+    <loc>https://blog.rexhang.com/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/Git/guide/%E8%A7%84%E8%8C%83/</loc>
+    <lastmod>2023-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/JS/guide/%E8%A7%84%E8%8C%83/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -833,14 +833,14 @@
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/JavaScript/</loc>
+    <loc>https://blog.rexhang.com/categories/ai/openai/chatgpt/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.rexhang.com/categories/ai/openai/chatgpt/</loc>
+    <loc>https://blog.rexhang.com/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/JavaScript/</loc>
     <lastmod>2023-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
