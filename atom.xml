@@ -6,7 +6,7 @@
   <link href="https://blog.rexhang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.rexhang.com/"/>
-  <updated>2023-10-08T10:13:56.859Z</updated>
+  <updated>2023-10-10T02:56:42.530Z</updated>
   <id>https://blog.rexhang.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git 提交信息指南</title>
+    <link href="https://blog.rexhang.com/2023/10/10/articles/1/"/>
+    <id>https://blog.rexhang.com/2023/10/10/articles/1/</id>
+    <published>2023-10-10T01:00:00.000Z</published>
+    <updated>2023-10-10T02:56:42.530Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="📃一、前言"><a href="#📃一、前言" class="headerlink" title="📃一、前言"></a>📃一、前言</h3><p>该指南内容主要是去描述你应该在项目进行过程中所需遵守的基础规范。在Git仓库管理的过程中，为了减少开发或者其他工作过程中因选择何种方式提交而产生困惑，我们强烈建议你们在其项目中遵循这个指南。</p><h3 id="🎬二、提交信息"><a href="#🎬二、提交信息" class="headerlink" title="🎬二、提交信息"></a>🎬二、提交信息</h3><h4 id="👀1、信息结构"><a href="#👀1、信息结构" class="headerlink" title="👀1、信息结构"></a>👀1、信息结构</h4><p>提交信息由三个不同的部分构成，这些部分均由空行分隔：标题、可选的消息体和可选的注释。其布局大致如此：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">类型：主题</span><br><span class="line">消息正文</span><br><span class="line">注释</span><br></pre></td></tr></table></figure><p>标题由消息类型和主题构成。</p><h4 id="👀2、类型"><a href="#👀2、类型" class="headerlink" title="👀2、类型"></a>👀2、类型</h4><p>类型位于在标题内，有以下几种可能：</p><table><thead><tr><th>类型</th><th>作用</th></tr></thead><tbody><tr><td>feature(feat)</td><td>新增特性(feature)</td></tr><tr><td>fix</td><td>修复 Bug(bug fix)</td></tr><tr><td>docs</td><td>修改文档(documentation)</td></tr><tr><td>style</td><td>代码格式修改(white-space,formatting,missing semi colons,etc) 格式、分号缺失等，代码无变动</td></tr><tr><td>refactor</td><td>代码重构(refactor)</td></tr><tr><td>perf</td><td>改善性能(A code change that improves performance)</td></tr><tr><td>test</td><td>测试(when adding missing tests) 测试添加、测试重构等，生产代码无变动</td></tr><tr><td>build</td><td>变更项目构建或外部依赖 (例如 scopes: webpack、gulp、npm 等)</td></tr><tr><td>ci</td><td>更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes:Travis,Circle等</td></tr><tr><td>chore</td><td>构建任务更新、程序包管理器配置等，生产代码无变动</td></tr><tr><td>revert</td><td>代码回退</td></tr></tbody></table><h4 id="👀3、标题"><a href="#👀3、标题" class="headerlink" title="👀3、标题"></a>👀3、标题</h4><p>主题不得超过50个字符，首字母大写，末尾不加句号。<br>以祈使语气描述提交的任务，而不是其已完成的任务。例如，使用 <strong>change</strong>…，而不是 changed 或 changes 。</p><h4 id="👀4、信息正文"><a href="#👀4、信息正文" class="headerlink" title="👀4、信息正文"></a>👀4、信息正文</h4><p>并不是所有的提交信息都复杂到需要主体，因此这是可选内容，仅在提交信息需要一定的解释和语境时使用。消息体是用于解释提交任务的内容和原因，而不是方法。</p><p>在编写正文时，需要在标题和正文间加一个空行，且每行的内容应控制在72个字符内。</p><h4 id="👀5、注释"><a href="#👀5、注释" class="headerlink" title="👀5、注释"></a>👀5、注释</h4><p>注释是可选内容，用于引用问题跟踪的 ID 。</p><h4 id="👀6、提交信息示例"><a href="#👀6、提交信息示例" class="headerlink" title="👀6、提交信息示例"></a>👀6、提交信息示例</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Feature: 总结变动的内容，保持在50个字符内</span><br><span class="line"></span><br><span class="line">如有需要，使用更详细的说明性文字，将其大概控制在72个字符。在部分语境中，第一行被视为提交信息的主题，余下的文本被视为主体。分隔总结与主体的空行十分重要（除非你完全忽略主体）；否则`log`、 `shortlog` 和 `rebase` 等多个工具容易发生混淆。</span><br><span class="line">解释该提交信息所解决的问题，说明你进行该变动的原因，而不是方法（代码本身可以解释方法）。</span><br><span class="line">该变动是否存在副作用或其他直觉性后果？在这里进行解释。</span><br><span class="line"></span><br><span class="line">后续段落前需加空行。</span><br><span class="line">可以列出要点</span><br><span class="line">- 通常情况下，要点会使用空格加上连字符或星号，中间用空行分隔，但该规定存在差别。</span><br><span class="line"></span><br><span class="line">如果你使用问题追踪，将其引用放在末尾，例如：</span><br><span class="line">解决了问题：#123</span><br><span class="line">另见：#456, #789</span><br></pre></td></tr></table></figure><hr><p>示例:</p><p>Sourcetree 软件 提交示例(携带签名)</p><p><img src="/images/blog/2023-10-10/1.png" alt="eg1"></p><hr><p>❤ enjoy it.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;📃一、前言&quot;&gt;&lt;a href=&quot;#📃一、前言&quot; class=&quot;headerlink&quot; title=&quot;📃一、前言&quot;&gt;&lt;/a&gt;📃一、前言&lt;/h3&gt;&lt;p&gt;该指南内容主要是去描述你应该在项目进行过程中所需遵守的基础规范。在Git仓库管理的过程中，为了减少开发或者其</summary>
+      
+    
+    
+    
+    <category term="前端" scheme="https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="Git" scheme="https://blog.rexhang.com/categories/%E5%89%8D%E7%AB%AF/Git/"/>
+    
+    
+    <category term="frontend" scheme="https://blog.rexhang.com/tags/frontend/"/>
+    
+    <category term="git" scheme="https://blog.rexhang.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>Promise之allSettled</title>
@@ -445,9 +473,9 @@
     
     <category term="javascript" scheme="https://blog.rexhang.com/tags/javascript/"/>
     
-    <category term="React" scheme="https://blog.rexhang.com/tags/React/"/>
-    
     <category term="前端框架" scheme="https://blog.rexhang.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    
+    <category term="React" scheme="https://blog.rexhang.com/tags/React/"/>
     
   </entry>
   
@@ -545,9 +573,9 @@
     
     <category term="javascript" scheme="https://blog.rexhang.com/tags/javascript/"/>
     
-    <category term="前端框架" scheme="https://blog.rexhang.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
-    
     <category term="Vue" scheme="https://blog.rexhang.com/tags/Vue/"/>
+    
+    <category term="前端框架" scheme="https://blog.rexhang.com/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
@@ -602,33 +630,6 @@
     
     
     <category term="javascript" scheme="https://blog.rexhang.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何创建一个TC的免费托管服务</title>
-    <link href="https://blog.rexhang.com/2021/01/05/articles/1/"/>
-    <id>https://blog.rexhang.com/2021/01/05/articles/1/</id>
-    <published>2021-01-04T17:06:21.000Z</published>
-    <updated>2022-10-25T14:41:49.324Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;需要先全局安装cli, 本地预先安装好nodejs以及git</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm i -g @cloudbase/cli hexo-cli</span><br></pre></td></tr></table></figure><h3 id="然后"><a href="#然后" class="headerlink" title="然后"></a>然后</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;初始化一个hexo项目目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure><p>初始化完毕后, 启动服务本地编写文章</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure><h3 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;发布就很简单了，获取授权，生成静态代码，使用cli推送到远程托管</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cloudbase login</span><br><span class="line">$ hexo g</span><br><span class="line">$ cloudbase hosting deploy public -e [EnvID]</span><br></pre></td></tr></table></figure><h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><ul><li>环境ID(EnvID)获取方法: <a href="https://console.cloud.tencent.com/tcb/env/index?rid=4&tdl_anchor=qcloud&tdl_site=free">链接</a></li><li>创建环境指引: <a href="https://cloud.tencent.com/document/product/876/47006">链接</a></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;首先&quot;&gt;&lt;a href=&quot;#首先&quot; class=&quot;headerlink&quot; title=&quot;首先&quot;&gt;&lt;/a&gt;首先&lt;/h3&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;需要先全局安装cli, 本地预先安装好nodejs以及git&lt;/p&gt;
-&lt;figure cla</summary>
-      
-    
-    
-    
-    <category term="腾讯云" scheme="https://blog.rexhang.com/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/"/>
-    
-    <category term="操作技巧" scheme="https://blog.rexhang.com/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/"/>
-    
-    
-    <category term="腾讯云" scheme="https://blog.rexhang.com/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/"/>
     
   </entry>
   
