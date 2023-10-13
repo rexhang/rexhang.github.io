@@ -9,7 +9,7 @@
  */
 
 /**
- * 
+ *
  */
 
 /* Mixins */
@@ -5029,6 +5029,8 @@ table {
   width: 100%;
   max-width: 100%;
   margin: 10px 0;
+	display: block;
+	overflow-x: auto;
 }
 
 table > thead > tr > th,

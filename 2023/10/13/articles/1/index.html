@@ -30,9 +30,10 @@
 <meta property="og:description" content="如何在 Chrome 浏览器中更快地加载网站? 这是本篇文章即将讨论的主题。 📃前言Chrome浏览器在ver.103中引入了许多新功能，例如 Journeys、新的隐私指南界面、扩展入门等，仔细查看 Chrome 的隐藏标志，我们发现了另一个可以显着加快网站加载速度的功能。 这项技术功能可用于预加载和渲染内容，可以大大的提高用户访问网站的体验，取代了旧版 Chrome 中的 NoState P">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.rexhang.com/images/blog/2023-10-13/1.png">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2023-10-13/3.gif">
 <meta property="og:image" content="https://blog.rexhang.com/images/blog/2023-10-13/2.png">
 <meta property="article:published_time" content="2023-10-13T04:00:00.000Z">
-<meta property="article:modified_time" content="2023-10-13T07:30:05.805Z">
+<meta property="article:modified_time" content="2023-10-13T08:28:51.232Z">
 <meta property="article:author" content="RexHang">
 <meta property="article:tag" content="frontend">
 <meta property="article:tag" content="Chrome">
@@ -487,6 +488,7 @@
 提供了三种方式去验证当前页面是否是通过 Prerender2.0 技术加载的，当然还可以通过任务管理器查看 带有预渲染的网页 会有<code>预渲染: </code>开头。</li>
 </ol>
 <h4 id="❔效果如何"><a href="#❔效果如何" class="headerlink" title="❔效果如何?"></a>❔效果如何?</h4><p>根据 Chromium 提供的视频示例(<a target="_blank" rel="noopener" href="https://storage.googleapis.com/web-dev-uploads/video/W3z1f5ZkBJSgL1V1IfloTIctbIF3/rO1MGC5jaBAIyo79KrVT.mp4">视频演示</a>)，不使用 Prerender 能力可以明显的看到页面中内容从0到1展示的过程，而使用Prerender后页面几乎是即时展示的。效果对比 <strong>非常明显</strong>。</p>
+<p><img src="/images/blog/2023-10-13/3.gif" alt="quick"></p>
 <h4 id="❔体验地址"><a href="#❔体验地址" class="headerlink" title="❔体验地址"></a>❔体验地址</h4><p>Prerender Demo: <a target="_blank" rel="noopener" href="https://prerender-demos.glitch.me/">前往体验demo</a></p>
 <p>Prerender Demo源代码: <a target="_blank" rel="noopener" href="https://glitch.com/edit/#!/prerender-demos">前往查看源代码</a></p>
 <h4 id="❔应用场景"><a href="#❔应用场景" class="headerlink" title="❔应用场景"></a>❔应用场景</h4><p>由于预渲染页面对于设备的资源消耗较大，是个需要谨慎使用的机制能力，若肆无忌惮的使用此能力，不仅无法提高用户的浏览体验，还会耗尽用户的宝贵资源，可能带来卡顿、崩溃等负向影响。Chromium推荐用法中表示当用户加载某些页面的可能性很高时才推荐使用Prerender机制，此时可将Prerender机制带来的正向收益最大化。</p>
