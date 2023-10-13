@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+
+  <title>Chrome Prerender2.0 - 新一代 Web 预渲染技术 | Rexhang的Blog</title>
+
+  <meta name="keywords" content="frontend,Chrome,Prerender2.0 | 顾航,rexhang,web前端,NodeJs,网页设计,平面设计,UI界面设计,视觉传达,用户体验,炫酷效果,英语,Rexhang,Web,Javaweb,Java,Javascript,HTML5,CSS3,Jquery,Android,Mysql">
+
+  <meta name="description" content="如何在 Chrome 浏览器中更快地加载网站? 这是本篇文章即将讨论的主题。 📃前言Chrome浏览器在ver.103中引入了许多新功能，例如 Journeys、新的隐私指南界面、扩展入门等，仔细查看 Chrome 的隐藏标志，我们发现了另一个可以显着加快网站加载速度的功能。 这项技术功能可用于预加载和渲染内容，可以大大的提高用户访问网站的体验，取代了旧版 Chrome 中的 NoState P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrome Prerender2.0 - 新一代 Web 预渲染技术">
+<meta property="og:url" content="https://blog.rexhang.com/2023/10/13/articles/1/index.html">
+<meta property="og:site_name" content="Rexhang的Blog">
+<meta property="og:description" content="如何在 Chrome 浏览器中更快地加载网站? 这是本篇文章即将讨论的主题。 📃前言Chrome浏览器在ver.103中引入了许多新功能，例如 Journeys、新的隐私指南界面、扩展入门等，仔细查看 Chrome 的隐藏标志，我们发现了另一个可以显着加快网站加载速度的功能。 这项技术功能可用于预加载和渲染内容，可以大大的提高用户访问网站的体验，取代了旧版 Chrome 中的 NoState P">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2023-10-13/1.png">
+<meta property="og:image" content="https://blog.rexhang.com/images/blog/2023-10-13/2.png">
+<meta property="article:published_time" content="2023-10-13T04:00:00.000Z">
+<meta property="article:modified_time" content="2023-10-13T07:30:05.805Z">
+<meta property="article:author" content="RexHang">
+<meta property="article:tag" content="frontend">
+<meta property="article:tag" content="Chrome">
+<meta property="article:tag" content="Prerender2.0">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.rexhang.com/images/blog/2023-10-13/1.png">
+
+
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://blog.rexhang.com/2023/10/13/articles/1/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Rexhang的Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://blog.rexhang.com" target="_self">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">RexHang</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">前端开发工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 江苏, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流, 联系博主 &nbsp;<a target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1134916452&site=qq&menu=yes"><img border="0" src="//pub.idqqimg.com/qconn/wpa/button/button_111.gif" alt="点击这里给我发消息" title="点击这里给我发消息"/></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ai/">ai</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ai/openai/">openai</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/ai/openai/chatgpt/">chatgpt</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/node/">node</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/node/nvm/">nvm</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/guide/">guide</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/guide/%E8%A7%84%E8%8C%83/">规范</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Chrome/">Chrome</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Chrome/Prerender2-0/">Prerender2.0</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Git/">Git</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Git/guide/">guide</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/Git/guide/%E8%A7%84%E8%8C%83/">规范</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML/">HTML</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML/guide/">guide</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML/guide/%E8%A7%84%E8%8C%83/">规范</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/JS/">JS</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/JS/guide/">guide</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/JS/guide/%E8%A7%84%E8%8C%83/">规范</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/npm/">npm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/node/">node</a><span class="category-list-count">1</span></li></ul></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/">大前端</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/css3/">css3</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/">兼容性</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%85%BC%E5%AE%B9%E6%80%A7/%E5%BF%83%E5%BE%97/">心得</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/">图表</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E5%9B%BE%E8%A1%A8/G2/">G2</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/">效率</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%95%88%E7%8E%87/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/">游戏引擎</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%A7%E5%89%8D%E7%AB%AF/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/">腾讯云</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%85%BE%E8%AE%AF%E4%BA%91/%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/">操作技巧</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/">面试经</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/">前端</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E8%AF%95%E7%BB%8F/%E5%89%8D%E7%AB%AF/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li></ul></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome/" rel="tag">Chrome</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CocosCreator/" rel="tag">CocosCreator</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES2023/" rel="tag">ES2023</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prerender2-0/" rel="tag">Prerender2.0</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/" rel="tag">React</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vue/" rel="tag">Vue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ai/" rel="tag">ai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/apple/" rel="tag">apple</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/chatgpt/" rel="tag">chatgpt</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cocos2d/" rel="tag">cocos2d</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/" rel="tag">css</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css3/" rel="tag">css3</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devtools/" rel="tag">devtools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frontend/" rel="tag">frontend</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/guide/" rel="tag">guide</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/" rel="tag">ios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag">javascript字符串</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E5%AF%B9%E8%B1%A1/" rel="tag">javascript对象</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript%E6%95%B0%E7%BB%84/" rel="tag">javascript数组</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E5%B0%8Ftips/" rel="tag">js小tips</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js%E6%8A%80%E5%B7%A7/" rel="tag">js技巧</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/macos/" rel="tag">macos</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mask/" rel="tag">mask</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/" rel="tag">npm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nvm/" rel="tag">nvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/openai/" rel="tag">openai</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" rel="tag">前端多端开发兼容性</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" rel="tag">前端技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" rel="tag">前端框架</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">开发工具</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" rel="tag">游戏引擎</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag">腾讯云</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B9%E6%9E%9C/" rel="tag">苹果</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A7%84%E8%8C%83/" rel="tag">规范</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%81%AE%E7%BD%A9/" rel="tag">遮罩</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/" rel="tag">面试经</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/Chrome/" style="font-size: 13.2px;">Chrome</a> <a href="/tags/CocosCreator/" style="font-size: 13px;">CocosCreator</a> <a href="/tags/ES2023/" style="font-size: 13px;">ES2023</a> <a href="/tags/JavaScript/" style="font-size: 13px;">JavaScript</a> <a href="/tags/Prerender2-0/" style="font-size: 13px;">Prerender2.0</a> <a href="/tags/React/" style="font-size: 13px;">React</a> <a href="/tags/Vue/" style="font-size: 13px;">Vue</a> <a href="/tags/ai/" style="font-size: 13px;">ai</a> <a href="/tags/apple/" style="font-size: 13px;">apple</a> <a href="/tags/chatgpt/" style="font-size: 13px;">chatgpt</a> <a href="/tags/cocos2d/" style="font-size: 13px;">cocos2d</a> <a href="/tags/css/" style="font-size: 13px;">css</a> <a href="/tags/css3/" style="font-size: 13px;">css3</a> <a href="/tags/devtools/" style="font-size: 13px;">devtools</a> <a href="/tags/frontend/" style="font-size: 13.8px;">frontend</a> <a href="/tags/git/" style="font-size: 13px;">git</a> <a href="/tags/guide/" style="font-size: 13.6px;">guide</a> <a href="/tags/html/" style="font-size: 13px;">html</a> <a href="/tags/ios/" style="font-size: 13px;">ios</a> <a href="/tags/javascript/" style="font-size: 14px;">javascript</a> <a href="/tags/javascript%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 13px;">javascript字符串</a> <a href="/tags/javascript%E5%AF%B9%E8%B1%A1/" style="font-size: 13px;">javascript对象</a> <a href="/tags/javascript%E6%95%B0%E7%BB%84/" style="font-size: 13.4px;">javascript数组</a> <a href="/tags/js/" style="font-size: 13px;">js</a> <a href="/tags/js%E5%B0%8Ftips/" style="font-size: 13px;">js小tips</a> <a href="/tags/js%E6%8A%80%E5%B7%A7/" style="font-size: 13px;">js技巧</a> <a href="/tags/macos/" style="font-size: 13px;">macos</a> <a href="/tags/mask/" style="font-size: 13px;">mask</a> <a href="/tags/node/" style="font-size: 13.2px;">node</a> <a href="/tags/npm/" style="font-size: 13px;">npm</a> <a href="/tags/nvm/" style="font-size: 13px;">nvm</a> <a href="/tags/openai/" style="font-size: 13px;">openai</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 13px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%A4%9A%E7%AB%AF%E5%BC%80%E5%8F%91%E5%85%BC%E5%AE%B9%E6%80%A7/" style="font-size: 13px;">前端多端开发兼容性</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/" style="font-size: 13px;">前端技术</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/" style="font-size: 13.2px;">前端框架</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" style="font-size: 13px;">开发工具</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/" style="font-size: 13px;">游戏引擎</a> <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" style="font-size: 13px;">腾讯云</a> <a href="/tags/%E8%8B%B9%E6%9E%9C/" style="font-size: 13px;">苹果</a> <a href="/tags/%E8%A7%84%E8%8C%83/" style="font-size: 13.6px;">规范</a> <a href="/tags/%E9%81%AE%E7%BD%A9/" style="font-size: 13px;">遮罩</a> <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F/" style="font-size: 13px;">面试经</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/10/">十月 2023</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">九月 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">八月 2023</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2023/10/13/articles/1/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/Chrome/">Chrome</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/13/articles/1/" class="title">Chrome Prerender2.0 - 新一代 Web 预渲染技术</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-13T04:00:00.000Z" itemprop="datePublished">2023-10-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2023/10/10/articles/5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/npm/">npm</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/10/articles/5/" class="title">如何设置npm镜像源</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-10T04:00:04.000Z" itemprop="datePublished">2023-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2023/10/10/articles/4/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/JS/">JS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/10/articles/4/" class="title">JavaScript代码编写规范</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-10T01:00:03.000Z" itemprop="datePublished">2023-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2023/10/10/articles/3/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/HTML/">HTML</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/10/articles/3/" class="title">HTML代码编写规范</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-10T01:00:02.000Z" itemprop="datePublished">2023-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2023/10/10/articles/2/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="icon icon-angle-right"></i><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/CSS/">CSS</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/10/10/articles/2/" class="title">CSS代码编写规范</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-10-10T01:00:01.000Z" itemprop="datePublished">2023-10-10</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="posts-Chrome Prerender2.0 - 新一代 Web 预渲染技术" class="article article-type-posts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Chrome Prerender2.0 - 新一代 Web 预渲染技术
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2023/10/13/articles/1/" class="article-date">
+	  <time datetime="2023-10-13T04:00:00.000Z" itemprop="datePublished">2023-10-13</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/Chrome/">Chrome</a>►<a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF/Chrome/Prerender2-0/">Prerender2.0</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Chrome/" rel="tag">Chrome</a>, <a class="article-tag-link-link" href="/tags/Prerender2-0/" rel="tag">Prerender2.0</a>, <a class="article-tag-link-link" href="/tags/frontend/" rel="tag">frontend</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2023/10/13/articles/1/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>如何在 Chrome 浏览器中更快地加载网站? 这是本篇文章即将讨论的主题。</p>
+<h4 id="📃前言"><a href="#📃前言" class="headerlink" title="📃前言"></a>📃前言</h4><p>Chrome浏览器在ver.103中引入了许多新功能，例如 Journeys、新的隐私指南界面、扩展入门等，仔细查看 Chrome 的隐藏标志，我们发现了另一个可以显着加快网站加载速度的功能。 这项技术功能可用于预加载和渲染内容，可以大大的提高用户访问网站的体验，取代了旧版 Chrome 中的 NoState Prefetch 预渲染 并且消耗资源更少。</p>
+<h4 id="❔如何启用"><a href="#❔如何启用" class="headerlink" title="❔如何启用"></a>❔如何启用</h4><p>确保你的Chrome版本在 <strong>103+</strong> 查看 <a href="chrome://flags">chrome://flags</a> 输入 <code>prerender</code> 确保相关项 是 <code>Enabled</code> 状态 根据系统提示进行重启动浏览器。</p>
+<p><img src="/images/blog/2023-10-13/1.png" alt="enabled"></p>
+<h4 id="❔Prerender2-0的使用"><a href="#❔Prerender2-0的使用" class="headerlink" title="❔Prerender2.0的使用"></a>❔Prerender2.0的使用</h4><p>使用 Prerender2.0 机制需要使用新增的 <a target="_blank" rel="noopener" href="https://github.com/WICG/nav-speculation/blob/main/triggers.md#speculation-rules">Speculation Rules API</a>，此API可同时支持触发 <strong>Prefetch、NSP、Prerender</strong> 机制。</p>
+<blockquote>
+<p>1、<strong>Prefetch（预取）机制</strong>： 预取是一种优化策略，通过在用户点击链接之前提前获取相关资源，以减少加载时间。这可以包括预先加载链接指向的页面的CSS、JavaScript、图像等内容，提高用户体验。<br>2、<strong>NSP（Next Scheduled Prefetch）机制</strong>： NSP 是一种进一步的优化，它预定了将来可能发生的预取操作。系统会根据用户行为和网站的预取策略，提前获取可能被访问的页面资源，以减少未来导航时的加载时间。<br>3、<strong>Prerender（预渲染）机制</strong>： 预渲染是一种更进一步的优化技术，它不仅预取资源，还预先渲染整个页面。这意味着浏览器在用户导航到页面之前会预先加载、执行 JavaScript 和渲染页面，以便在用户实际导航到该页面时可以立即呈现。这有助于显著缩短页面加载时间。</p>
+</blockquote>
+<p>可以通过 <code>(&#39;supports&#39; in HTMLScriptElement &amp;&amp; HTMLScriptElement.supports(&#39;speculationrules&#39;))</code> 来查看当前运行环境的支持情况</p>
+<p>API 使用:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;speculationrules&quot;</span>&gt;</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;prerender&quot;</span>: [</span><br><span class="line">			&#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;list&quot;</span>,</span><br><span class="line">				<span class="string">&quot;urls&quot;</span>: [<span class="string">&quot;next.html&quot;</span>, <span class="string">&quot;./PrefetchTestNew.html&quot;</span>]&#125;</span><br><span class="line">		],</span><br><span class="line">		<span class="string">&quot;prefetch&quot;</span>: [</span><br><span class="line">			&#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;list&quot;</span>,</span><br><span class="line">				<span class="string">&quot;urls&quot;</span>: [<span class="string">&quot;next.html&quot;</span>],</span><br><span class="line">				<span class="string">&quot;requires&quot;</span>: [<span class="string">&quot;anonymous-client-ip-when-cross-origin&quot;</span>]&#125;</span><br><span class="line">		],</span><br><span class="line">		<span class="string">&quot;prefetch_with_subresources&quot;</span>: [</span><br><span class="line">			&#123;<span class="string">&quot;source&quot;</span>: <span class="string">&quot;list&quot;</span>,</span><br><span class="line">				<span class="string">&quot;urls&quot;</span>: [<span class="string">&quot;next.html&quot;</span>],</span><br><span class="line">				<span class="string">&quot;requires&quot;</span>: [<span class="string">&quot;anonymous-client-ip-when-cross-origin&quot;</span>]&#125;</span><br><span class="line">		]</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>API 主要参数说明:</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>prerender</td>
+<td>使用预渲染机制</td>
+<td>/</td>
+</tr>
+<tr>
+<td>prefetch</td>
+<td>使用预加载机制，仅预加载主文档(Document)</td>
+<td>内部使用 <code>SimpleURLLoader</code> 实现主文档的预加载</td>
+</tr>
+<tr>
+<td>prefetch_with_subresources</td>
+<td>使用预加载机制，预加载主文档 + 关键子资源。功能效果类似于NSP</td>
+<td>内部使用 <code>SimpleURLLoader</code> 实现主文档的预加载</td>
+</tr>
+<tr>
+<td>requires</td>
+<td>在确保客户端IP对服务端不可见时，可预加载跨域资源</td>
+<td>value只能为 <strong>anonymous-client-ip-when-cross-origin</strong>，且 <strong>只支持</strong> key为 <strong>prefetch</strong> 和 <strong>prefetch_with_subresources</strong> 的场景下使用</td>
+</tr>
+</tbody></table>
+<p>根据支持情况使用:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Prerendering with web-vitals: index<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">link</span> <span class="attr">id</span>=<span class="string">&quot;favicon&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://glitch.com/favicon.ico&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/x-icon&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Security-Policy&quot;</span> <span class="attr">content</span>=<span class="string">&quot;script-src &#x27;strict-dynamic&#x27; &#x27;sha256-kBytAlkzbRIYPXxDAM/I6PhcHCfaLyEcc48s76/JtOI=&#x27;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Start page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;next.html&quot;</span>&gt;</span>This link should be prerendered<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;next2.html&quot;</span>&gt;</span>This link should also be prerendered<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span> <span class="attr">id</span>=<span class="string">&quot;output1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span> <span class="attr">id</span>=<span class="string">&quot;output2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://glitch.com/edit/#!/prerender-demos&quot;</span>&gt;</span>View the code on Glitch<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">trackAction</span>(<span class="params">selector, actionName, args</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.querySelector(selector).textContent = <span class="string">`<span class="subst">$&#123;actionName&#125;</span>: <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(args, <span class="number">0</span>, <span class="number">2</span>).replaceAll(<span class="string">&#x27;\\&quot;&#x27;</span>,<span class="string">&#x27;&quot;&#x27;</span>)&#125;</span>`</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">addSpeculationRules</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> specScript = <span class="built_in">document</span>.createElement(<span class="string">&quot;script&quot;</span>);</span></span><br><span class="line"><span class="javascript">      specScript.id = <span class="string">&quot;speculationrules&quot;</span>;</span></span><br><span class="line"><span class="javascript">      specScript.type = <span class="string">&quot;speculationrules&quot;</span>;</span></span><br><span class="line">      specScript.textContent = `</span><br><span class="line">        &#123;</span><br><span class="line"><span class="javascript">          <span class="string">&quot;prerender&quot;</span>: [</span></span><br><span class="line">            &#123;</span><br><span class="line"><span class="javascript">              <span class="string">&quot;source&quot;</span>: <span class="string">&quot;list&quot;</span>,</span></span><br><span class="line"><span class="javascript">              <span class="string">&quot;urls&quot;</span>: [<span class="string">&quot;next.html&quot;</span>, <span class="string">&quot;next2.html&quot;</span>]</span></span><br><span class="line">            &#125;</span><br><span class="line">          ]</span><br><span class="line">        &#125;`;</span><br><span class="line"><span class="javascript">      <span class="built_in">document</span>.body.appendChild(specScript);</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="keyword">if</span> (!(<span class="string">&#x27;supports&#x27;</span> <span class="keyword">in</span> HTMLScriptElement &amp;&amp; HTMLScriptElement.supports(<span class="string">&#x27;speculationrules&#x27;</span>))) &#123;</span></span><br><span class="line"><span class="javascript">      trackAction(<span class="string">&#x27;#output1&#x27;</span>, <span class="string">&#x27;Speculation Rules supported on your browser&#x27;</span>, <span class="string">&#x27;false&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">      trackAction(<span class="string">&#x27;#output1&#x27;</span>, <span class="string">&#x27;Speculation Rules supported on your browser&#x27;</span>, <span class="string">&#x27;true&#x27;</span>);</span></span><br><span class="line">      addSpeculationRules();</span><br><span class="line"><span class="javascript">      trackAction(<span class="string">&#x27;#output2&#x27;</span>, <span class="string">&#x27;Added speculationrules&#x27;</span>, <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#speculationrules&#x27;</span>).text.replaceAll(<span class="string">&#x27;\n&#x27;</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="regexp">/  +/g</span>,<span class="string">&#x27; &#x27;</span>));</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;pageshow&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// on bfcache restore, reinitialise the speculation rules to force another prerender</span></span></span><br><span class="line"><span class="javascript">      <span class="keyword">const</span> navigationType = performance.getEntriesByType(<span class="string">&#x27;navigation&#x27;</span>)[<span class="number">0</span>].type;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (event.persisted || navigationType == <span class="string">&#x27;back_forward&#x27;</span> ) &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#speculationrules&#x27;</span>)?.remove();</span></span><br><span class="line">        addSpeculationRules();</span><br><span class="line"><span class="javascript">        trackAction(<span class="string">&#x27;#output2&#x27;</span>, <span class="string">&#x27;Page reactivated: re-added speculationrules&#x27;</span>, <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#speculationrules&#x27;</span>).text.replaceAll(<span class="string">&#x27;\n&#x27;</span>,<span class="string">&#x27;&#x27;</span>).replace(<span class="regexp">/  +/g</span>,<span class="string">&#x27; &#x27;</span>));</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>由于 <strong>Speculation Rules API</strong> 的灵活性较好，Chromium预言此API将逐步替代规则，成为开发者使用较多的API。</p>
+<h4 id="❔我根据代码提示使用了Prerender2-0技术，那么如何客观的体现呢"><a href="#❔我根据代码提示使用了Prerender2-0技术，那么如何客观的体现呢" class="headerlink" title="❔我根据代码提示使用了Prerender2.0技术，那么如何客观的体现呢?"></a>❔我根据代码提示使用了Prerender2.0技术，那么如何客观的体现呢?</h4><blockquote>
+<p>如何知道用户打开了已Prerender的页面呢?</p>
+</blockquote>
+<ol>
+<li>可以打开F12控制台，通过输入 <code>performance.getEntriesByType(&#39;navigation&#39;)[0].type</code> 可以获取到当前页面的加载类型，如果是 <strong>‘prerender’</strong> 则表示当前页面是通过 Prerender2.0 技术加载的。</li>
+<li>同上，但是输入<code>performance.getEntriesByType(&#39;navigation&#39;)[0].activationStart;</code> <strong>如果大于0</strong> 则表示当前页面是通过 Prerender2.0 技术加载的。</li>
+<li>同上<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> wasActivated = <span class="literal">false</span>;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&#x27;prerenderingchange&#x27;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">  wasActivated = <span class="literal">true</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// wasActivated = true 则表示当前页面是通过 Prerender2.0 技术加载的。</span></span><br><span class="line"><span class="built_in">console</span>.info(wasActivated);</span><br></pre></td></tr></table></figure>
+提供了三种方式去验证当前页面是否是通过 Prerender2.0 技术加载的，当然还可以通过任务管理器查看 带有预渲染的网页 会有<code>预渲染: </code>开头。</li>
+</ol>
+<h4 id="❔效果如何"><a href="#❔效果如何" class="headerlink" title="❔效果如何?"></a>❔效果如何?</h4><p>根据 Chromium 提供的视频示例(<a target="_blank" rel="noopener" href="https://storage.googleapis.com/web-dev-uploads/video/W3z1f5ZkBJSgL1V1IfloTIctbIF3/rO1MGC5jaBAIyo79KrVT.mp4">视频演示</a>)，不使用 Prerender 能力可以明显的看到页面中内容从0到1展示的过程，而使用Prerender后页面几乎是即时展示的。效果对比 <strong>非常明显</strong>。</p>
+<h4 id="❔体验地址"><a href="#❔体验地址" class="headerlink" title="❔体验地址"></a>❔体验地址</h4><p>Prerender Demo: <a target="_blank" rel="noopener" href="https://prerender-demos.glitch.me/">前往体验demo</a></p>
+<p>Prerender Demo源代码: <a target="_blank" rel="noopener" href="https://glitch.com/edit/#!/prerender-demos">前往查看源代码</a></p>
+<h4 id="❔应用场景"><a href="#❔应用场景" class="headerlink" title="❔应用场景"></a>❔应用场景</h4><p>由于预渲染页面对于设备的资源消耗较大，是个需要谨慎使用的机制能力，若肆无忌惮的使用此能力，不仅无法提高用户的浏览体验，还会耗尽用户的宝贵资源，可能带来卡顿、崩溃等负向影响。Chromium推荐用法中表示当用户加载某些页面的可能性很高时才推荐使用Prerender机制，此时可将Prerender机制带来的正向收益最大化。</p>
+<p>Chromium将预测技术与Prerender2.0机制结合使用，利用预测技术提高预渲染页面的准确性。通过 <a href="chrome://predictors">chrome://predictors</a> 页面可看出Chromium对用户行为的预测，如下图。</p>
+<p><img src="/images/blog/2023-10-13/2.png" alt="predictors"></p>
+<p>其中 <strong>绿色高亮</strong> 表示有足够信心触发预渲染。以上示例可看出，当用户在输入框中输入”aliy”/“aliyu”/“aliyun”字符后，Chrome 将对 “<a target="_blank" rel="noopener" href="https://www.aliyundrive.com/&quot;">https://www.aliyundrive.com/&quot;</a> 站点发起预渲染，因为经过多次统计有足够的信心认为用户将进入目标站点。</p>
+<p>Chromium会根据用户输入和选择不断的更新预测结果。</p>
+<p>当置信度&gt;50%(图中黄色)，Chromium会发起预链接<br>当置信度&gt;80%(图中绿色)，Chromium会发起预渲染</p>
+<p>同时Chromium会将预测的结果呈现在Sug选项栏中，辅助用户进入目标站点。</p>
+<p>进入站点后，开发者可以通过上面提到的验证方式，来确认当前是否是 Prerender2.0 技术预加载的。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>本文主要介绍了 Prerender 机制的发展过程和现状，并对 Prerender2.0 技术进行介绍。其中重点介绍了 Prerender2.0 技术的使用、实现流程和应用场景。Prerender2.0 机制还在初级阶段，目前为止Chromium还在对 Prerender2.0 技术进行完善，故文档中内容可能和最新方案有些许差异。但是我们仍将持续关注 Prerender2.0 技术发展，发掘其应用于业务的可行场景，持续优化页面上屏性能，提升用户体验。</p>
+<p>—END—</p>
+<hr>
+<p>参考文档:</p>
+<ul>
+<li>[1] <a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/prerender-pages/">Chrome Prerender开发者文档</a></li>
+<li>[2] <a target="_blank" rel="noopener" href="https://groups.google.com/a/chromium.org/g/prerender/">Chrome Prerender官方论坛</a></li>
+<li>[3] <a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1NginQ8k0w3znuwTiJ5qjYmBKgZDekvEPC22q0I4swxQ/edit#heading=h.w1qo2n6sr8wn">Chrome 多页面架构文档</a></li>
+<li>[4] <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000043461804">社区博客</a></li>
+<li>[5] <a target="_blank" rel="noopener" href="http://guobacai.com/index.php/archives/99/">社区博客</a></li>
+</ul>
+<hr>
+<p>❤ enjoy it.</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+	<ul class="post-copyright list-unstyled">
+		
+		<li class="post-copyright-link hidden-xs">
+			<strong>本文链接：</strong>
+			<a
+				href="https://blog.rexhang.com/2023/10/13/articles/1/"
+				title="Chrome Prerender2.0 - 新一代 Web 预渲染技术"
+				target="_blank"
+				rel="external"
+				>右键可以复制链接地址</a
+			>
+		</li>
+		
+		<li class="post-copyright-license">
+			<strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用
+			<a
+				href="http://creativecommons.org/licenses/by/4.0/deed.zh"
+				target="_blank"
+				rel="external"
+				>CC BY 4.0 CN协议</a
+			>
+			许可协议。转载请注明出处！
+		</li>
+	</ul>
+</blockquote>
+ 
+<div class="panel panel-default panel-badger">
+	<div class="panel-body">
+		<figure class="media">
+			<div class="media-left">
+				<a
+					href="https://blog.rexhang.com"
+					target="_blank"
+					class="img-burn thumb-sm visible-lg"
+				>
+					<img
+						src="/images/avatar.png"
+						class="img-rounded w-full"
+						alt=""
+					/>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">
+					<a href="https://blog.rexhang.com" target="_blank"
+						><span class="text-dark">RexHang</span
+						><small class="ml-1x">前端开发工程师</small></a
+					>
+				</h3>
+				<div>个人简介。</div>
+			</div>
+		</figure>
+	</div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2023/10/10/articles/5/" title="如何设置npm镜像源"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，是我更新下去的动力!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay_rexhang.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，一分不嫌少一百不嫌多😁</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                  <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/rexhang" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/5763561654" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <!-- <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+            <a href="https://blog.cofess.com/2017/11/01/hexo-blog-theme-pure-usage-description.html" target="_blank">configuration guidelines</a>
+        </div>
+    </div> -->
+</footer>
+
+  <script src="//unpkg.com/jquery@1.11.1/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <!-- <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script> -->
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'tl2dIYJMUMbG82JOw8puTVMh-gzGzoHsz',
+    appKey: 's6As7d7cnxk5Akr7TzLIigNG',
+    placeholder: '立刻参与讨论吧~下一个神评说不定就是你！',
+    avatar: 'monsterid',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+<script src="//res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script src="/js/registerWeChatDevConfig.js"></script>
+<script src="/js/console.log.js"></script>
+
+</body>
+</html>
