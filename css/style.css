@@ -26,6 +26,11 @@
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
+::selection {
+  background-color: #f73baf; /* 设置选中文字的背景色 */
+  color: #fff; /* 设置选中文字的文字颜色 */
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
