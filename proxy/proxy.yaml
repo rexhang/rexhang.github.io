@@ -1,0 +1,32 @@
+# Clash 配置文件
+
+# 代理服务器配置(本机)
+proxies:
+  - name: OFFICE
+    type: http
+    server: 10.181.117.170
+    port: 8100
+
+  - name: TC
+    type: http
+    server: 10.181.116.94
+    port: 8100
+
+  - name: HOME
+    type: http
+    server: 192.168.1.102
+    port: 8100
+
+# 代理组配置 strict: true 不会自动切换
+proxy-groups:
+  - name: "whistle_proxy"
+    type: select
+    proxies:
+      - OFFICE
+      - TC
+      - HOME
+    strict: true
+
+# 规则
+rules:
+  - MATCH,whistle_proxy
