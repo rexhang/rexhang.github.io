@@ -6,7 +6,7 @@
   <link href="https://blog.rexhang.com/atom.xml" rel="self"/>
   
   <link href="https://blog.rexhang.com/"/>
-  <updated>2025-02-22T16:15:07.734Z</updated>
+  <updated>2025-02-22T16:38:43.320Z</updated>
   <id>https://blog.rexhang.com/</id>
   
   <author>
@@ -21,15 +21,17 @@
     <link href="https://blog.rexhang.com/2025/02/22/articles/1/"/>
     <id>https://blog.rexhang.com/2025/02/22/articles/1/</id>
     <published>2025-02-22T12:30:10.000Z</published>
-    <updated>2025-02-22T16:15:07.734Z</updated>
+    <updated>2025-02-22T16:38:43.320Z</updated>
     
-    <content type="html"><![CDATA[<p>本篇博文推荐一本书籍 <strong>《JavaScript 权威指南第七版》中英文对照版</strong>，博主本人参与了该项目的部分翻译工作。</p><p>本项目基于 <code>vuepress</code> 进行开发，以提供比 <code>GitHub Markdown</code> 更佳的阅读体验。</p><blockquote><p>《JavaScript权威指南》是JavaScript领域的经典书籍，目前主要有以下版本：</p></blockquote><ol><li><p><strong>第一版（1997年）</strong></p><ul><li>由David Flanagan编写，涵盖JavaScript 1.2。</li><li>主要针对Netscape Navigator和Internet Explorer 4。</li></ul></li><li><p><strong>第二版（2002年）</strong></p><ul><li>更新至JavaScript 1.5，新增正则表达式、异常处理等内容。</li><li>涵盖IE 6和Netscape 6。</li></ul></li><li><p><strong>第三版（2006年）</strong></p><ul><li>更新至JavaScript 1.5和1.6，新增JSON、E4X等特性。</li><li>涵盖IE 7和Firefox 1.5。</li></ul></li><li><p><strong>第四版（2011年）</strong></p><ul><li>更新至ECMAScript 5，新增严格模式、JSON支持等。</li><li>涵盖现代浏览器如IE 9、Firefox 4、Chrome 7等。</li></ul></li><li><p><strong>第五版（2012年）</strong></p><ul><li>更新至ECMAScript 5.1，修正错误并改进内容。</li><li>涵盖IE 10、Firefox 12、Chrome 18等。</li></ul></li><li><p><strong>第六版（2015年）</strong></p><ul><li>更新至ECMAScript 6（ES2015），新增箭头函数、类、模块等。</li><li>涵盖现代浏览器如Edge、Firefox 40、Chrome 45等。</li></ul></li><li><p><strong>第七版（2020年）</strong></p><ul><li>更新至ECMAScript 2020（ES11），新增可选链、空值合并等特性。</li><li>涵盖现代浏览器如Edge 80、Firefox 72、Chrome 80等。</li></ul></li></ol><p>各个版本的主要区别：</p><ul><li><strong>语言版本</strong>：各版对应不同ECMAScript标准，新版涵盖更多现代特性。</li><li><strong>浏览器支持</strong>：新版涵盖更多现代浏览器及其特性。</li><li><strong>内容更新</strong>：新版增加新特性和最佳实践，删除过时内容。</li></ul><p>最后放上体验地址</p><p>1、在线阅读地址: <a href="/ebook/doc-jstdg7/">《JavaScript 权威指南第七版》中英文对照版</a></p><p>2、项目开源地址: <a href="https://gitee.com/rexhang/doc-jstdg7">https://gitee.com/rexhang/doc-jstdg7</a></p><p>—END—</p><hr><p>参考文档:</p><ul><li>[1] <a href="https://github.com/ten-ltw/JavaScript-The-Definitive-Guide-7th-zh">JavaScript-The-Definitive-Guide-7th-zh</a></li></ul><hr><p>❤ enjoy it.</p>]]></content>
+    <content type="html"><![CDATA[<p>本篇博文推荐一本书籍 <strong>《JavaScript 权威指南第七版》中英文对照版</strong>，博主本人参与了该项目的部分翻译工作。</p><p>《JavaScript 权威指南》书籍介绍：</p><blockquote><p>JavaScript是Web编程语言，也是很多软件开发者使用的编程语言。近25年来，这本畅销书一直是几十万JavaScript程序员必读的技术著作，本版已经更新到涵盖JavaScript的2020版。书中令人深思、富有启发性的示例随处可见。 这本“犀牛书”在很多工程师心目中有着至高无上的地位。如果你由于种种原因错过了它之前的版本，那一定不要再错过这一版了！ 本书介绍JavaScript语言和由浏览器与Node实现的JavaScript API。本书适合有一定编程经验、想学习JavaScript读者，也适合已经在使用JavaScript但希望更深入地理解进而真正掌握这门语言的程序员。 本书的目标是全面地讲解JavaScript语言，对JavaScript程序中可能用到的重要的客户端API和服务器端API提供深入的介绍。本书篇幅较长，内容非常详尽，相信认…(展开全部) JavaScript是Web编程语言，也是很多软件开发者使用的编程语言。近25年来，这本畅销书一直是几十万JavaScript程序员必读的技术著作，本版已经更新到涵盖JavaScript的2020版。书中令人深思、富有启发性的示例随处可见。 这本“犀牛书”在很多工程师心目中有着至高无上的地位。如果你由于种种原因错过了它之前的版本，那一定不要再错过这一版了！ 本书介绍JavaScript语言和由浏览器与Node实现的JavaScript API。本书适合有一定编程经验、想学习JavaScript读者，也适合已经在使用JavaScript但希望更深入地理解进而真正掌握这门语言的程序员。 本书的目标是全面地讲解JavaScript语言，对JavaScript程序中可能用到的重要的客户端API和服务器端API提供深入的介绍。本书篇幅较长，内容非常详尽，相信认真研究本书的读者都能获益良多。 David Flanagan从1995起就开始使用JavaScript并写作本书的第1版。他拥有麻省理工学院计算机科学与工程学位，目前是VMware的一名软件工程师。</p></blockquote><p>目前主要有以下版本：</p><ol><li><p><strong>第一版（1997年）</strong></p><ul><li>由David Flanagan编写，涵盖JavaScript 1.2。</li><li>主要针对Netscape Navigator和Internet Explorer 4。</li></ul></li><li><p><strong>第二版（2002年）</strong></p><ul><li>更新至JavaScript 1.5，新增正则表达式、异常处理等内容。</li><li>涵盖IE 6和Netscape 6。</li></ul></li><li><p><strong>第三版（2006年）</strong></p><ul><li>更新至JavaScript 1.5和1.6，新增JSON、E4X等特性。</li><li>涵盖IE 7和Firefox 1.5。</li></ul></li><li><p><strong>第四版（2011年）</strong></p><ul><li>更新至ECMAScript 5，新增严格模式、JSON支持等。</li><li>涵盖现代浏览器如IE 9、Firefox 4、Chrome 7等。</li></ul></li><li><p><strong>第五版（2012年）</strong></p><ul><li>更新至ECMAScript 5.1，修正错误并改进内容。</li><li>涵盖IE 10、Firefox 12、Chrome 18等。</li></ul></li><li><p><strong>第六版（2015年）</strong></p><ul><li>更新至ECMAScript 6（ES2015），新增箭头函数、类、模块等。</li><li>涵盖现代浏览器如Edge、Firefox 40、Chrome 45等。</li></ul></li><li><p><strong>第七版（2020年）</strong></p><ul><li>更新至ECMAScript 2020（ES11），新增可选链、空值合并等特性。</li><li>涵盖现代浏览器如Edge 80、Firefox 72、Chrome 80等。</li></ul></li></ol><p>各个版本的主要区别：</p><ul><li><strong>语言版本</strong>：各版对应不同ECMAScript标准，新版涵盖更多现代特性。</li><li><strong>浏览器支持</strong>：新版涵盖更多现代浏览器及其特性。</li><li><strong>内容更新</strong>：新版增加新特性和最佳实践，删除过时内容。</li></ul><p>最后放上体验地址：</p><p>1、在线阅读地址: <a href="/ebook/doc-jstdg7/">《JavaScript 权威指南第七版》中英文对照版</a></p><p>2、项目开源地址: <a href="https://gitee.com/rexhang/doc-jstdg7">https://gitee.com/rexhang/doc-jstdg7</a> 此项目基于 <code>vuepress</code> 进行开发，以提供比 <code>GitHub Markdown</code> 更佳的阅读体验。</p><p>—END—</p><hr><p>参考文档:</p><ul><li>[1] <a href="https://github.com/ten-ltw/JavaScript-The-Definitive-Guide-7th-zh">JavaScript-The-Definitive-Guide-7th-zh</a></li></ul><hr><p>❤ enjoy it.</p>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;本篇博文推荐一本书籍 &lt;strong&gt;《JavaScript 权威指南第七版》中英文对照版&lt;/strong&gt;，博主本人参与了该项目的部分翻译工作。&lt;/p&gt;
-&lt;p&gt;本项目基于 &lt;code&gt;vuepress&lt;/code&gt; 进行开发，以提供比 &lt;code&gt;GitHub Markd</summary>
+&lt;p&gt;《JavaScript 权威指南》书籍介绍：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JavaScript是We</summary>
       
     
     
